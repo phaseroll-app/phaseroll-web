@@ -1403,9 +1403,9 @@ a {
 }
 
 .phone--image {
-  --phone-bezel: 0.25rem;
+  --phone-bezel: 0.1875rem;
   --phone-radius: 2.5rem;
-  --screen-inset: 0.1875rem;
+  --screen-inset: 0.375rem;
   position: relative;
   padding: var(--phone-bezel);
   border-radius: var(--phone-radius);
@@ -1469,7 +1469,7 @@ a {
 .mockups {
   display: flex;
   gap: clamp(1.25rem, 3vw, 2.5rem);
-  margin-top: clamp(2.5rem, 6vw, 4rem);
+  margin-top: clamp(3rem, 7vw, 4.5rem);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding-bottom: 0.5rem;
@@ -1478,6 +1478,23 @@ a {
 .mockups > * {
   flex: 0 0 min(72vw, 17rem);
   scroll-snap-align: center;
+}
+
+.mockups .phone--image {
+  aspect-ratio: auto;
+}
+
+.mockups .phone--image .phone__media {
+  aspect-ratio: 852 / 1846;
+}
+
+.mockups .phone--image .phone__img {
+  height: 100%;
+}
+
+.mockups .phone--image .phone__img {
+  object-fit: contain;
+  object-position: top center;
 }
 
 @media (min-width: 1024px) {
