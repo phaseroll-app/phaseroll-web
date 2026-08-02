@@ -873,6 +873,10 @@ a {
     padding-inline: calc(var(--sprocket-h) + var(--rail-pad) * 2 + 0.75rem);
   }
 
+  .sframe::after {
+    right: calc(var(--sprocket-h) + var(--rail-pad) * 2 + 0.75rem);
+  }
+
   .sframe:nth-child(2) {
     border-radius: var(--film-radius) var(--film-radius) 0 0;
   }
@@ -1408,7 +1412,6 @@ a {
   --phone-radius: 2.5rem;
   --screen-inset: 0.1875rem;
   position: relative;
-  aspect-ratio: 9 / 19.1;
   padding: var(--phone-bezel);
   border-radius: var(--phone-radius);
   overflow: hidden;
@@ -1443,7 +1446,6 @@ a {
 }
 
 .phone--image .phone__media {
-  height: 100%;
   padding: var(--screen-inset);
   overflow: hidden;
   border-radius: calc(var(--phone-radius) - var(--phone-bezel));
@@ -1457,12 +1459,10 @@ a {
 .phone__img {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
   border-radius: calc(
     var(--phone-radius) - var(--phone-bezel) - var(--screen-inset)
   );
-  object-fit: contain;
-  object-position: top center;
 }
 
 /* An unexposed frame, not a broken image. */
