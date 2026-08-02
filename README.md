@@ -190,7 +190,7 @@ The landing page displays these launch prices:
 | Pro monthly | $6/month | Flexible monthly access. |
 | Pro annual | $48/year ($4/month) | Highlighted as the default. |
 | Roll Call | $20/event | One event with up to 50 contributors. |
-| Founding Legacy | $100 once | Lifetime access and one complimentary Roll Call event for the first 100 waitlist members. |
+| Founding Legacy | $100 once | Lifetime access and one complimentary Roll Call for the first 100 waitlist members. |
 
 ## Product Mockups
 

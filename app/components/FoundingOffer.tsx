@@ -5,7 +5,7 @@ export function FoundingOffer() {
       <p>
         <strong>Get PhaseRoll for life for $100.</strong>{" "}The Founder&rsquo;s
         Pass is limited to the first 100 waitlist members and includes one
-        complimentary Roll Call event.
+        complimentary Roll Call.
       </p>
     </aside>
   );

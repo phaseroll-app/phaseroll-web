@@ -23,7 +23,7 @@ const MOCKUPS = [
   },
   {
     src: "/mockups/roll-call.png",
-    alt: "Roll Call event screen with contributor avatars",
+    alt: "Roll Call screen with contributor avatars",
     caption: "03 — Roll Call",
     slot: "Slot 03 — Roll Call",
   },
