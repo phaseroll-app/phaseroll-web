@@ -26,8 +26,8 @@ export function Reveal({ children, className }: RevealProps) {
         -1,
         Math.min(1, (center - window.innerHeight / 2) / window.innerHeight),
       );
-      node.style.setProperty("--title-shift", `${distance * -76}px`);
-      node.style.setProperty("--copy-shift", `${distance * -42}px`);
+      node.style.setProperty("--title-shift", `${distance * -20}px`);
+      node.style.setProperty("--copy-shift", `${distance * -12}px`);
     };
 
     const requestUpdate = () => {

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import localFont from "next/font/local";
+import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
 
 const geist = Geist({
@@ -75,6 +76,7 @@ export default function RootLayout({
           <style>{`.reveal { opacity: 1 }`}</style>
         </noscript>
         {children}
+        <Analytics />
       </body>
     </html>
   );

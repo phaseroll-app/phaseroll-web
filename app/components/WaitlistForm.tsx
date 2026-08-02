@@ -44,7 +44,8 @@ export function WaitlistForm({
       <div className="success" role="status">
         <p className="success__head">You&rsquo;re on the roll.</p>
         <p className="success__body mute">
-          We&rsquo;ll email you when the first phase opens.
+          We&rsquo;ll email you when PhaseRoll is available on the App Store and
+          Google Play.
         </p>
       </div>
     );
@@ -92,7 +93,7 @@ export function WaitlistForm({
           type="submit"
           disabled={status === "submitting"}
         >
-          {status === "submitting" ? "Sending" : "Join the waitlist"}
+          {status === "submitting" ? "Adding" : "Join the waitlist"}
         </button>
       </div>
 

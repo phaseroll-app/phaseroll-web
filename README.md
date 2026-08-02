@@ -1,36 +1,235 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PhaseRoll
 
-## Getting Started
+PhaseRoll is the marketing and waitlist site for a photo app that organizes
+memories around life chapters instead of camera-roll dates.
 
-First, run the development server:
+The site includes a responsive editorial landing page, product mockup slots,
+scroll-linked motion, generated Open Graph imagery, Vercel Analytics, and a
+server-side waitlist proxy for Google Sheets.
+
+## Stack
+
+- Next.js 16 App Router
+- React 19 and TypeScript
+- Custom CSS with Nyght Serif and Geist
+- Vercel Analytics
+- Google Apps Script as the waitlist destination
+
+## Local Development
+
+Requirements:
+
+- Node.js 20.9 or newer
+- npm (included with Node.js)
+
+Install dependencies and create the local environment file:
+
+```bash
+npm install
+cp .env.example .env.local
+```
+
+Set the values in `.env.local`, then start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Required | Description |
+| --- | --- | --- |
+| `APPS_SCRIPT_URL` | Yes | Deployed Google Apps Script web app URL. Used only by the server. |
+| `SHARED_SECRET` | Yes | Secret shared with the Apps Script deployment. Never expose it to client code. |
+| `NEXT_PUBLIC_SITE_URL` | Yes in production | Canonical site origin used by metadata and Open Graph URLs. |
 
-## Learn More
+The landing page still renders without the waitlist variables, but submissions
+to `/api/waitlist` return an error until both server-side values are configured.
 
-To learn more about Next.js, take a look at the following resources:
+## Google Sheets Waitlist
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The browser posts email submissions to `app/api/waitlist/route.ts`; it never
+contacts Google Apps Script directly. The route validates the email, checks a
+honeypot field, applies an in-memory per-IP rate limit, and forwards this JSON:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```json
+{
+	"secret": "shared secret",
+	"email": "person@example.com",
+	"source": "hero"
+}
+```
 
-## Deploy on Vercel
+### 1. Create the sheet
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Create a Google Sheet and copy its ID from the URL:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```text
+https://docs.google.com/spreadsheets/d/SPREADSHEET_ID/edit
+```
+
+The script below creates a `Waitlist` tab with these columns on the first
+submission: `Submitted At`, `Email`, `Source`, and `Offer`. It de-duplicates
+email addresses and marks the first 100 unique waitlist members as eligible for
+`Founding Legacy - $100 lifetime + 1 Roll Call`.
+
+### 2. Add the Apps Script
+
+In the sheet, open **Extensions > Apps Script** and replace the editor contents
+with:
+
+```javascript
+function jsonResponse(payload) {
+	return ContentService.createTextOutput(JSON.stringify(payload)).setMimeType(
+		ContentService.MimeType.JSON,
+	);
+}
+
+function doPost(event) {
+	const lock = LockService.getScriptLock();
+
+	try {
+		lock.waitLock(10000);
+
+		const properties = PropertiesService.getScriptProperties();
+		const payload = JSON.parse(event.postData.contents);
+
+		if (payload.secret !== properties.getProperty("SHARED_SECRET")) {
+			return jsonResponse({ ok: false });
+		}
+
+		const email = String(payload.email || "").trim().toLowerCase();
+		const source = String(payload.source || "landing").slice(0, 64);
+		const spreadsheet = SpreadsheetApp.openById(
+			properties.getProperty("SPREADSHEET_ID"),
+		);
+		const sheetName = properties.getProperty("SHEET_NAME") || "Waitlist";
+		const sheet = spreadsheet.getSheetByName(sheetName) ||
+			spreadsheet.insertSheet(sheetName);
+
+		if (sheet.getLastRow() === 0) {
+			sheet.appendRow(["Submitted At", "Email", "Source", "Offer"]);
+			sheet.setFrozenRows(1);
+		}
+
+		const subscriberCount = Math.max(0, sheet.getLastRow() - 1);
+		if (subscriberCount > 0) {
+			const emails = sheet
+				.getRange(2, 2, subscriberCount, 1)
+				.getDisplayValues()
+				.flat()
+				.map(function (value) {
+					return value.trim().toLowerCase();
+				});
+
+			if (emails.indexOf(email) !== -1) {
+				return jsonResponse({ ok: true });
+			}
+		}
+
+		const offer = subscriberCount < 100
+			? "Founding Legacy - $100 lifetime + 1 Roll Call"
+			: "";
+
+		sheet.appendRow([new Date(), email, source, offer]);
+		return jsonResponse({ ok: true });
+	} catch (error) {
+		console.error(error);
+		return jsonResponse({ ok: false });
+	} finally {
+		lock.releaseLock();
+	}
+}
+```
+
+### 3. Configure script properties
+
+Open **Project Settings > Script properties** and add:
+
+| Property | Value |
+| --- | --- |
+| `SPREADSHEET_ID` | The ID copied from the Google Sheet URL. |
+| `SHARED_SECRET` | A long random value, for example from `openssl rand -hex 32`. |
+| `SHEET_NAME` | `Waitlist` (optional; this is the default). |
+
+### 4. Deploy the web app
+
+1. Select **Deploy > New deployment**.
+2. Choose **Web app**.
+3. Set **Execute as** to **Me**.
+4. Set **Who has access** to **Anyone**.
+5. Deploy and copy the `/exec` web app URL.
+6. If Google requests authorization, approve access to the target sheet.
+
+### 5. Connect PhaseRoll
+
+Put the deployment URL and the same secret in `.env.local`:
+
+```bash
+APPS_SCRIPT_URL=https://script.google.com/macros/s/DEPLOYMENT_ID/exec
+SHARED_SECRET=the-same-random-value
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+Restart `npm run dev` after changing environment variables. Add the same values
+to Vercel's project environment settings for production, then redeploy.
+
+The Apps Script web app must remain publicly reachable because the Next.js
+server calls it without a Google login. The shared secret authenticates those
+requests and is never sent to the browser.
+
+## Pricing
+
+The landing page displays these launch prices:
+
+| Plan | Price | Terms |
+| --- | --- | --- |
+| Free | $0 | Two active phases, voice memories, and one AI recap. |
+| Pro monthly | $6/month | Flexible monthly access. |
+| Pro annual | $48/year ($4/month) | Highlighted as the default. |
+| Roll Call | $20/event | One event with up to 50 contributors. |
+| Founding Legacy | $100 once | Lifetime access and one complimentary Roll Call event for the first 100 waitlist members. |
+
+## Product Mockups
+
+Add exported app screens at:
+
+```text
+public/mockups/phase-view.png
+public/mockups/camera.png
+public/mockups/roll-call.png
+```
+
+Missing files automatically render as styled placeholders, so local development
+does not depend on final product artwork.
+
+## Project Commands
+
+```bash
+npm run dev       # Start the development server
+npm run lint      # Run ESLint
+npx tsc --noEmit  # Run the TypeScript checker
+npm run build     # Create a production build
+npm run start     # Serve the production build
+```
+
+## Deployment
+
+Deploy the repository as a Next.js project on Vercel and configure all three
+environment variables for the production environment. Update
+`NEXT_PUBLIC_SITE_URL` to the final HTTPS origin before deployment so canonical
+metadata and social previews use the correct URL.
+
+Before publishing, run:
+
+```bash
+npm run lint
+npx tsc --noEmit
+npm run build
+```
+
+Do not run `npm audit fix --force` on this project. npm currently proposes a
+breaking downgrade to Next.js 9, which is incompatible with React 19 and this
+App Router codebase.

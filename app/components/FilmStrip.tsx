@@ -53,7 +53,7 @@ export function FilmStrip() {
           style={{ backgroundPosition: `${SWATCH_POSITIONS[i]} 0` }}
           aria-hidden="true"
         />
-        <h2 className="sframe__title">{frame.title}</h2>
+        <h3 className="sframe__title">{frame.title}</h3>
         <p className="sframe__copy">{frame.copy}</p>
       </div>
       <span className="rail rail--side" aria-hidden="true">

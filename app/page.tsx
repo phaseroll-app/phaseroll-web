@@ -4,6 +4,7 @@ import { HeroMockup } from "./components/HeroMockup";
 import { Logo } from "./components/Logo";
 import { ParallaxText } from "./components/ParallaxText";
 import { PhoneMockup } from "./components/PhoneMockup";
+import { Pricing } from "./components/Pricing";
 import { Reveal } from "./components/Reveal";
 import { WaitlistForm } from "./components/WaitlistForm";
 
@@ -53,6 +54,28 @@ export default function Home() {
               </p>
               <FoundingOffer />
               <WaitlistForm source="hero" note />
+              <aside className="hero-social">
+                <p>
+                  PhaseRoll is still becoming. Follow the story as we shape
+                  what comes next.
+                </p>
+                <nav aria-label="Follow PhaseRoll">
+                  <a
+                    href="https://x.com/phaseroll"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Follow on X
+                  </a>
+                  <a
+                    href="https://instagram.com/phaseroll"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Follow on Instagram
+                  </a>
+                </nav>
+              </aside>
             </ParallaxText>
 
             <div className="hero__mockup">
@@ -83,9 +106,19 @@ export default function Home() {
 
         <section
           className="frame frame--ink film-section on-ink"
-          aria-label="Why PhaseRoll"
+          aria-labelledby="features-title"
         >
           <div className="frame__inner">
+            <div className="film-intro">
+              <h2 className="display-l" id="features-title">
+                Four ways to keep <span className="em">more</span> than a
+                photo.
+              </h2>
+              <p className="body measure-52">
+                Shape memories into phases, give them a look and a voice,
+                then invite the people who shared them into the story.
+              </p>
+            </div>
             <FilmStrip />
           </div>
         </section>
@@ -124,14 +157,31 @@ export default function Home() {
           >
             <div className="frame__inner stack">
               <h2 className="display-l" id="storage">
-                We don&rsquo;t <span className="em">keep</span> your photos.
+                We don&rsquo;t <span className="em">keep</span> your photos or voice
+                notes.
               </h2>
               <p className="body mute measure-60">
-                They stay on your phone and in your own cloud. PhaseRoll holds
-                the story, not the storage.
+                Your photos and voice notes stay together in the storage your
+                device already uses. PhaseRoll helps you shape the story
+                without keeping a copy of either.
               </p>
+              <aside className="storage-note">
+                <div className="storage-note__heading">
+                  <h3>Bring your own cloud</h3>
+                  <span>Coming soon</span>
+                </div>
+                <p>
+                  For now, photos and voice notes remain in iCloud on Apple
+                  devices and in local device storage on Android. Bring your
+                  own cloud support is coming soon.
+                </p>
+              </aside>
             </div>
           </section>
+        </Reveal>
+
+        <Reveal>
+          <Pricing />
         </Reveal>
 
         <Reveal>

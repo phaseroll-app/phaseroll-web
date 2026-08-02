@@ -25,7 +25,7 @@ export function ParallaxText({ children, className }: ParallaxTextProps) {
         -1,
         Math.min(1, (center - window.innerHeight / 2) / window.innerHeight),
       );
-      node.style.setProperty("--text-shift", `${distance * -72}px`);
+      node.style.setProperty("--text-shift", `${distance * -18}px`);
     };
 
     const requestUpdate = () => {

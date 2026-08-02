@@ -25,8 +25,8 @@ export function HeroMockup(props: HeroMockupProps) {
       const rect = scene.getBoundingClientRect();
       const viewportCenter = window.innerHeight / 2;
       const progress = Math.max(-1, Math.min(1, (viewportCenter - rect.top) / window.innerHeight));
-      scene.style.setProperty("--parallax-y", `${progress * 120}px`);
-      scene.style.setProperty("--parallax-turn", `${progress * 2.2}deg`);
+      scene.style.setProperty("--parallax-y", `${progress * 28}px`);
+      scene.style.setProperty("--parallax-turn", `${progress * 0.6}deg`);
     };
 
     const requestUpdate = () => {
@@ -46,8 +46,8 @@ export function HeroMockup(props: HeroMockupProps) {
 
   return (
     <div className="hero-device" ref={sceneRef}>
-      <div className="hero-device__orbit" aria-hidden="true" />
       <div className="hero-device__motion develop">
+        <div className="hero-device__orbit" aria-hidden="true" />
         <PhoneMockup {...props} className="mockup--hero" priority />
       </div>
     </div>
