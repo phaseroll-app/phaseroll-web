@@ -1,9 +1,14 @@
+type Feature = {
+  name: string;
+  comingSoon?: boolean;
+};
+
 type Plan = {
   name: string;
   price: string;
   cadence: string;
   equivalent?: string;
-  features: string[];
+  features: Feature[];
   badge?: string;
   featured?: boolean;
   founding?: boolean;
@@ -15,9 +20,9 @@ const PLANS: Plan[] = [
     price: "$0",
     cadence: "forever",
     features: [
-      "Two active phases",
-      "Voice memories included",
-      "One AI recap to try",
+      { name: "Two active phases" },
+      { name: "Voice memories included" },
+      { name: "One AI recap to try" },
     ],
     badge: "Start here",
   },
@@ -26,9 +31,11 @@ const PLANS: Plan[] = [
     price: "$6",
     cadence: "per month",
     features: [
-      "Unlimited phases",
-      "Every film signature",
-      "Five AI recaps each month",
+      { name: "Unlimited phases" },
+      { name: "Every film signature" },
+      { name: "Five AI recaps each month" },
+      { name: "Shared phases", comingSoon: true },
+      { name: "Bring your own cloud", comingSoon: true },
     ],
     badge: "Flexible",
   },
@@ -38,9 +45,11 @@ const PLANS: Plan[] = [
     cadence: "per year",
     equivalent: "$4 per month",
     features: [
-      "Unlimited phases",
-      "Every film signature",
-      "Five AI recaps each month",
+      { name: "Unlimited phases" },
+      { name: "Every film signature" },
+      { name: "Five AI recaps each month" },
+      { name: "Shared phases", comingSoon: true },
+      { name: "Bring your own cloud", comingSoon: true },
     ],
     badge: "Best value",
     featured: true,
@@ -50,9 +59,9 @@ const PLANS: Plan[] = [
     price: "$100",
     cadence: "once",
     features: [
-      "Pro access for life",
-      "Five AI recaps each month",
-      "One Roll Call included",
+      { name: "Pro access for life" },
+      { name: "Five AI recaps each month" },
+      { name: "One Roll Call included" },
     ],
     badge: "First 100 on waitlist",
     founding: true,
@@ -97,7 +106,16 @@ export function Pricing() {
               </p>
               <ul className="price-card__features">
                 {plan.features.map((feature) => (
-                  <li key={feature}>{feature}</li>
+                  <li key={feature.name}>
+                    <span className="price-card__feature-copy">
+                      <span>{feature.name}</span>
+                      {feature.comingSoon ? (
+                        <span className="price-card__feature-badge">
+                          Coming soon
+                        </span>
+                      ) : null}
+                    </span>
+                  </li>
                 ))}
               </ul>
             </article>

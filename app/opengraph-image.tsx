@@ -43,7 +43,7 @@ export default async function OpengraphImage() {
         </div>
         <div style={{ display: "flex", fontSize: 104, lineHeight: 1 }}>
           Remember life in&nbsp;
-          <span style={{ fontStyle: "italic" }}>phases.</span>
+          <span style={{ fontStyle: "italic" }}>phases</span>
         </div>
         <div style={{ display: "flex", height: 10 }}>
           {SPECTRUM.map((colour) => (

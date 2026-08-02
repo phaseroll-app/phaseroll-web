@@ -115,8 +115,8 @@ export default function Home() {
                 photo.
               </h2>
               <p className="body measure-52">
-                Shape memories into phases, give them a look and a voice,
-                then invite the people who shared them into the story.
+                Shape memories into phases, give each one a look and a voice,
+                and bring everyone&rsquo;s photos into one shared story.
               </p>
             </div>
             <FilmStrip />
