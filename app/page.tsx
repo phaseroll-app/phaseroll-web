@@ -209,7 +209,19 @@ export default function Home() {
         <div className="footer__inner">
           <Logo className="footer__logo" />
           <div className="footer__bottom">
-            <p className="footer__meta">© 2026 PhaseRoll</p>
+            <div className="footer__meta">
+              <span>© 2026 PhaseRoll</span>
+              <span>
+                Created with <span aria-label="love">❤️</span> by{" "}
+                <a
+                  href="https://indrajitvijayakumar.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Indrajit
+                </a>
+              </span>
+            </div>
             <ul className="footer__links">
               <li>
                 <a

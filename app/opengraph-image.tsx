@@ -18,9 +18,10 @@ const SPECTRUM = [
 
 export default async function OpengraphImage() {
   const assets = join(process.cwd(), "assets");
-  const [roman, italic] = await Promise.all([
+  const [roman, italic, logo] = await Promise.all([
     readFile(join(assets, "NyghtSerif-Regular.otf")),
     readFile(join(assets, "NyghtSerif-RegularItalic.otf")),
+    readFile(join(process.cwd(), "public", "logo.png")),
   ]);
 
   return new ImageResponse(
@@ -38,8 +39,23 @@ export default async function OpengraphImage() {
           fontFamily: "Nyght Serif",
         }}
       >
-        <div style={{ display: "flex", fontSize: 34 }}>
-          Phase<span style={{ fontStyle: "italic" }}>Roll</span>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 16,
+            fontSize: 42,
+          }}
+        >
+          <img
+            src={`data:image/png;base64,${logo.toString("base64")}`}
+            alt=""
+            width={48}
+            height={48}
+          />
+          <div style={{ display: "flex" }}>
+            Phase<span style={{ fontStyle: "italic" }}>Roll</span>
+          </div>
         </div>
         <div style={{ display: "flex", fontSize: 104, lineHeight: 1 }}>
           Remember life in&nbsp;

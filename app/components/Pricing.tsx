@@ -24,7 +24,6 @@ const PLANS: Plan[] = [
       { name: "Voice memories included" },
       { name: "One AI recap to try" },
     ],
-    badge: "Start here",
   },
   {
     name: "Pro monthly",
@@ -37,7 +36,6 @@ const PLANS: Plan[] = [
       { name: "Shared phases", comingSoon: true },
       { name: "Bring your own cloud", comingSoon: true },
     ],
-    badge: "Flexible",
   },
   {
     name: "Pro annual",
@@ -55,7 +53,7 @@ const PLANS: Plan[] = [
     featured: true,
   },
   {
-    name: "Founding Legacy",
+    name: "Founder's Pass",
     price: "$100",
     cadence: "once",
     features: [
@@ -124,6 +122,7 @@ export function Pricing() {
 
         <article className="roll-call-offer">
           <div className="roll-call-offer__story">
+            <span className="roll-call-offer__label">Roll Call</span>
             <h3 className="roll-call-offer__title">
               See the day through <span className="em">everyone&rsquo;s</span>{" "}
               eyes.
@@ -136,7 +135,7 @@ export function Pricing() {
           </div>
           <div className="roll-call-offer__terms">
             <p className="roll-call-offer__price">
-              $20 <span>per event</span>
+              $25 <span>per event</span>
             </p>
             <p>Up to 50 contributors. One shared album. Guests join free.</p>
           </div>
