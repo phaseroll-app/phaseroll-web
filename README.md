@@ -19,13 +19,13 @@ server-side waitlist proxy for Google Sheets.
 
 Requirements:
 
-- Node.js 24.x (24.11.0 is pinned in `.nvmrc`)
-- npm 11.x (11.7.0 is pinned in `package.json`)
+- Node.js 20.9 or newer
+- npm (included with Node.js)
 
 Install dependencies and create the local environment file:
 
 ```bash
-npm ci
+npm install
 cp .env.example .env.local
 ```
 
