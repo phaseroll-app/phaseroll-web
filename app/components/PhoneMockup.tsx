@@ -37,7 +37,6 @@ export function PhoneMockup({
         <span className="phone-shell__button phone-shell__button--volume-down" aria-hidden="true" />
         <span className="phone-shell__button phone-shell__button--power" aria-hidden="true" />
         <div className={missing ? "phone phone--blank" : "phone phone--image"}>
-          {!missing ? <span className="phone__island" aria-hidden="true" /> : null}
           <div className="phone__media">
             {missing ? (
               <div className="phone__blank">

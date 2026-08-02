@@ -454,11 +454,6 @@ a {
   outline-offset: 0.5rem;
 }
 
-.mockup--hero .phone__island {
-  top: clamp(0.75rem, 1.2vw, 1rem);
-  height: clamp(0.8rem, 1.4vw, 1rem);
-}
-
 @keyframes chapter-enter {
   from {
     opacity: 0;
@@ -1417,19 +1412,6 @@ a {
   overflow: hidden;
   background: var(--ink);
   isolation: isolate;
-}
-
-.phone__island {
-  position: absolute;
-  z-index: 2;
-  top: clamp(0.625rem, 1.2vw, 0.75rem);
-  left: 50%;
-  width: min(21%, 4rem);
-  height: clamp(0.65rem, 1.2vw, 0.825rem);
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: var(--ink);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--paper) 8%, transparent);
 }
 
 .phone--blank {
