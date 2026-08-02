@@ -1,7 +1,7 @@
 const FRAMES = [
   {
     title: "Phases",
-    copy: "Create a phase for your child’s first years, the trip you took together, or your university days. Every memory from that chapter stays together.",
+    copy: "Create a phase for your child’s first years, the trip you’re planning together, or the new home you’re about to make your own. Every memory from that chapter stays together.",
   },
   {
     title: "Camera styles",
