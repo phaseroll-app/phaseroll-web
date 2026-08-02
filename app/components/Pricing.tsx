@@ -31,7 +31,7 @@ const PLANS: Plan[] = [
     cadence: "per month",
     features: [
       { name: "Unlimited phases" },
-      { name: "Every film signature" },
+      { name: "Every camera style" },
       { name: "Five AI recaps each month" },
       { name: "Shared phases", comingSoon: true },
       { name: "Bring your own cloud", comingSoon: true },
@@ -44,7 +44,7 @@ const PLANS: Plan[] = [
     equivalent: "$4 per month",
     features: [
       { name: "Unlimited phases" },
-      { name: "Every film signature" },
+      { name: "Every camera style" },
       { name: "Five AI recaps each month" },
       { name: "Shared phases", comingSoon: true },
       { name: "Bring your own cloud", comingSoon: true },
@@ -59,7 +59,7 @@ const PLANS: Plan[] = [
     features: [
       { name: "Pro access for life" },
       { name: "Five AI recaps each month" },
-      { name: "One Roll Call included" },
+      { name: "One complimentary Roll Call" },
     ],
     badge: "First 100 on waitlist",
     founding: true,

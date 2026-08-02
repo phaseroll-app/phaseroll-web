@@ -4,12 +4,12 @@ const FRAMES = [
     copy: "Create a phase for your child’s first years, the trip you took together, or your university days. Every memory from that chapter stays together.",
   },
   {
-    title: "Film signatures",
-    copy: "Give each moment a distinct visual signature: camcorder, grain, monochrome, and more.",
+    title: "Camera styles",
+    copy: "Give each moment a distinct look: camcorder, film grain, monochrome, and more.",
   },
   {
     title: "Voice memories",
-    copy: "Pair any photo with ten seconds of your voice. Preserve what the image alone cannot.",
+    copy: "Pair any photo with your voice. Preserve the story and feeling the image alone cannot.",
   },
   {
     title: "Roll Call",

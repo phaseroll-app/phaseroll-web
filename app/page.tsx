@@ -10,19 +10,19 @@ import { WaitlistForm } from "./components/WaitlistForm";
 
 const MOCKUPS = [
   {
-    src: "/mockups/phase-view.png",
+    src: "/phase_view.png",
     alt: "Phase view showing a vertical grid of photos with a voice-note marker",
     caption: "01 — The phase view",
     slot: "Slot 01 — phase view",
   },
   {
-    src: "/mockups/camera.png",
+    src: "/film_signature.png",
     alt: "Camera screen with film stock selector",
-    caption: "02 — Film signatures",
-    slot: "Slot 02 — film signatures",
+    caption: "02 — Camera styles",
+    slot: "Slot 02 — camera styles",
   },
   {
-    src: "/mockups/roll-call.png",
+    src: "/roll_call.png",
     alt: "Roll Call screen with contributor avatars",
     caption: "03 — Roll Call",
     slot: "Slot 03 — Roll Call",
@@ -130,7 +130,7 @@ export default function Home() {
           >
             <div className="frame__inner">
               <h2 className="display-l" id="mockups">
-                A <span className="em">closer</span> look.
+                See PhaseRoll in <span className="em">action.</span>
               </h2>
               <div
                 className="mockups"

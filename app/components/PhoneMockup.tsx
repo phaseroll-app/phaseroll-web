@@ -31,26 +31,33 @@ export function PhoneMockup({
 
   return (
     <figure className={className ? `mockup ${className}` : "mockup"}>
-      <div className="phone">
-        <div className="phone__media">
-          {missing ? (
-            <div className="phone__blank">
-              <span className="caption">{slot}</span>
-            </div>
-          ) : (
-            // eslint-disable-next-line @next/next/no-img-element -- swappable static mockup, not a content image
-            <img
-              ref={checkLoaded}
-              className="phone__img"
-              src={src}
-              alt={alt}
-              width={WIDTH}
-              height={HEIGHT}
-              loading={priority ? "eager" : "lazy"}
-              decoding={priority ? "sync" : "async"}
-              onError={() => setMissing(true)}
-            />
-          )}
+      <div className="phone-shell">
+        <span className="phone-shell__button phone-shell__button--mute" aria-hidden="true" />
+        <span className="phone-shell__button phone-shell__button--volume-up" aria-hidden="true" />
+        <span className="phone-shell__button phone-shell__button--volume-down" aria-hidden="true" />
+        <span className="phone-shell__button phone-shell__button--power" aria-hidden="true" />
+        <div className={missing ? "phone phone--blank" : "phone phone--image"}>
+          {!missing ? <span className="phone__island" aria-hidden="true" /> : null}
+          <div className="phone__media">
+            {missing ? (
+              <div className="phone__blank">
+                <span className="caption">{slot}</span>
+              </div>
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element -- swappable static mockup, not a content image
+              <img
+                ref={checkLoaded}
+                className="phone__img"
+                src={src}
+                alt={alt}
+                width={WIDTH}
+                height={HEIGHT}
+                loading={priority ? "eager" : "lazy"}
+                decoding={priority ? "sync" : "async"}
+                onError={() => setMissing(true)}
+              />
+            )}
+          </div>
         </div>
       </div>
       <figcaption className="caption">{caption}</figcaption>
