@@ -17,7 +17,7 @@ const FRAMES = [
   {
     tier: "Pro",
     title: "Journal & progress",
-    copy: "Add notes, journal entries, milestones, to-dos, and mood emoji as the chapter unfolds.",
+    copy: "Add notes, journal entries, milestones, and mood emoji as the chapter unfolds.",
   },
 ];
 

@@ -1060,6 +1060,15 @@ a:hover {
     padding-block: 2rem;
   }
 
+  .sframe__title {
+    font-size: clamp(1.125rem, 1.8vw, 1.625rem);
+    white-space: nowrap;
+  }
+
+  .sframe__copy {
+    min-height: 9.9em;
+  }
+
   .rail--mid {
     display: none;
   }
@@ -1068,6 +1077,12 @@ a:hover {
   .sframe:nth-child(6) .sframe__body,
   .sframe:nth-child(7) .sframe__body {
     border-left: 1px solid var(--rule);
+  }
+}
+
+@media (min-width: 1280px) {
+  .sframe__copy {
+    min-height: 8.25em;
   }
 }
 

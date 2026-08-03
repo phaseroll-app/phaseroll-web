@@ -43,7 +43,7 @@ export default function Home() {
     featureList: [
       "Photo and video memory journals",
       "Voice notes on photos and videos",
-      "Journal entries, milestones, to-dos, and mood tracking",
+      "Journal entries, milestones, and mood tracking",
       "Shared event albums with Roll Call",
     ],
     sameAs: [
@@ -151,15 +151,15 @@ export default function Home() {
                   <h3>A chapter you can return to</h3>
                   <p>
                     Give it a title, cover, story, and sub-phases.
-                    Add media, voice, journal entries, milestones, to-dos,
-                    and mood emoji as life unfolds.
+                    Add media, voice, journal entries, milestones, and mood
+                    emoji as life unfolds.
                   </p>
                   <p className="difference-tier">
                     <strong>Free:</strong> photos, videos, and voice notes.
                   </p>
                   <p className="difference-tier">
                     <strong>Pro:</strong> notes, journal entries, milestones,
-                    to-dos, and mood emoji.
+                    and mood emoji.
                   </p>
                 </article>
               </div>
@@ -198,7 +198,7 @@ export default function Home() {
                     <p>
                       Capture photos and videos, then record voice notes over
                       them. With Pro, add journal entries, milestones,
-                      to-dos, and mood emoji.
+                      and mood emoji.
                     </p>
                   </div>
                 </li>
