@@ -139,7 +139,7 @@ export function Pricing() {
             <p>
               Create one shared album for an event and send guests a link.
               Everyone can add photos, videos, voice notes, and surprise notes
-              that unlock after the event, so every view and message stays
+              (that unlock after the event), so every view and message stays
               together in one place.
             </p>
           </div>
