@@ -66,7 +66,6 @@ const PLANS: Plan[] = [
     cadence: "once",
     features: [
       { name: "Everything in Pro for life" },
-      { name: "Three AI recaps each month" },
       { name: "One complimentary Roll Call" },
     ],
     badge: "First 100 on waitlist",
