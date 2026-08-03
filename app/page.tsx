@@ -12,7 +12,7 @@ const MOCKUPS = [
   {
     src: "/phase_view.png",
     alt: "Phase view showing a vertical grid of photos with a voice-note marker",
-    caption: "01 — The phase view",
+    caption: "01 — A Phase timeline",
     slot: "Slot 01 — phase view",
   },
   {
@@ -48,9 +48,16 @@ export default function Home() {
                 <span className="motto-word em">phases.</span>
               </h1>
               <p className="body mute measure-52">
-                Organize your memories by life&rsquo;s chapters, not camera
-                rolls. Capture photos, record voice memories, and relive what
-                mattered.
+                Create a Phase for any chapter of your life, like{" "}
+                <span className="border-l-2 pl-1 border-amber-500 text-amber-500 font-medium">
+                  Our First Home
+                </span>{" "}
+                or {" "}
+                <span className="border-l-2 pl-1 border-orange-500 text-orange-500 font-medium">
+                  My Fitness Journey
+                </span>
+                . Save photos, videos, voice memories, and notes as they happen.
+                Return anytime and relive the whole story in one place.
               </p>
               <FoundingOffer />
               <WaitlistForm source="hero" note />
@@ -95,11 +102,78 @@ export default function Home() {
                 <span className="em">no story.</span>
               </h2>
               <p className="body mute measure-60">
-                Years later, you won&rsquo;t look for a date. You&rsquo;ll look
-                for your child&rsquo;s first steps, the trip you took with your
-                partner, or the home where everything began. Memory keeps
-                chapters. Your camera roll should too.
+                Your camera roll keeps everything in one stream, organized by
+                date. Google Photos may turn a selection into an automatic
+                memory or reel. PhaseRoll lets you decide which stories matter
+                while you live them. Save each photo, video, voice memory, or
+                note to a named Phase such as University, My Fitness Journey,
+                or Our First Home. Later, return to that Phase without
+                searching through years of photos.
               </p>
+            </div>
+          </section>
+        </Reveal>
+
+        <Reveal>
+          <section
+            className="frame mockups-frame"
+            aria-labelledby="mockups"
+          >
+            <div className="frame__inner">
+              <h2 className="display-l" id="mockups">
+                Step inside <span className="em">PhaseRoll.</span>
+              </h2>
+              <p className="body mute measure-60 mockups-intro">
+                Start with one Phase. Create as many as you need while life
+                unfolds. PhaseRoll keeps every story ready to revisit.
+              </p>
+              <ol className="phase-flow" aria-label="How PhaseRoll works">
+                <li className="phase-flow__step">
+                  <span className="phase-flow__number">01</span>
+                  <div>
+                    <h3>Create a Phase</h3>
+                    <p>
+                      Choose a chapter worth remembering, like life in a new
+                      city, a dream trip, or building something of your own.
+                    </p>
+                  </div>
+                </li>
+                <li className="phase-flow__step">
+                  <span className="phase-flow__number">02</span>
+                  <div>
+                    <h3>Save what happens</h3>
+                    <p>
+                      Capture the story as it unfolds with photos, videos,
+                      voice memories, and notes that hold the little details.
+                    </p>
+                  </div>
+                </li>
+                <li className="phase-flow__step">
+                  <span className="phase-flow__number">03</span>
+                  <div>
+                    <h3>Relive it anytime</h3>
+                    <p>
+                      Open any Phase later to see, hear, and
+                      relive the people, places, and moments that made it special.
+                    </p>
+                  </div>
+                </li>
+              </ol>
+              <p className="caption mockups-label">Inside the app</p>
+              <div
+                className="mockups"
+                tabIndex={0}
+                role="group"
+                aria-label="App screens"
+              >
+                {MOCKUPS.map((mockup, i) => (
+                  <PhoneMockup
+                    key={mockup.src}
+                    {...mockup}
+                    priority={i === 0}
+                  />
+                ))}
+              </div>
             </div>
           </section>
         </Reveal>
@@ -122,33 +196,6 @@ export default function Home() {
             <FilmStrip />
           </div>
         </section>
-
-        <Reveal>
-          <section
-            className="frame mockups-frame"
-            aria-labelledby="mockups"
-          >
-            <div className="frame__inner">
-              <h2 className="display-l" id="mockups">
-                See PhaseRoll in <span className="em">action.</span>
-              </h2>
-              <div
-                className="mockups"
-                tabIndex={0}
-                role="group"
-                aria-label="App screens"
-              >
-                {MOCKUPS.map((mockup, i) => (
-                  <PhoneMockup
-                    key={mockup.src}
-                    {...mockup}
-                    priority={i === 0}
-                  />
-                ))}
-              </div>
-            </div>
-          </section>
-        </Reveal>
 
         <Reveal>
           <section

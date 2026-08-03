@@ -1,11 +1,11 @@
 const FRAMES = [
   {
     title: "Phases",
-    copy: "Create a phase for your child’s first years, the trip you’re planning together, or the new home you’re about to make your own. Every memory from that chapter stays together.",
+    copy: "Create as many Phases as you need for the different parts of life. Each photo, video, voice memory, and note stays in the Phase where it belongs.",
   },
   {
     title: "Camera styles",
-    copy: "Give each moment a distinct look: camcorder, film grain, monochrome, and more.",
+    copy: "Give each Phase a distinct look: camcorder, film grain, monochrome, and more.",
   },
   {
     title: "Voice memories",
