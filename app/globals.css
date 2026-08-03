@@ -87,6 +87,11 @@ a {
   color: inherit;
 }
 
+a:hover {
+  text-decoration-line: underline;
+  text-underline-offset: 0.2em;
+}
+
 /* --- type ----------------------------------------------------------------- */
 
 .display-xl,
@@ -278,14 +283,14 @@ a {
 .hero {
   position: relative;
   display: flex;
-  padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-block: clamp(3rem, 7vw, 6rem);
   overflow: clip;
   isolation: isolate;
 }
 
 @media (max-width: 639px) {
   .hero {
-    padding-top: 1.25rem;
+    padding-block: 3rem;
   }
 }
 

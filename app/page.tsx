@@ -12,7 +12,7 @@ const MOCKUPS = [
   {
     src: "/phase_view.png",
     alt: "Phase view showing a vertical grid of photos with a voice-note marker",
-    caption: "01 — A Phase timeline",
+    caption: "01 — Phases, day by day",
     slot: "Slot 01 — phase view",
   },
   {
