@@ -134,7 +134,7 @@ export default function Home() {
               <p className="body mute measure-60">
                 PhaseRoll brings photo albums, journaling, and progress tracking
                 together in one memory app, preserving not just photos and
-                videos, but the stories, milestones, feelings, and voices that
+                videos, but the stories, milestones, and voices that
                 give them meaning.
               </p>
               <div className="difference-grid">
@@ -155,10 +155,10 @@ export default function Home() {
                     unfolds.
                   </p>
                   <p className="difference-tier">
-                    <strong>Free:</strong> photos, videos, and voice notes.
+                    <strong>Free:</strong> photos, videos, and voice notes
                   </p>
                   <p className="difference-tier">
-                    <strong>Pro:</strong> notes, journal entries, and milestones.
+                    <strong>Pro:</strong> notes, journal entries, and milestones
                   </p>
                 </article>
               </div>

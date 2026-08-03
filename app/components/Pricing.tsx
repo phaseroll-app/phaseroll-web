@@ -128,7 +128,7 @@ export function Pricing() {
           ))}
         </div>
 
-        <article className="roll-call-offer">
+        <article className="roll-call-offer" id="roll-call">
           <div className="roll-call-offer__story">
             <span className="roll-call-offer__label">
               Roll Call
