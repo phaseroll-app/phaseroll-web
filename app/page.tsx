@@ -132,7 +132,7 @@ export default function Home() {
                 <span className="em">why they mattered.</span>
               </h2>
               <p className="body mute measure-60">
-                PhaseRoll brings photo albums, journaling, and planning
+                PhaseRoll brings photo albums, journaling, and progress tracking
                 together in one memory app, preserving not just photos and
                 videos, but the stories, milestones, feelings, and voices that
                 give them meaning.

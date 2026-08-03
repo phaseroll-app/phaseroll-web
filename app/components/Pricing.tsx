@@ -86,7 +86,7 @@ export function Pricing() {
           </h2>
           <p className="body measure-52">
             Photos, videos, and voice notes are free. Go Pro when you want to
-            add journaling, milestones, planning, and reflection.
+            add journaling, milestones, progress tracking, and reflection.
           </p>
         </div>
 

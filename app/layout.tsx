@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "photo journal app",
     "digital photo album",
     "voice notes on photos",
-    "life planning app",
+    "progress tracking app",
     "shared event album",
   ],
   alternates: {

@@ -4,6 +4,6 @@ export const SITE_URL = (
 
 export const SITE_NAME = "PhaseRoll";
 export const SITE_TITLE =
-  "PhaseRoll | Photo Album, Journal & Life Planning App";
+  "PhaseRoll | Photo Album, Journal & Progress Tracking App";
 export const SITE_DESCRIPTION =
   "Turn photos, videos, voice notes, journal entries, milestones, and to-dos into meaningful chapters of your life with PhaseRoll.";
