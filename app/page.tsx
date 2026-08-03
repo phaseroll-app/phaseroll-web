@@ -49,7 +49,7 @@ export default function Home() {
               </h1>
               <div className="hero-copy measure-52">
                 <p className="hero-caption mute">
-                  Create a Phase for a chapter of your life like{" "}
+                  Create a Phase for any chapter of your life like{" "}
                   <span className="border-l-2 border-amber-500 pl-1 font-medium text-amber-500">
                     Our First Home
                   </span>{" "}
@@ -57,13 +57,8 @@ export default function Home() {
                   <span className="border-l-2 border-orange-500 pl-1 font-medium text-orange-500">
                     My Fitness Journey
                   </span>
-                  . Save photos, videos, and voice notes along the way, then
-                  return anytime to relive the story.
-                </p>
-                <p className="hero-positioning">
-                  <strong className="font-medium">
-                    PhaseRoll brings photo albums, journaling, and planning together in one memory app.
-                  </strong>
+                  . Add photos, videos, voice notes, and more as life unfolds,
+                  then return anytime to relive the story.
                 </p>
               </div>
               <FoundingOffer />
@@ -109,10 +104,10 @@ export default function Home() {
                 <span className="em">why they mattered.</span>
               </h2>
               <p className="body mute measure-60">
-                An album is a folder of media. A Phase is a memory journal for
-                a meaningful part of your life. It keeps the photos and videos,
-                but also the story, milestones, feelings, and voices that give
-                them meaning.
+                PhaseRoll brings photo albums, journaling, and planning
+                together in one memory app, preserving not just photos and
+                videos, but the stories, milestones, feelings, and voices that
+                give them meaning.
               </p>
               <div className="difference-grid">
                 <article className="difference-card difference-card--album shadow-lg shadow-black/5">
@@ -127,8 +122,8 @@ export default function Home() {
                   <p className="caption">A Phase</p>
                   <h3>A chapter you can return to</h3>
                   <p>
-                    Give it a title, cover, and sub-phases.
-                    Add media, voice, journal entries, milestones, deadlines,
+                    Give it a title, cover, story, and sub-phases.
+                    Add media, voice, journal entries, milestones, to-dos,
                     and mood emoji as life unfolds.
                   </p>
                   <p className="difference-tier">
@@ -136,7 +131,7 @@ export default function Home() {
                   </p>
                   <p className="difference-tier">
                     <strong>Pro:</strong> notes, journal entries, milestones,
-                    deadlines, and mood emoji.
+                    to-dos, and mood emoji.
                   </p>
                 </article>
               </div>
@@ -175,7 +170,7 @@ export default function Home() {
                     <p>
                       Capture photos and videos, then record voice notes over
                       them. With Pro, add journal entries, milestones,
-                      deadlines, and mood emoji.
+                      to-dos, and mood emoji.
                     </p>
                   </div>
                 </li>

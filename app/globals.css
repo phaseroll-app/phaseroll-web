@@ -295,6 +295,12 @@ a:hover {
   }
 }
 
+@media (max-width: 1023px) {
+  .hero {
+    padding-bottom: clamp(4.5rem, 11vw, 9rem);
+  }
+}
+
 .hero::before {
   content: "";
   position: absolute;
@@ -328,14 +334,6 @@ a:hover {
   display: grid;
   gap: var(--hero-stack-gap);
   margin-top: calc(var(--hero-copy-gap) - var(--hero-stack-gap));
-}
-
-.hero-positioning {
-  padding-left: 0.75rem;
-  border-left: 2px solid var(--ink);
-  color: var(--ink);
-  font-size: 1rem;
-  line-height: var(--leading-copy);
 }
 
 .hero-caption {
@@ -1427,12 +1425,14 @@ a:hover {
   overflow: hidden;
   border: 0;
   border-radius: 0.75rem;
-  background: linear-gradient(
-    120deg,
-    color-mix(in srgb, var(--paper) 6%, var(--ink)),
-    color-mix(in srgb, var(--paper) 2%, var(--ink))
-  );
-  box-shadow: 0 1.5rem 4rem color-mix(in srgb, #000 30%, transparent);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0 3px,
+      color-mix(in srgb, #f2dfa6 2%, transparent) 3px 4px
+    ),
+    linear-gradient(120deg, #2b2515 0%, #211c10 58%, #17140c 100%);
+  box-shadow: 0 1.5rem 4rem color-mix(in srgb, #000 38%, transparent);
 }
 
 .roll-call-offer__story {
@@ -1444,9 +1444,9 @@ a:hover {
   display: inline-flex;
   margin-bottom: 0.75rem;
   padding: 0.3rem 0.55rem;
-  border: 1px solid color-mix(in srgb, var(--paper) 24%, transparent);
+  border: 1px solid color-mix(in srgb, #d7b763 38%, transparent);
   border-radius: 999px;
-  color: color-mix(in srgb, var(--paper) 58%, transparent);
+  color: #c8b77f;
   font-size: 0.6875rem;
   line-height: 1.2;
   letter-spacing: 0.08em;
@@ -1463,7 +1463,7 @@ a:hover {
 .roll-call-offer__story p {
   max-width: 60ch;
   margin-top: 1.25rem;
-  color: color-mix(in srgb, var(--paper) 66%, transparent);
+  color: #c5b88e;
   font-size: 0.9375rem;
   line-height: var(--leading-copy);
 }
@@ -1474,8 +1474,8 @@ a:hover {
   flex-direction: column;
   justify-content: center;
   padding: clamp(1.5rem, 3vw, 2.5rem);
-  border-top: 1px dashed color-mix(in srgb, var(--paper) 32%, transparent);
-  color: color-mix(in srgb, var(--paper) 66%, transparent);
+  border-top: 1px dashed color-mix(in srgb, #d7b763 42%, transparent);
+  color: #c5b88e;
   font-size: 0.875rem;
 }
 
@@ -1486,7 +1486,7 @@ a:hover {
   top: -0.7rem;
   width: 1.35rem;
   aspect-ratio: 1;
-  border: 1px solid color-mix(in srgb, var(--paper) 20%, transparent);
+  border: 1px solid color-mix(in srgb, #d7b763 58%, transparent);
   border-radius: 50%;
   background: var(--ink);
 }
@@ -1504,7 +1504,7 @@ a:hover {
   justify-content: space-between;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  color: color-mix(in srgb, var(--paper) 52%, transparent);
+  color: #aa9b70;
   font-size: 0.625rem;
   line-height: 1.2;
   letter-spacing: 0.08em;
@@ -1512,7 +1512,7 @@ a:hover {
 }
 
 .roll-call-offer__price {
-  color: var(--paper);
+  color: #fff3cb;
   font-family: var(--display);
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1;
@@ -1523,7 +1523,7 @@ a:hover {
   margin-block: 0.6rem 1.25rem;
   font-family: var(--body);
   font-size: 0.75rem;
-  color: color-mix(in srgb, var(--paper) 58%, transparent);
+  color: #b6a779;
   text-transform: uppercase;
 }
 
@@ -1532,12 +1532,12 @@ a:hover {
   width: 100%;
   height: 1.75rem;
   margin-top: 1.5rem;
-  opacity: 0.45;
+  opacity: 0.5;
   background: repeating-linear-gradient(
     90deg,
-    var(--paper) 0 1px,
+    #d8c58e 0 1px,
     transparent 1px 4px,
-    var(--paper) 4px 6px,
+    #d8c58e 4px 6px,
     transparent 6px 9px
   );
 }
@@ -1557,7 +1557,7 @@ a:hover {
     padding: clamp(1.5rem, 3vw, 2.5rem);
     border-top: 0;
     border-left: 1px dashed
-      color-mix(in srgb, var(--paper) 32%, transparent);
+      color-mix(in srgb, #d7b763 42%, transparent);
   }
 
   .roll-call-offer__terms::before,

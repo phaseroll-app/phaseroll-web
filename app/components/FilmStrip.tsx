@@ -12,12 +12,12 @@ const FRAMES = [
   {
     tier: "Free",
     title: "Rich Phases",
-    copy: "Give every Phase a title, cover, story, dates, and sub-phases that preserve its full shape.",
+    copy: "Give every Phase a title, cover, story, and sub-phases that preserve its full shape.",
   },
   {
     tier: "Pro",
     title: "Journal & progress",
-    copy: "Add notes, journal entries, milestones, deadlines, and mood emoji as the chapter unfolds.",
+    copy: "Add notes, journal entries, milestones, to-dos, and mood emoji as the chapter unfolds.",
   },
 ];
 

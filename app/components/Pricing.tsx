@@ -33,7 +33,7 @@ const PLANS: Plan[] = [
       { name: "Everything in Free" },
       { name: "Unlimited Phases and sub-phases" },
       {
-        name: "Notes, journal entries, milestones, deadlines, and mood emoji",
+        name: "Notes, journal entries, milestones, to-dos, and mood emoji",
       },
       { name: "Every camera style" },
       { name: "Five AI recaps each month" },
@@ -50,7 +50,7 @@ const PLANS: Plan[] = [
       { name: "Everything in Free" },
       { name: "Unlimited Phases and sub-phases" },
       {
-        name: "Notes, journal entries, milestones, deadlines, and mood emoji",
+        name: "Notes, journal entries, milestones, to-dos, and mood emoji",
       },
       { name: "Every camera style" },
       { name: "Five AI recaps each month" },
