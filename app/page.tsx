@@ -7,6 +7,7 @@ import { PhoneMockup } from "./components/PhoneMockup";
 import { Pricing } from "./components/Pricing";
 import { Reveal } from "./components/Reveal";
 import { WaitlistForm } from "./components/WaitlistForm";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "./site";
 
 const MOCKUPS = [
   {
@@ -30,8 +31,35 @@ const MOCKUPS = [
 ];
 
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: SITE_NAME,
+    url: SITE_URL,
+    description: SITE_DESCRIPTION,
+    applicationCategory: "LifestyleApplication",
+    operatingSystem: "iOS, Android",
+    isAccessibleForFree: true,
+    featureList: [
+      "Photo and video memory journals",
+      "Voice notes on photos and videos",
+      "Journal entries, milestones, to-dos, and mood tracking",
+      "Shared event albums with Roll Call",
+    ],
+    sameAs: [
+      "https://x.com/phaseroll",
+      "https://instagram.com/phaseroll",
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <a className="skip-link" href="#main">
         Skip to content
       </a>

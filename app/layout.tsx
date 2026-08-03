@@ -2,6 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next"
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+  SITE_URL,
+} from "./site";
 import "./globals.css";
 
 const geist = Geist({
@@ -28,26 +34,50 @@ const nyght = localFont({
   ],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-const title = "PhaseRoll — Remember life in phases.";
-const description =
-  "More than a photo album: preserve life's phases with photos, videos, voice notes, journal entries, milestones, and the context that made them matter.";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title,
-  description,
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  keywords: [
+    "memory journal app",
+    "photo journal app",
+    "digital photo album",
+    "voice notes on photos",
+    "life planning app",
+    "shared event album",
+  ],
+  alternates: {
+    canonical: "/",
+  },
+  authors: [{ name: SITE_NAME, url: SITE_URL }],
+  creator: SITE_NAME,
+  publisher: SITE_NAME,
+  category: "lifestyle",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title,
-    description,
-    url: siteUrl,
-    siteName: "PhaseRoll",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title,
-    description,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    site: "@phaseroll",
     creator: "@phaseroll",
   },
 };
