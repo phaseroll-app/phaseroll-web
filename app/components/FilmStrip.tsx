@@ -12,7 +12,7 @@ const FRAMES = [
   {
     tier: "Free",
     title: "Rich Phases",
-    copy: "Give every Phase a title, cover, story, dates, and smaller Phases that preserve its full shape.",
+    copy: "Give every Phase a title, cover, story, dates, and sub-phases that preserve its full shape.",
   },
   {
     tier: "Pro",

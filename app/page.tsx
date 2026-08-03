@@ -48,14 +48,8 @@ export default function Home() {
                 <span className="motto-word em">phases.</span>
               </h1>
               <div className="hero-copy measure-52">
-                <p className="hero-positioning">
-                  <strong className="font-medium">
-                    PhaseRoll brings photo albums, journaling, and life
-                    planning together in one memory app.
-                  </strong>
-                </p>
                 <p className="hero-caption mute">
-                  Create a Phase for a chapter like{" "}
+                  Create a Phase for a chapter of your life like{" "}
                   <span className="border-l-2 border-amber-500 pl-1 font-medium text-amber-500">
                     Our First Home
                   </span>{" "}
@@ -65,6 +59,11 @@ export default function Home() {
                   </span>
                   . Save photos, videos, and voice notes along the way, then
                   return anytime to relive the story.
+                </p>
+                <p className="hero-positioning">
+                  <strong className="font-medium">
+                    PhaseRoll brings photo albums, journaling, and planning together in one memory app.
+                  </strong>
                 </p>
               </div>
               <FoundingOffer />
@@ -116,7 +115,7 @@ export default function Home() {
                 them meaning.
               </p>
               <div className="difference-grid">
-                <article>
+                <article className="difference-card difference-card--album shadow-lg shadow-black/5">
                   <p className="caption">A photo album</p>
                   <h3>Media grouped in one place</h3>
                   <p>
@@ -124,11 +123,11 @@ export default function Home() {
                     person, event, or date.
                   </p>
                 </article>
-                <article>
+                <article className="difference-card difference-card--phase shadow-lg shadow-black/5">
                   <p className="caption">A Phase</p>
                   <h3>A chapter you can return to</h3>
                   <p>
-                    Give it a title, cover, story, dates, and smaller Phases.
+                    Give it a title, cover, and sub-phases.
                     Add media, voice, journal entries, milestones, deadlines,
                     and mood emoji as life unfolds.
                   </p>
