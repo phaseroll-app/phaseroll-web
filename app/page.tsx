@@ -43,7 +43,7 @@ export default function Home() {
     featureList: [
       "Photo and video memory journals",
       "Voice notes on photos and videos",
-      "Journal entries, milestones, and mood tracking",
+      "Notes, journal entries, and milestones",
       "Shared event albums with Roll Call",
     ],
     sameAs: [
@@ -150,16 +150,15 @@ export default function Home() {
                   <p className="caption">A Phase</p>
                   <h3>A chapter you can return to</h3>
                   <p>
-                    Give it a title, cover, story, and sub-phases.
-                    Add media, voice, journal entries, milestones, and mood
-                    emoji as life unfolds.
+                    Give it a title, cover, story, and sub-phases. Add media,
+                    voice, notes, journal entries, and milestones as life
+                    unfolds.
                   </p>
                   <p className="difference-tier">
                     <strong>Free:</strong> photos, videos, and voice notes.
                   </p>
                   <p className="difference-tier">
-                    <strong>Pro:</strong> notes, journal entries, milestones,
-                    and mood emoji.
+                    <strong>Pro:</strong> notes, journal entries, and milestones.
                   </p>
                 </article>
               </div>
@@ -197,8 +196,7 @@ export default function Home() {
                     <h3>Save what happens</h3>
                     <p>
                       Capture photos and videos, then record voice notes over
-                      them. With Pro, add journal entries, milestones,
-                      and mood emoji.
+                      them. With Pro, add notes, journal entries, and milestones.
                     </p>
                   </div>
                 </li>
