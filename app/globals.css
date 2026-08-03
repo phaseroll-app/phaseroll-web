@@ -1180,6 +1180,7 @@ a:hover {
   }
 
   .phase-flow__step + .phase-flow__step {
+    border-left: 0;
     border-top: 1px solid var(--hair);
   }
 }
