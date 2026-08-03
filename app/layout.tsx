@@ -31,7 +31,7 @@ const nyght = localFont({
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const title = "PhaseRoll — Remember life in phases.";
 const description =
-  "Organize your memories by life's chapters, not camera rolls. Capture photos, record voice memories, and relive what mattered.";
+  "More than a photo album: preserve life's phases with photos, videos, voice notes, journal entries, milestones, and the context that made them matter.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

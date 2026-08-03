@@ -47,18 +47,26 @@ export default function Home() {
                 <span className="motto-word">in</span>{" "}
                 <span className="motto-word em">phases.</span>
               </h1>
-              <p className="body mute measure-52">
-                Create a Phase for any chapter of your life, like{" "}
-                <span className="border-l-2 pl-1 border-amber-500 text-amber-500 font-medium">
-                  Our First Home
-                </span>{" "}
-                or {" "}
-                <span className="border-l-2 pl-1 border-orange-500 text-orange-500 font-medium">
-                  My Fitness Journey
-                </span>
-                . Save photos, videos, voice memories, and notes as they happen.
-                Return anytime and relive the whole story in one place.
-              </p>
+              <div className="hero-copy measure-52">
+                <p className="hero-positioning">
+                  <strong className="font-medium">
+                    PhaseRoll brings photo albums, journaling, and life
+                    planning together in one memory app.
+                  </strong>
+                </p>
+                <p className="hero-caption mute">
+                  Create a Phase for a chapter like{" "}
+                  <span className="border-l-2 border-amber-500 pl-1 font-medium text-amber-500">
+                    Our First Home
+                  </span>{" "}
+                  or{" "}
+                  <span className="border-l-2 border-orange-500 pl-1 font-medium text-orange-500">
+                    My Fitness Journey
+                  </span>
+                  . Save photos, videos, and voice notes along the way, then
+                  return anytime to relive the story.
+                </p>
+              </div>
               <FoundingOffer />
               <WaitlistForm source="hero" note />
               <aside className="hero-social">
@@ -98,18 +106,41 @@ export default function Home() {
           >
             <div className="frame__inner frame__inner--narrow">
               <h2 className="display-l" id="problem">
-                Your camera roll has 10,000 photos and{" "}
-                <span className="em">no story.</span>
+                Albums organize photos. PhaseRoll preserves{" "}
+                <span className="em">why they mattered.</span>
               </h2>
               <p className="body mute measure-60">
-                Your camera roll keeps everything in one stream, organized by
-                date. Google Photos may turn a selection into an automatic
-                memory or reel. PhaseRoll lets you decide which stories matter
-                while you live them. Save each photo, video, voice memory, or
-                note to a named Phase such as University, My Fitness Journey,
-                or Our First Home. Later, return to that Phase without
-                searching through years of photos.
+                An album is a folder of media. A Phase is a memory journal for
+                a meaningful part of your life. It keeps the photos and videos,
+                but also the story, milestones, feelings, and voices that give
+                them meaning.
               </p>
+              <div className="difference-grid">
+                <article>
+                  <p className="caption">A photo album</p>
+                  <h3>Media grouped in one place</h3>
+                  <p>
+                    Useful for finding photos and videos later, usually by
+                    person, event, or date.
+                  </p>
+                </article>
+                <article>
+                  <p className="caption">A Phase</p>
+                  <h3>A chapter you can return to</h3>
+                  <p>
+                    Give it a title, cover, story, dates, and smaller Phases.
+                    Add media, voice, journal entries, milestones, deadlines,
+                    and mood emoji as life unfolds.
+                  </p>
+                  <p className="difference-tier">
+                    <strong>Free:</strong> photos, videos, and voice notes.
+                  </p>
+                  <p className="difference-tier">
+                    <strong>Pro:</strong> notes, journal entries, milestones,
+                    deadlines, and mood emoji.
+                  </p>
+                </article>
+              </div>
             </div>
           </section>
         </Reveal>
@@ -143,8 +174,9 @@ export default function Home() {
                   <div>
                     <h3>Save what happens</h3>
                     <p>
-                      Capture the story as it unfolds with photos, videos,
-                      voice memories, and notes that hold the little details.
+                      Capture photos and videos, then record voice notes over
+                      them. With Pro, add journal entries, milestones,
+                      deadlines, and mood emoji.
                     </p>
                   </div>
                 </li>
@@ -185,12 +217,11 @@ export default function Home() {
           <div className="frame__inner">
             <div className="film-intro">
               <h2 className="display-l" id="features-title">
-                Four ways to keep <span className="em">more</span> than a
-                photo.
+                Everything an album <span className="em">leaves out.</span>
               </h2>
               <p className="body measure-52">
-                Shape memories into phases, give each one a look and a voice,
-                and bring everyone&rsquo;s photos into one shared story.
+                Keep the media for free. Add the journal, progress, and
+                reflection around it with Pro.
               </p>
             </div>
             <FilmStrip />

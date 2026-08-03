@@ -20,9 +20,9 @@ const PLANS: Plan[] = [
     price: "$0",
     cadence: "forever",
     features: [
-      { name: "Two active phases" },
-      { name: "Voice memories included" },
-      { name: "One AI recap to try" },
+      { name: "Two active Phases" },
+      { name: "Photos and videos included" },
+      { name: "Voice notes on photos and videos" },
     ],
   },
   {
@@ -30,10 +30,14 @@ const PLANS: Plan[] = [
     price: "$6",
     cadence: "per month",
     features: [
-      { name: "Unlimited phases" },
+      { name: "Everything in Free" },
+      { name: "Unlimited Phases and sub-phases" },
+      {
+        name: "Notes, journal entries, milestones, deadlines, and mood emoji",
+      },
       { name: "Every camera style" },
       { name: "Five AI recaps each month" },
-      { name: "Shared phases", comingSoon: true },
+      { name: "Shared Phases", comingSoon: true },
       { name: "Bring your own cloud", comingSoon: true },
     ],
   },
@@ -43,10 +47,14 @@ const PLANS: Plan[] = [
     cadence: "per year",
     equivalent: "$4 per month",
     features: [
-      { name: "Unlimited phases" },
+      { name: "Everything in Free" },
+      { name: "Unlimited Phases and sub-phases" },
+      {
+        name: "Notes, journal entries, milestones, deadlines, and mood emoji",
+      },
       { name: "Every camera style" },
       { name: "Five AI recaps each month" },
-      { name: "Shared phases", comingSoon: true },
+      { name: "Shared Phases", comingSoon: true },
       { name: "Bring your own cloud", comingSoon: true },
     ],
     badge: "Best value",
@@ -57,7 +65,7 @@ const PLANS: Plan[] = [
     price: "$100",
     cadence: "once",
     features: [
-      { name: "Pro access for life" },
+      { name: "Everything in Pro for life" },
       { name: "Five AI recaps each month" },
       { name: "One complimentary Roll Call" },
     ],
@@ -78,8 +86,8 @@ export function Pricing() {
             A plan for every <span className="em">budget.</span>
           </h2>
           <p className="body measure-52">
-            Start free, step up to Pro, bring everyone into one Roll Call, or
-            keep PhaseRoll for life as an early supporter.
+            Photos, videos, and voice notes are free. Go Pro when you want to
+            add journaling, milestones, planning, and reflection.
           </p>
         </div>
 
@@ -122,22 +130,33 @@ export function Pricing() {
 
         <article className="roll-call-offer">
           <div className="roll-call-offer__story">
-            <span className="roll-call-offer__label">Roll Call</span>
+            <span className="roll-call-offer__label">
+              Roll Call
+            </span>
             <h3 className="roll-call-offer__title">
               See the day through <span className="em">everyone&rsquo;s</span>{" "}
               eyes.
             </h3>
             <p>
-              One person catches the vows. Another catches the laugh at the
-              back of the room. Roll Call gathers every angle into one shared
-              story, so the event feels whole when you return to it.
+              Create one shared album for an event and send guests a link.
+              Everyone can add photos, videos, voice notes, and surprise notes
+              that unlock after the event, so every view and message stays
+              together in one place.
             </p>
           </div>
           <div className="roll-call-offer__terms">
+            <div className="roll-call-offer__stubhead">
+              <span>Admit up to 50</span>
+              <span>No. PR-001</span>
+            </div>
             <p className="roll-call-offer__price">
               $25 <span>per event</span>
             </p>
-            <p>Up to 50 contributors. One shared album. Guests join free.</p>
+            <p>
+              Up to 50 contributors. Photos, videos, voice notes, and surprise
+              notes. Guests join free.
+            </p>
+            <span className="roll-call-offer__barcode" aria-hidden="true" />
           </div>
         </article>
       </div>

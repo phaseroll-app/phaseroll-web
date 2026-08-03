@@ -30,6 +30,7 @@
   --fs-display-xl: clamp(2.75rem, 8vw, 6.5rem);
   --fs-display-l: clamp(1.875rem, 4vw, 3.25rem);
   --fs-body: clamp(1rem, 1.05vw, 1.125rem);
+  --leading-copy: 1.65;
 
   /* Sprocket geometry — one source of truth for both rail orientations. */
   --sprocket-w: clamp(9px, 1vw, 14px);
@@ -62,7 +63,7 @@ body {
   color: var(--ink);
   font-family: var(--body);
   font-size: var(--fs-body);
-  line-height: 1.65;
+  line-height: var(--leading-copy);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -120,7 +121,7 @@ a:hover {
 
 .body {
   font-size: var(--fs-body);
-  line-height: 1.65;
+  line-height: var(--leading-copy);
 }
 
 .measure-52 {
@@ -313,12 +314,30 @@ a:hover {
 .hero__head {
   display: flex;
   flex-direction: column;
-  gap: clamp(1.5rem, 3.5vw, 2.25rem);
+  gap: clamp(1.25rem, 2.5vw, 1.5rem);
   align-items: flex-start;
 }
 
 .hero__title {
   max-width: 12ch;
+}
+
+.hero-copy {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.hero-positioning {
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--ink);
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: var(--leading-copy);
+}
+
+.hero-caption {
+  font-size: 1rem;
+  line-height: var(--leading-copy);
 }
 
 .motto-word {
@@ -382,7 +401,7 @@ a:hover {
   border-left: 1px solid var(--ink);
   color: var(--mute);
   font-size: 0.875rem;
-  line-height: 1.55;
+  line-height: var(--leading-copy);
 }
 
 .hero-social nav {
@@ -547,6 +566,66 @@ a:hover {
   width: 100%;
   margin-inline: auto;
   text-align: center;
+}
+
+.difference-grid {
+  display: grid;
+  width: 100%;
+  border-block: 1px solid var(--hair);
+  text-align: left;
+}
+
+.difference-grid article {
+  padding-block: clamp(1.5rem, 3vw, 2rem);
+}
+
+.difference-grid article + article {
+  border-top: 1px solid var(--hair);
+}
+
+.difference-grid h3 {
+  margin-top: 0.75rem;
+  font-family: var(--display);
+  font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.difference-grid article > p:not(.caption) {
+  margin-top: 0.75rem;
+  color: var(--mute);
+  font-size: 0.9375rem;
+  line-height: var(--leading-copy);
+}
+
+.difference-grid .difference-tier {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--hair);
+}
+
+.difference-grid .difference-tier strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+@media (min-width: 640px) {
+  .difference-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .difference-grid article {
+    padding-inline: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .difference-grid article:first-child {
+    padding-left: 0;
+  }
+
+  .difference-grid article + article {
+    padding-right: 0;
+    border-top: 0;
+    border-left: 1px solid var(--hair);
+  }
 }
 
 /* --- waitlist form -------------------------------------------------------- */
@@ -780,7 +859,7 @@ a:hover {
   min-height: clamp(15rem, 22vw, 20rem);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   gap: clamp(1rem, 1.5vw, 1.25rem);
   padding: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 3vw, 2.75rem);
   box-shadow:
@@ -795,16 +874,35 @@ a:hover {
   background-size: 400% 100%;
 }
 
+.sframe__meta {
+  display: flex;
+  min-height: 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sframe__tier {
+  padding: 0.2rem 0.45rem;
+  border: 1px solid color-mix(in srgb, var(--paper) 22%, transparent);
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--paper) 62%, transparent);
+  font-size: 0.625rem;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .sframe__title {
   font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(1.625rem, 2.4vw, 2.125rem);
+  font-size: clamp(1.375rem, 1.8vw, 1.625rem);
   line-height: 1.1;
 }
 
 .sframe__copy {
   font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
-  line-height: 1.6;
+  line-height: var(--leading-copy);
   color: color-mix(in srgb, var(--paper) 70%, transparent);
 }
 
@@ -1043,7 +1141,7 @@ a:hover {
   margin-top: 0.5rem;
   color: var(--mute);
   font-size: 0.9375rem;
-  line-height: 1.55;
+  line-height: var(--leading-copy);
 }
 
 .mockups-label {
@@ -1136,7 +1234,7 @@ a:hover {
   margin-top: 1rem;
   color: var(--mute);
   font-size: 0.9375rem;
-  line-height: 1.65;
+  line-height: var(--leading-copy);
 }
 
 /* --- pricing ------------------------------------------------------------- */
@@ -1299,25 +1397,36 @@ a:hover {
 }
 
 .roll-call-offer {
+  position: relative;
   display: grid;
-  gap: clamp(2rem, 5vw, 4rem);
+  gap: 0;
   margin-top: clamp(1.5rem, 3vw, 2.5rem);
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
-  border: 1px solid color-mix(in srgb, var(--paper) 20%, transparent);
-  border-radius: 0.5rem;
-  background: color-mix(in srgb, var(--paper) 3%, var(--ink));
+  overflow: hidden;
+  border: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, var(--paper) 6%, var(--ink)),
+    color-mix(in srgb, var(--paper) 2%, var(--ink))
+  );
+  box-shadow: 0 1.5rem 4rem color-mix(in srgb, #000 30%, transparent);
 }
 
 .roll-call-offer__story {
   max-width: 42rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .roll-call-offer__label {
-  display: block;
+  display: inline-flex;
   margin-bottom: 0.75rem;
+  padding: 0.3rem 0.55rem;
+  border: 1px solid color-mix(in srgb, var(--paper) 24%, transparent);
+  border-radius: 999px;
   color: color-mix(in srgb, var(--paper) 58%, transparent);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   line-height: 1.2;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1333,17 +1442,50 @@ a:hover {
   margin-top: 1.25rem;
   color: color-mix(in srgb, var(--paper) 66%, transparent);
   font-size: 0.9375rem;
-  line-height: 1.65;
+  line-height: var(--leading-copy);
 }
 
 .roll-call-offer__terms {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding-top: 1.5rem;
-  border-top: 1px solid color-mix(in srgb, var(--paper) 14%, transparent);
+  justify-content: center;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px dashed color-mix(in srgb, var(--paper) 32%, transparent);
   color: color-mix(in srgb, var(--paper) 66%, transparent);
   font-size: 0.875rem;
+}
+
+.roll-call-offer__terms::before,
+.roll-call-offer__terms::after {
+  content: "";
+  position: absolute;
+  top: -0.7rem;
+  width: 1.35rem;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--paper) 20%, transparent);
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.roll-call-offer__terms::before {
+  left: -0.7rem;
+}
+
+.roll-call-offer__terms::after {
+  right: -0.7rem;
+}
+
+.roll-call-offer__stubhead {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: color-mix(in srgb, var(--paper) 52%, transparent);
+  font-size: 0.625rem;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .roll-call-offer__price {
@@ -1362,6 +1504,21 @@ a:hover {
   text-transform: uppercase;
 }
 
+.roll-call-offer__barcode {
+  display: block;
+  width: 100%;
+  height: 1.75rem;
+  margin-top: 1.5rem;
+  opacity: 0.45;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--paper) 0 1px,
+    transparent 1px 4px,
+    var(--paper) 4px 6px,
+    transparent 6px 9px
+  );
+}
+
 @media (min-width: 640px) {
   .pricing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1374,10 +1531,25 @@ a:hover {
   }
 
   .roll-call-offer__terms {
-    padding-top: 0;
-    padding-left: clamp(2rem, 4vw, 3.5rem);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
     border-top: 0;
-    border-left: 1px solid color-mix(in srgb, var(--paper) 14%, transparent);
+    border-left: 1px dashed
+      color-mix(in srgb, var(--paper) 32%, transparent);
+  }
+
+  .roll-call-offer__terms::before,
+  .roll-call-offer__terms::after {
+    left: -0.7rem;
+    right: auto;
+  }
+
+  .roll-call-offer__terms::before {
+    top: -0.7rem;
+  }
+
+  .roll-call-offer__terms::after {
+    top: auto;
+    bottom: -0.7rem;
   }
 }
 

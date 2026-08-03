@@ -1,19 +1,23 @@
 const FRAMES = [
   {
-    title: "Phases",
-    copy: "Create as many Phases as you need for the different parts of life. Each photo, video, voice memory, and note stays in the Phase where it belongs.",
+    tier: "Free",
+    title: "Photos & videos",
+    copy: "Keep the media from each Phase together and arranged day by day, instead of lost in one endless camera roll.",
   },
   {
-    title: "Camera styles",
-    copy: "Give each Phase a distinct look: camcorder, film grain, monochrome, and more.",
+    tier: "Free",
+    title: "Voice on media",
+    copy: "Record a voice note directly over any photo or video, so the story can be heard as well as seen.",
   },
   {
-    title: "Voice memories",
-    copy: "Pair any photo with your voice. Preserve the story and feeling the image alone cannot.",
+    tier: "Free",
+    title: "Rich Phases",
+    copy: "Give every Phase a title, cover, story, dates, and smaller Phases that preserve its full shape.",
   },
   {
-    title: "Roll Call",
-    copy: "Share a link for an important event. Everyone adds photos from their perspective to one shared album. You keep the whole story.",
+    tier: "Pro",
+    title: "Journal & progress",
+    copy: "Add notes, journal entries, milestones, deadlines, and mood emoji as the chapter unfolds.",
   },
 ];
 
@@ -48,11 +52,14 @@ export function FilmStrip() {
         <Rail orientation="side" code={`0${i + 1}A`} />
       </span>
       <div className="sframe__body">
-        <span
-          className="sframe__swatch"
-          style={{ backgroundPosition: `${SWATCH_POSITIONS[i]} 0` }}
-          aria-hidden="true"
-        />
+        <div className="sframe__meta">
+          <span
+            className="sframe__swatch"
+            style={{ backgroundPosition: `${SWATCH_POSITIONS[i]} 0` }}
+            aria-hidden="true"
+          />
+          <span className="sframe__tier">{frame.tier}</span>
+        </div>
         <h3 className="sframe__title">{frame.title}</h3>
         <p className="sframe__copy">{frame.copy}</p>
       </div>
