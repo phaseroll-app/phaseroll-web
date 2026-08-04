@@ -1,6 +1,8 @@
 type Feature = {
   name: string;
   comingSoon?: boolean;
+  href?: string;
+  linkLabel?: string;
 };
 
 type Plan = {
@@ -67,7 +69,11 @@ const PLANS: Plan[] = [
     cadence: "once",
     features: [
       { name: "Everything in Pro for life" },
-      { name: "One complimentary Roll Call" },
+      {
+        name: "One complimentary ",
+        href: "#roll-call",
+        linkLabel: "Roll Call",
+      },
     ],
     badge: "First 100 on waitlist",
     founding: true,
@@ -86,8 +92,8 @@ export function Pricing() {
             A plan for every <span className="em">budget.</span>
           </h2>
           <p className="body measure-52">
-            Photos, videos, and voice notes are free. Go Pro when you want to
-            add journaling, milestones, progress tracking, and reflection.
+            Photos, videos, and voice notes are free. Go Pro for journaling,
+            milestones, more camera styles, AI recaps, and more.
           </p>
         </div>
 
@@ -114,7 +120,16 @@ export function Pricing() {
                 {plan.features.map((feature) => (
                   <li key={feature.name}>
                     <span className="price-card__feature-copy">
-                      <span>{feature.name}</span>
+                      {feature.href ? (
+                        <span>
+                          {feature.name}
+                          <a href={feature.href}>
+                            {feature.linkLabel ?? feature.name}
+                          </a>
+                        </span>
+                      ) : (
+                        <span>{feature.name}</span>
+                      )}
                       {feature.comingSoon ? (
                         <span className="price-card__feature-badge">
                           Coming soon

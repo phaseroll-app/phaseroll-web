@@ -1412,6 +1412,17 @@ a:hover {
   gap: 0.4rem;
 }
 
+.price-card__feature-copy a {
+  color: var(--paper);
+  text-decoration-line: underline;
+  text-decoration-color: color-mix(in srgb, var(--paper) 38%, transparent);
+  text-underline-offset: 0.2em;
+}
+
+.price-card__feature-copy a:hover {
+  text-decoration-color: var(--paper);
+}
+
 .price-card__features li::before {
   content: "";
   flex: 0 0 0.3rem;
