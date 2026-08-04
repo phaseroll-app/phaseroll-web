@@ -11,13 +11,13 @@ export function Logo({ className, priority = false }: LogoProps) {
       <img
         className="logo__mark"
         src="/logo.png"
-        alt=""
+        alt="PhaseRoll"
         width={1254}
         height={1254}
         loading={priority ? "eager" : "lazy"}
         decoding={priority ? "sync" : "async"}
       />
-      <span>
+      <span aria-hidden="true">
         Phase<span className="em">Roll</span>
       </span>
     </span>

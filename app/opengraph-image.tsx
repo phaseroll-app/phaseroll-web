@@ -49,7 +49,7 @@ export default async function OpengraphImage() {
         >
           <img
             src={`data:image/png;base64,${logo.toString("base64")}`}
-            alt=""
+            alt="PhaseRoll"
             width={48}
             height={48}
           />
