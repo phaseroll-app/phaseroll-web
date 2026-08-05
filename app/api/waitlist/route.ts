@@ -4,7 +4,8 @@ const EMAIL_PATTERN =
 const MAX_EMAIL_LENGTH = 254;
 const WINDOW_MS = 10 * 60 * 1000;
 const MAX_PER_WINDOW = 5;
-const UPSTREAM_TIMEOUT_MS = 8000;
+const UPSTREAM_TIMEOUT_MS = 25000;
+const MAX_UPSTREAM_ATTEMPTS = 2;
 
 const hits = new Map<string, { count: number; resetAt: number }>();
 
@@ -33,6 +34,45 @@ function clientIp(request: Request): string {
 
 function fail(status: number) {
   return Response.json({ ok: false }, { status });
+}
+
+async function addToWaitlist(
+  appsScriptUrl: string,
+  payload: { secret: string; email: string; source: string },
+): Promise<boolean> {
+  for (let attempt = 1; attempt <= MAX_UPSTREAM_ATTEMPTS; attempt += 1) {
+    try {
+      const upstream = await fetch(appsScriptUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
+        redirect: "follow",
+      });
+
+      if (!upstream.ok) {
+        console.error(
+          "waitlist: upstream responded",
+          upstream.status,
+          `attempt ${attempt}`,
+        );
+        continue;
+      }
+
+      const result = (await upstream.json()) as { ok?: boolean };
+      if (result.ok) return true;
+
+      console.error("waitlist: upstream rejected request", `attempt ${attempt}`);
+    } catch (error) {
+      console.error(
+        "waitlist: upstream request failed",
+        `attempt ${attempt}`,
+        error,
+      );
+    }
+  }
+
+  return false;
 }
 
 export async function POST(request: Request) {
@@ -69,30 +109,12 @@ export async function POST(request: Request) {
     return fail(400);
   }
 
-  try {
-    const upstream = await fetch(appsScriptUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        secret: sharedSecret,
-        email,
-        source: typeof source === "string" ? source.slice(0, 64) : "landing",
-      }),
-      signal: AbortSignal.timeout(UPSTREAM_TIMEOUT_MS),
-      redirect: "follow",
-    });
-
-    if (!upstream.ok) {
-      console.error("waitlist: upstream responded", upstream.status);
-      return fail(502);
-    }
-
-    const result = (await upstream.json()) as { ok?: boolean };
-    if (!result.ok) return fail(502);
-  } catch (error) {
-    console.error("waitlist: upstream request failed", error);
-    return fail(502);
-  }
+  const added = await addToWaitlist(appsScriptUrl, {
+    secret: sharedSecret,
+    email,
+    source: typeof source === "string" ? source.slice(0, 64) : "landing",
+  });
+  if (!added) return fail(502);
 
   return Response.json({ ok: true });
 }
