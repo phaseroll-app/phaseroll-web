@@ -44,6 +44,8 @@ export const metadata: Metadata = {
     "photo journal app",
     "digital photo album",
     "voice notes on photos",
+    "stories behind photos",
+    "memory book app",
     "progress tracking app",
     "shared event album",
   ],

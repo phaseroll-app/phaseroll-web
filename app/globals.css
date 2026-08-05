@@ -627,6 +627,10 @@ a:hover {
 }
 
 .difference-grid .difference-tier {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  column-gap: 0.35rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--hair);
 }
@@ -1016,6 +1020,10 @@ a:hover {
 @media (min-width: 640px) {
   .strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sframe__copy {
+    min-height: 8.25em;
   }
 
   .rail--h {
@@ -1410,6 +1418,20 @@ a:hover {
   flex-direction: column;
   align-items: flex-start;
   gap: 0.4rem;
+}
+
+.price-card__feature-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.price-card__feature-description {
+  max-width: 32ch;
+  color: color-mix(in srgb, var(--paper) 52%, transparent);
+  font-size: 0.75rem;
+  line-height: 1.5;
 }
 
 .price-card__feature-copy a {

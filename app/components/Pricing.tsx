@@ -1,5 +1,6 @@
 type Feature = {
   name: string;
+  description?: string;
   comingSoon?: boolean;
   href?: string;
   linkLabel?: string;
@@ -16,6 +17,33 @@ type Plan = {
   founding?: boolean;
 };
 
+const PRO_FEATURES: Feature[] = [
+  { name: "Everything in Free" },
+  { name: "Unlimited Phases and sub-phases" },
+  { name: "Journal entries and milestones" },
+  { name: "Every camera style" },
+  { name: "Five Phase Recaps each month" },
+  {
+    name: "Shared Phases",
+    description:
+      "Invite another PhaseRoll user into a specific Phase so you can contribute together.",
+    comingSoon: true,
+  },
+  {
+    name: "Future Capsules",
+    description:
+      "Schedule letters, videos, and voice recordings to open on a meaningful future date.",
+    comingSoon: true,
+  },
+  {
+    name: "Phase Memory Books",
+    description:
+      "Turn a completed Phase into a designed story with captions, milestones, transcripts, and quotes. Permanent copies are just $15.",
+    comingSoon: true,
+  },
+  { name: "Bring your own cloud", comingSoon: true },
+];
+
 const PLANS: Plan[] = [
   {
     name: "Free",
@@ -23,8 +51,8 @@ const PLANS: Plan[] = [
     cadence: "forever",
     features: [
       { name: "Two active Phases" },
-      { name: "Photos and videos included" },
-      { name: "Voice notes on photos and videos" },
+      { name: "Add unlimited photos and videos" },
+      { name: "Behind the Memory, in text or voice" },
       { name: "Few camera styles" },
     ],
   },
@@ -32,34 +60,14 @@ const PLANS: Plan[] = [
     name: "Pro monthly",
     price: "$6",
     cadence: "per month",
-    features: [
-      { name: "Everything in Free" },
-      { name: "Unlimited Phases and sub-phases" },
-      {
-        name: "Notes, journal entries, and milestones",
-      },
-      { name: "Every camera style" },
-      { name: "Five AI recaps each month" },
-      { name: "Shared Phases", comingSoon: true },
-      { name: "Bring your own cloud", comingSoon: true },
-    ],
+    features: PRO_FEATURES,
   },
   {
     name: "Pro annual",
     price: "$48",
     cadence: "per year",
     equivalent: "$4 per month",
-    features: [
-      { name: "Everything in Free" },
-      { name: "Unlimited Phases and sub-phases" },
-      {
-        name: "Notes, journal entries, and milestones",
-      },
-      { name: "Every camera style" },
-      { name: "Five AI recaps each month" },
-      { name: "Shared Phases", comingSoon: true },
-      { name: "Bring your own cloud", comingSoon: true },
-    ],
+    features: PRO_FEATURES,
     badge: "Best value",
     featured: true,
   },
@@ -92,8 +100,8 @@ export function Pricing() {
             A plan for every <span className="em">budget.</span>
           </h2>
           <p className="body measure-52">
-            Photos, videos, and voice notes are free. Go Pro for journaling,
-            milestones, more camera styles, AI recaps, and more.
+            Photos, videos, and the stories behind them are free. Go Pro for
+            journals, milestones, Phase Recaps, and richerxb ways to preserve a Phase.
           </p>
         </div>
 
@@ -120,19 +128,26 @@ export function Pricing() {
                 {plan.features.map((feature) => (
                   <li key={feature.name}>
                     <span className="price-card__feature-copy">
-                      {feature.href ? (
-                        <span>
-                          {feature.name}
-                          <a href={feature.href}>
-                            {feature.linkLabel ?? feature.name}
-                          </a>
-                        </span>
-                      ) : (
-                        <span>{feature.name}</span>
-                      )}
-                      {feature.comingSoon ? (
-                        <span className="price-card__feature-badge">
-                          Coming soon
+                      <span className="price-card__feature-heading">
+                        {feature.href ? (
+                          <span>
+                            {feature.name}
+                            <a href={feature.href}>
+                              {feature.linkLabel ?? feature.name}
+                            </a>
+                          </span>
+                        ) : (
+                          <span>{feature.name}</span>
+                        )}
+                        {feature.comingSoon ? (
+                          <span className="price-card__feature-badge">
+                            Coming soon
+                          </span>
+                        ) : null}
+                      </span>
+                      {feature.description ? (
+                        <span className="price-card__feature-description">
+                          {feature.description}
                         </span>
                       ) : null}
                     </span>

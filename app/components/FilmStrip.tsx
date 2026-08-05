@@ -6,8 +6,8 @@ const FRAMES = [
   },
   {
     tier: "Free",
-    title: "Voice on media",
-    copy: "Record a voice note directly over any photo or video, so the story can be heard as well as seen.",
+    title: "Behind the Memory",
+    copy: "Answer one thoughtful prompt about why a photo or video mattered, then preserve the story in text or voice.",
   },
   {
     tier: "Free",
@@ -16,8 +16,8 @@ const FRAMES = [
   },
   {
     tier: "Pro",
-    title: "Journal & progress",
-    copy: "Add notes, journal entries, and milestones as the chapter unfolds.",
+    title: "Guided journals",
+    copy: "At day’s end, tell the story in your voice. One prompt and a follow-up or two shape it into a journal entry.",
   },
 ];
 

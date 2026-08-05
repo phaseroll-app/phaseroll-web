@@ -42,8 +42,11 @@ export default function Home() {
     isAccessibleForFree: true,
     featureList: [
       "Photo and video memory journals",
-      "Voice notes on photos and videos",
-      "Notes, journal entries, and milestones",
+      "Behind the Memory prompts for photos and videos",
+      "Text or voice stories attached to media",
+      "Pro journal entries and milestones",
+      "Future Capsules",
+      "Phase Memory Books",
       "Shared event albums with Roll Call",
     ],
     sameAs: [
@@ -85,8 +88,9 @@ export default function Home() {
                   <span className="border-l-2 border-orange-500 pl-1 font-medium text-orange-500">
                     My Fitness Journey
                   </span>
-                  . Add photos, videos, voice notes, and more as life unfolds,
-                  then return anytime to relive the story.
+                  . As the chapter unfolds, save the photos and videos you&rsquo;ll
+                  want to return to, then add your own words or voice so you
+                  never forget why each one mattered.
                 </p>
               </div>
               <FoundingOffer />
@@ -151,14 +155,18 @@ export default function Home() {
                   <h3>A chapter you can return to</h3>
                   <p>
                     Give it a title, cover, story, and sub-phases. Add media,
-                    voice, notes, journal entries, and milestones as life
-                    unfolds.
+                    the stories behind each memory, journal entries, and
+                    milestones as life unfolds.
                   </p>
                   <p className="difference-tier">
-                    <strong>Free:</strong> photos, videos, and voice notes
+                    <strong>Free</strong>
+                    <span>media and Behind the Memory</span>
                   </p>
                   <p className="difference-tier">
-                    <strong>Pro:</strong> notes, journal entries, and milestones
+                    <strong>Pro</strong>
+                    <span>
+                      journals, milestones, and richer ways to preserve a Phase
+                    </span>
                   </p>
                 </article>
               </div>
@@ -176,8 +184,8 @@ export default function Home() {
                 Step inside <span className="em">PhaseRoll.</span>
               </h2>
               <p className="body mute measure-60 mockups-intro">
-                Start with one Phase. Create as many as you need while life
-                unfolds. PhaseRoll keeps every story ready to revisit.
+                Start with a chapter worth remembering. Add to it as life
+                unfolds, then return anytime to see the whole story take shape.
               </p>
               <ol className="phase-flow" aria-label="How PhaseRoll works">
                 <li className="phase-flow__step">
@@ -195,8 +203,9 @@ export default function Home() {
                   <div>
                     <h3>Save what happens</h3>
                     <p>
-                      Capture photos and videos, then record voice notes over
-                      them. With Pro, add notes, journal entries, and milestones.
+                      Add the story behind your photos and videos. At day&rsquo;s
+                      end, speak through one thoughtful prompt and a follow-up
+                      or two, then review the journal entry they become.
                     </p>
                   </div>
                 </li>
@@ -240,8 +249,9 @@ export default function Home() {
                 Everything an album <span className="em">leaves out.</span>
               </h2>
               <p className="body measure-52">
-                Keep the media for free. Add the journal, progress, and
-                reflection around it with Pro.
+                Keep each chapter together day by day, preserve the story
+                behind every photo or video, and deepen it with sub-phases,
+                guided journals, and milestones.
               </p>
             </div>
             <FilmStrip />
@@ -255,13 +265,12 @@ export default function Home() {
           >
             <div className="frame__inner stack">
               <h2 className="display-l" id="storage">
-                We don&rsquo;t <span className="em">keep</span> your photos or voice
-                notes.
+                Your memories <span className="em">stay yours.</span>
               </h2>
               <p className="body mute measure-60">
-                Your photos and voice notes stay together in the storage your
-                device already uses. PhaseRoll helps you shape the story
-                without keeping a copy of either.
+                Your photos, videos, text, and voice recordings stay in the
+                storage your device already uses. PhaseRoll helps you shape the
+                story without keeping a copy.
               </p>
               <aside className="storage-note">
                 <div className="storage-note__heading">
@@ -269,9 +278,9 @@ export default function Home() {
                   <span>Coming soon</span>
                 </div>
                 <p>
-                  For now, photos and voice notes remain in iCloud on Apple
-                  devices and in local device storage on Android. Bring your
-                  own cloud support is coming soon.
+                  For now, your photos, videos, text, and voice recordings
+                  remain in iCloud on Apple devices and in local device storage
+                  on Android. Bring your own cloud support is coming soon.
                 </p>
               </aside>
             </div>
