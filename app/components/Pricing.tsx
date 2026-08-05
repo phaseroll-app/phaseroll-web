@@ -24,15 +24,14 @@ const PRO_FEATURES: Feature[] = [
   { name: "Every camera style" },
   { name: "Five Phase Recaps each month" },
   {
-    name: "Shared Phases",
-    description:
-      "Invite another PhaseRoll user into a specific Phase so you can contribute together.",
-    comingSoon: true,
-  },
-  {
     name: "Future Capsules",
     description:
       "Schedule letters, videos, and voice recordings to open on a meaningful future date.",
+  },
+  {
+    name: "Shared Phases",
+    description:
+      "Invite another PhaseRoll user into a specific Phase so you can contribute together.",
     comingSoon: true,
   },
   {

@@ -17,7 +17,7 @@ const FRAMES = [
   {
     tier: "Pro",
     title: "Guided journals",
-    copy: "At day’s end, tell the story in your voice. One prompt and a follow-up or two shape it into a journal entry.",
+    copy: "At day’s end, share what stayed with you. A gentle question or two draws out the details and shapes them into a personal journal entry.",
   },
 ];
 

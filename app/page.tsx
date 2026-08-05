@@ -81,12 +81,12 @@ export default function Home() {
               <div className="hero-copy measure-52">
                 <p className="hero-caption mute">
                   Create a Phase for any chapter of your life like{" "}
-                  <span className="border-l-2 border-amber-500 pl-1 font-medium text-amber-500">
-                    Our First Home
+                  <span className="border-l-2 border-pink-500 pl-1 font-medium text-pink-500">
+                    Japan Trip 2026
                   </span>{" "}
                   or{" "}
                   <span className="border-l-2 border-orange-500 pl-1 font-medium text-orange-500">
-                    My Fitness Journey
+                    Our First Home
                   </span>
                   . As the chapter unfolds, save the photos and videos you&rsquo;ll
                   want to return to, then add your own words or voice so you
@@ -160,7 +160,7 @@ export default function Home() {
                   </p>
                   <p className="difference-tier">
                     <strong>Free</strong>
-                    <span>media and Behind the Memory</span>
+                    <span>photos, videos, and Behind the Memory</span>
                   </p>
                   <p className="difference-tier">
                     <strong>Pro</strong>
@@ -204,8 +204,9 @@ export default function Home() {
                     <h3>Save what happens</h3>
                     <p>
                       Add the story behind your photos and videos. At day&rsquo;s
-                      end, speak through one thoughtful prompt and a follow-up
-                      or two, then review the journal entry they become.
+                      end, share what stayed with you in your own voice. A
+                      question or two follows your story, then shapes your words
+                      into a personal journal entry.
                     </p>
                   </div>
                 </li>
