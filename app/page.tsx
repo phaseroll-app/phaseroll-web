@@ -11,9 +11,9 @@ import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "./site";
 
 const MOCKUPS = [
   {
-    src: "/phase_view.png",
-    alt: "Phase view showing a vertical grid of photos with a voice-note marker",
-    caption: "01 — Phases, day by day",
+    src: "/japan_trip_phase_view.png",
+    alt: "Japan Trip Phase view with day-by-day photos, videos, voice recordings, and journal entries",
+    caption: "01 — Phase View",
     slot: "Slot 01 — phase view",
   },
   {
@@ -23,10 +23,10 @@ const MOCKUPS = [
     slot: "Slot 02 — camera styles",
   },
   {
-    src: "/roll_call.png",
-    alt: "Roll Call screen with contributor avatars",
-    caption: "03 — Roll Call",
-    slot: "Slot 03 — Roll Call",
+    src: "/phase_view.png",
+    alt: "Day view showing multiple Phases with photos, videos, and personal notes",
+    caption: "03 — Phases, day by day",
+    slot: "Slot 03 — phases, day by day",
   },
 ];
 
