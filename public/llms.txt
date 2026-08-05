@@ -23,7 +23,7 @@ PhaseRoll is currently in development for iOS and Android. The website is a prod
 - **Milestones and progress tracking:** preserve important moments and see how a Phase develops over time.
 - **Camera styles:** capture photos and videos with a distinct visual character; Free includes a limited selection and Pro includes every style.
 - **Phase Recaps:** turn the memories in a Phase into a concise recap; Pro includes five recaps each month.
-- **Future Capsules:** schedule letters, videos, or voice recordings to open on a meaningful future date.
+- **Future Capsules:** schedule letters, videos, or voice recordings to open on a meaningful future date. It can be sent to yourself or to a loved one.
 - **Roll Call:** create a shared event album that guests can join through a link and contribute to without paying.
 
 ## Priority features coming soon

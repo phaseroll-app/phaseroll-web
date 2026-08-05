@@ -26,7 +26,7 @@ const PRO_FEATURES: Feature[] = [
   {
     name: "Future Capsules",
     description:
-      "Schedule letters, videos, and voice recordings to open on a meaningful future date.",
+      "Schedule letters, videos, and voice recordings to open on a meaningful future date. Can be sent to yourself or a loved one.",
   },
   {
     name: "Shared Phases",
