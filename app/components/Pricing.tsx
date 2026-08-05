@@ -100,7 +100,7 @@ export function Pricing() {
           </h2>
           <p className="body measure-52">
             Photos, videos, and the stories behind them are free. Go Pro for
-            journals, milestones, Phase Recaps, and richerxb ways to preserve a Phase.
+            journals, milestones, Phase Recaps, and richer ways to preserve a Phase.
           </p>
         </div>
 
