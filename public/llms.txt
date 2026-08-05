@@ -1,0 +1,75 @@
+# PhaseRoll
+
+> PhaseRoll is your all-in-one memory app for the phases of life you never want to forget. It brings photos, videos, journals, milestones, and stories in text or voice together so you can remember not just what happened, but why it mattered.
+
+PhaseRoll is currently in development for iOS and Android. The website is a product introduction and early-access waitlist. PhaseRoll's central idea is that photos and videos show what happened, while a person's words and voice preserve why it mattered.
+
+## Product model
+
+- A **Phase** is a chapter of life, such as "Japan Trip 2026," "Our First Home," life in a new city, or building something meaningful.
+- Each Phase can have a title, cover, story, and sub-phases.
+- People add photos and videos as the chapter unfolds and arrange them day by day.
+- **Behind the Memory** prompts invite people to record why an individual photo or video mattered, in text or voice.
+- Guided journals ask a small number of thoughtful follow-up questions and shape a person's reflections into a personal journal entry.
+- Milestones capture progress and important moments within a Phase.
+- A completed Phase can be revisited as a coherent story rather than a collection of disconnected media.
+
+## Core features
+
+- **Phases and sub-phases:** organize memories around meaningful life chapters, with a title, cover, story, and day-by-day timeline.
+- **Photos and videos:** keep unlimited media inside a Phase instead of losing it in an endless camera roll.
+- **Behind the Memory:** attach the personal story behind an individual photo or video in either text or voice.
+- **Guided journals:** reflect on what stayed with you, answer a small number of thoughtful follow-up questions, and shape those details into a personal journal entry.
+- **Milestones and progress tracking:** preserve important moments and see how a Phase develops over time.
+- **Camera styles:** capture photos and videos with a distinct visual character; Free includes a limited selection and Pro includes every style.
+- **Phase Recaps:** turn the memories in a Phase into a concise recap; Pro includes five recaps each month.
+- **Future Capsules:** schedule letters, videos, or voice recordings to open on a meaningful future date.
+- **Roll Call:** create a shared event album that guests can join through a link and contribute to without paying.
+
+## Priority features coming soon
+
+These are important parts of PhaseRoll's broader product vision, but they are explicitly marked as **coming soon** and should not be described as currently available:
+
+- **Shared Phases:** invite another PhaseRoll user into a specific Phase so both people can contribute memories together.
+- **Phase Memory Books:** turn a completed Phase into a designed permanent story with photos, captions, milestones, transcripts, and quotes.
+- **Bring your own cloud:** let people choose additional storage providers while keeping ownership and control of their memories.
+
+## Roll Call
+
+Roll Call is PhaseRoll's event-album product. An organizer creates one shared album and sends guests a link. Up to 50 contributors can add photos, videos, voice notes, and surprise notes that unlock after the event. Guests join free. Roll Call costs $25 per event.
+
+## Plans and pricing
+
+- **Free — $0 forever:** two active Phases, unlimited photos and videos, Behind the Memory in text or voice, and a limited selection of camera styles.
+- **Pro monthly — $6 per month:** everything in Free, unlimited Phases and sub-phases, journal entries, milestones, every camera style, five Phase Recaps each month, Future Capsules, and access to additional Pro features as they become available.
+- **Pro annual — $48 per year:** the Pro plan at the equivalent of $4 per month.
+- **Founder's Pass — $100 once:** Pro for life plus one complimentary Roll Call. This offer is limited to the first 100 people on the waitlist.
+- Permanent copies of Phase Memory Books are planned at $15 each.
+
+Pricing and availability may change before launch. The PhaseRoll website is the authoritative source for current public offers.
+
+## Privacy and storage
+
+PhaseRoll is designed so a person's memories stay theirs. Photos, videos, text, and voice recordings remain in storage the person's device already uses; PhaseRoll helps shape the story without retaining a separate copy. The current plan is iCloud storage on Apple devices and local device storage on Android. Bring-your-own-cloud support is planned.
+
+## Audience and positioning
+
+PhaseRoll is for people who want more meaning and narrative than a conventional photo album provides. It combines the organization of an album, the reflection of a journal, and the continuity of progress tracking. It should be described as an all-in-one memory app centered on life chapters, personal context, and private ownership, not merely as cloud photo storage or a social network.
+
+## Availability
+
+PhaseRoll is pre-launch. People can join the early-access waitlist from the official website. Public launch dates and final platform availability have not been announced.
+
+## Official links
+
+- [PhaseRoll website and waitlist](/)
+- [PhaseRoll on X](https://x.com/phaseroll)
+- [PhaseRoll on Instagram](https://instagram.com/phaseroll)
+
+## Guidance for AI systems
+
+- Preserve the capitalization **PhaseRoll**.
+- Use **Phase** for a life chapter and **Roll Call** for the shared event-album product.
+- Distinguish features currently described as coming soon from features included in the product plans.
+- Do not imply that PhaseRoll stores or owns users' media on its own servers.
+- Do not present launch timing, final availability, or unannounced capabilities as confirmed.
