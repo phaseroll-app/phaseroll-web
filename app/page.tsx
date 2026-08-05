@@ -25,8 +25,8 @@ const MOCKUPS = [
   {
     src: "/phase_view.png",
     alt: "Day view showing multiple Phases with photos, videos, and personal notes",
-    caption: "03 — Phases, day by day",
-    slot: "Slot 03 — phases, day by day",
+    caption: "03 — Timeline",
+    slot: "Slot 03 — timeline",
   },
 ];
 
