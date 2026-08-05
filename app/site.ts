@@ -4,6 +4,6 @@ export const SITE_URL = (
 
 export const SITE_NAME = "PhaseRoll";
 export const SITE_TITLE =
-  "PhaseRoll | Photo Album, Journal & Progress Tracking App";
+  "PhaseRoll | All-in-One Memory App for Life's Best Phases";
 export const SITE_DESCRIPTION =
-  "Turn photos and videos into meaningful life chapters by preserving the stories behind them in text or voice, plus Pro journals and milestones.";
+  "Preserve the phases of life you never want to forget with photos, videos, stories in text or voice, guided journals, milestones, and recaps in one memory app.";
