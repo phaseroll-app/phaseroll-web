@@ -1,4 +1,5 @@
 import { headers } from "next/headers";
+import Image from "next/image";
 import { FilmStrip } from "./components/FilmStrip";
 import { FoundingOffer } from "./components/FoundingOffer";
 import { HeroMockup } from "./components/HeroMockup";
@@ -153,32 +154,70 @@ export default async function Home() {
                 give them meaning.
               </p>
               <div className="difference-grid">
-                <article className="difference-card difference-card--album shadow-lg shadow-black/5">
-                  <p className="caption">A photo album</p>
-                  <h3>Media grouped in one place</h3>
-                  <p>
-                    Useful for finding photos and videos later, usually by
-                    person, event, or date.
-                  </p>
+                <article className="difference-card difference-card--album">
+                  <div className="polaroid" aria-hidden="true">
+                    <div className="polaroid__photo">
+                      <Image
+                        src="/japan_collage.jpg"
+                        alt=""
+                        fill
+                        sizes="(min-width: 640px) 24rem, 82vw"
+                      />
+                    </div>
+                    <p>Japan · Jan 2026</p>
+                  </div>
+                  <div className="difference-card__copy">
+                    <p className="caption">A photo album</p>
+                    <h3>Media grouped in one place</h3>
+                    <p>
+                      Useful for finding photos and videos later, usually by
+                      person, event, or date.
+                    </p>
+                  </div>
                 </article>
-                <article className="difference-card difference-card--phase shadow-lg shadow-black/5">
-                  <p className="caption">A Phase</p>
-                  <h3>A chapter you can return to</h3>
-                  <p>
-                    Give it a title, cover, story, and sub-phases. Add media,
-                    the stories behind each memory, journal entries, and
-                    milestones as life unfolds.
-                  </p>
-                  <p className="difference-tier">
-                    <strong>Free</strong>
-                    <span>photos, videos, and Behind the Memory</span>
-                  </p>
-                  <p className="difference-tier">
-                    <strong>Pro</strong>
-                    <span>
-                      journals, milestones, and richer ways to preserve a Phase
-                    </span>
-                  </p>
+                <div className="difference-versus" aria-hidden="true">
+                  <span>VS</span>
+                </div>
+                <article className="difference-card difference-card--phase">
+                  <div className="phase-album" aria-hidden="true">
+                    <div className="phase-album__rings">
+                      {Array.from({ length: 10 }, (_, index) => (
+                        <span key={index} className="phase-album__ring" />
+                      ))}
+                    </div>
+                    <div className="phase-album__cover">
+                      <div className="phase-album__image">
+                        <Image
+                          src="/fuji_album.jpg"
+                          alt=""
+                          fill
+                          sizes="(min-width: 640px) 30rem, 88vw"
+                        />
+                      </div>
+                      <div className="phase-album__details">
+                        <p>Japan Trip 2026</p>
+                        <span>15 days · 873 memories · 12 journals</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="difference-card__copy">
+                    <p className="caption">A Phase</p>
+                    <h3>A chapter you can return to</h3>
+                    <p>
+                      A title, cover, story, and sub-phases, with the memories,
+                      journals, and milestones that made the chapter yours.
+                    </p>
+                    <div className="difference-tiers">
+                      <p className="difference-tier">
+                        <strong>Free</strong>
+                        <span>photos, videos, and Behind the Memory</span>
+                      </p>
+                      <p className="difference-tier">
+                        <strong>Pro</strong>
+                        <span>journals, milestones, and richer ways to preserve it</span>
+                      </p>
+                    </div>
+                  </div>
                 </article>
               </div>
             </div>
