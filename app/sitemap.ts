@@ -9,9 +9,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
       images: [
-        `${SITE_URL}/phase_view.png`,
+        `${SITE_URL}/japan_trip_phase_view.png`,
         `${SITE_URL}/film_signature.png`,
-        `${SITE_URL}/roll_call.png`,
+        `${SITE_URL}/timeline.png`,
       ],
     },
   ];

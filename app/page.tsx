@@ -25,7 +25,7 @@ const MOCKUPS = [
     slot: "Slot 02 — camera styles",
   },
   {
-    src: "/phase_view.png",
+    src: "/timeline.png",
     alt: "Day view showing multiple Phases with photos, videos, and personal notes",
     caption: "03 — Timeline",
     slot: "Slot 03 — timeline",
