@@ -196,7 +196,7 @@ export default async function Home() {
                       </div>
                       <div className="phase-album__details">
                         <p>Japan Trip 2026</p>
-                        <span>873 memories · 126 videos · 8 voice notes</span>
+                        <span>873 memories · 12 journals · 6 milestones</span>
                       </div>
                     </div>
                   </div>
