@@ -816,6 +816,7 @@ a:hover {
 }
 
 .difference-tiers {
+  display: grid;
   margin-top: 1rem;
   border-top: 1px solid var(--hair);
 }
@@ -828,7 +829,7 @@ a:hover {
   padding-top: 0.75rem;
   color: var(--mute);
   font-size: 0.9375rem;
-  line-height: 1.4;
+  line-height: 1.65rem;
   text-align: left;
 }
 
@@ -844,7 +845,13 @@ a:hover {
   line-height: inherit;
 }
 
-@media (min-width: 640px) {
+@media (max-width: 639px) {
+  .phase-album {
+    transform: translateX(-0.25rem) rotate(1.5deg);
+  }
+}
+
+@media (min-width: 1024px) {
   .difference-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: start;
@@ -856,8 +863,6 @@ a:hover {
     top: 15.5rem;
     left: 50%;
     display: block;
-    padding: 0.75rem;
-    background: var(--paper);
     transform: translate(-50%, -50%);
   }
 
