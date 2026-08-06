@@ -454,7 +454,11 @@ a:hover {
 
 .hero-device__motion {
   position: relative;
-  transform: translate3d(0, var(--parallax-y), 0)
+  transform: translate3d(
+      0,
+      calc(var(--parallax-y) + var(--hero-device-baseline-y, 0px)),
+      0
+    )
     rotate(var(--parallax-turn));
   will-change: transform;
 }
@@ -517,11 +521,34 @@ a:hover {
   }
 
   .hero__mockup {
+    align-self: start;
     justify-self: center;
   }
 
   .hero-device {
-    width: min(34vw, 29rem);
+    --hero-device-baseline-y: -10px;
+    width: auto;
+    padding-top: 0;
+  }
+
+  .hero-device .mockup--hero {
+    width: auto;
+  }
+
+  .hero-device .phone-shell {
+    height: var(--hero-content-height, 45rem);
+    width: calc(var(--hero-content-height, 45rem) * 0.461538);
+  }
+
+  .hero-device .phone--image,
+  .hero-device .phone--image .phone__media,
+  .hero-device .phone--image .phone__img {
+    height: 100%;
+  }
+
+  .hero-device .phone__img {
+    object-fit: cover;
+    object-position: top center;
   }
 }
 

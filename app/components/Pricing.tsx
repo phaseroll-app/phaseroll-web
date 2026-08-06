@@ -1,3 +1,5 @@
+import { MARKET_PRICING, type PricingMarket } from "../pricing";
+
 type Feature = {
   name: string;
   description?: string;
@@ -17,7 +19,8 @@ type Plan = {
   founding?: boolean;
 };
 
-const PRO_FEATURES: Feature[] = [
+function proFeatures(memoryBookPrice: string): Feature[] {
+  return [
   { name: "Everything in Free" },
   { name: "Unlimited Phases and sub-phases" },
   { name: "Journal entries and milestones" },
@@ -37,16 +40,20 @@ const PRO_FEATURES: Feature[] = [
   {
     name: "Phase Memory Books",
     description:
-      "Turn a completed Phase into a designed story with captions, milestones, transcripts, and quotes. Permanent copies are just $15.",
+      `Turn a completed Phase into a designed story with captions, milestones, transcripts, and quotes. Permanent copies are just ${memoryBookPrice}.`,
     comingSoon: true,
   },
   { name: "Bring your own cloud", comingSoon: true },
-];
+  ];
+}
 
-const PLANS: Plan[] = [
+function plansForMarket(market: PricingMarket): Plan[] {
+  const pricing = MARKET_PRICING[market];
+
+  return [
   {
     name: "Free",
-    price: "$0",
+    price: pricing.free,
     cadence: "forever",
     features: [
       { name: "Two active Phases" },
@@ -57,22 +64,22 @@ const PLANS: Plan[] = [
   },
   {
     name: "Pro monthly",
-    price: "$6",
+    price: pricing.proMonthly,
     cadence: "per month",
-    features: PRO_FEATURES,
+    features: proFeatures(pricing.memoryBook),
   },
   {
     name: "Pro annual",
-    price: "$48",
+    price: pricing.proAnnual,
     cadence: "per year",
-    equivalent: "$4 per month",
-    features: PRO_FEATURES,
+    equivalent: pricing.proAnnualEquivalent,
+    features: proFeatures(pricing.memoryBook),
     badge: "Best value",
     featured: true,
   },
   {
     name: "Founder's Pass",
-    price: "$100",
+    price: pricing.founder,
     cadence: "once",
     features: [
       { name: "Everything in Pro for life" },
@@ -85,9 +92,17 @@ const PLANS: Plan[] = [
     badge: "First 100 on waitlist",
     founding: true,
   },
-];
+  ];
+}
 
-export function Pricing() {
+type PricingProps = {
+  market: PricingMarket;
+};
+
+export function Pricing({ market }: PricingProps) {
+  const pricing = MARKET_PRICING[market];
+  const plans = plansForMarket(market);
+
   return (
     <section
       className="frame pricing-frame on-ink"
@@ -105,7 +120,7 @@ export function Pricing() {
         </div>
 
         <div className="pricing-grid">
-          {PLANS.map((plan) => (
+          {plans.map((plan) => (
             <article
               className={`price-card${plan.featured ? " price-card--featured" : ""}${plan.founding ? " price-card--founding" : ""}`}
               key={plan.name}
@@ -179,7 +194,7 @@ export function Pricing() {
               <span>No. PR-001</span>
             </div>
             <p className="roll-call-offer__price">
-              $25 <span>per event</span>
+              {pricing.rollCall} <span>per event</span>
             </p>
             <p>
               Up to 50 contributors. Photos, videos, voice notes, and surprise

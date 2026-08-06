@@ -1,3 +1,4 @@
+import { headers } from "next/headers";
 import { FilmStrip } from "./components/FilmStrip";
 import { FoundingOffer } from "./components/FoundingOffer";
 import { HeroMockup } from "./components/HeroMockup";
@@ -7,6 +8,7 @@ import { PhoneMockup } from "./components/PhoneMockup";
 import { Pricing } from "./components/Pricing";
 import { Reveal } from "./components/Reveal";
 import { WaitlistForm } from "./components/WaitlistForm";
+import { MARKET_PRICING, pricingMarketForCountry } from "./pricing";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "./site";
 
 const MOCKUPS = [
@@ -30,7 +32,16 @@ const MOCKUPS = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const requestHeaders = await headers();
+  const countryCode =
+    requestHeaders.get("x-vercel-ip-country") ??
+    requestHeaders.get("cf-ipcountry") ??
+    process.env.PHASEROLL_PRICING_COUNTRY ??
+    (process.env.NODE_ENV === "development" ? "IN" : null);
+  const pricingMarket = pricingMarketForCountry(countryCode);
+  const pricing = MARKET_PRICING[pricingMarket];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -93,7 +104,7 @@ export default function Home() {
                   never forget why each one mattered.
                 </p>
               </div>
-              <FoundingOffer />
+              <FoundingOffer price={pricing.founder} />
               <WaitlistForm source="hero" note />
               <aside className="hero-social">
                 <p>
@@ -289,7 +300,7 @@ export default function Home() {
         </Reveal>
 
         <Reveal>
-          <Pricing />
+          <Pricing market={pricingMarket} />
         </Reveal>
 
         <Reveal>
@@ -306,7 +317,7 @@ export default function Home() {
                 Be among the first to turn your camera roll into chapters.
                 Join the waitlist for early access.
               </p>
-              <FoundingOffer />
+              <FoundingOffer price={pricing.founder} />
               <WaitlistForm source="waitlist" size="large" />
             </div>
           </section>
