@@ -214,7 +214,7 @@ export default async function Home() {
                       </p>
                       <p className="difference-tier">
                         <strong>Pro</strong>
-                        <span>journals, milestones, and richer ways to preserve it</span>
+                        <span>journals, milestones, and richer ways to preserve Phases</span>
                       </p>
                     </div>
                   </div>
