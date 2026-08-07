@@ -24,7 +24,10 @@ function proFeatures(memoryBookPrice: string): Feature[] {
   { name: "Everything in Free" },
   { name: "Unlimited Phases and sub-phases" },
   { name: "Journal entries and milestones" },
-  { name: "Every camera style" },
+  {
+    name: "Nostalgic Camera Styles",
+    description: "Dad's Camcorder, Kodak Gold, and Disposable",
+  },
   { name: "Five Phase Recaps each month" },
   {
     name: "Future Capsules",
@@ -59,7 +62,10 @@ function plansForMarket(market: PricingMarket): Plan[] {
       { name: "Two active Phases" },
       { name: "Add unlimited photos and videos" },
       { name: "Behind the Memory, in text or voice" },
-      { name: "Few camera styles" },
+      {
+        name: "Camera Styles",
+        description: "Original and Everyday Film",
+      },
     ],
   },
   {
@@ -115,7 +121,8 @@ export function Pricing({ market }: PricingProps) {
           </h2>
           <p className="body measure-52">
             Photos, videos, and the stories behind them are free. Go Pro for
-            journals, milestones, Phase Recaps, and richer ways to preserve a Phase.
+            nostalgic Camera Styles, journals, milestones, Phase Recaps, and
+            richer ways to preserve a Phase.
           </p>
         </div>
 
