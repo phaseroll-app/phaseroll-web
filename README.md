@@ -44,9 +44,51 @@ Open [http://localhost:3000](http://localhost:3000).
 | `APPS_SCRIPT_URL` | Yes | Deployed Google Apps Script web app URL. Used only by the server. |
 | `SHARED_SECRET` | Yes | Secret shared with the Apps Script deployment. Never expose it to client code. |
 | `NEXT_PUBLIC_SITE_URL` | Yes in production | Canonical site origin used by metadata and Open Graph URLs. |
+| `BETTER_AUTH_URL` | Yes | Auth server origin, such as `https://www.phaseroll.com`. |
+| `BETTER_AUTH_SECRET` | Yes | At least 32 random characters used to sign and encrypt auth data. |
+| `POSTGRES_HOST` | Yes | PostgreSQL server hostname. |
+| `POSTGRES_PORT` | Yes | PostgreSQL server port, normally `5432`. |
+| `POSTGRES_DATABASE` | Yes | PostgreSQL database name. |
+| `POSTGRES_USER` | Yes | PostgreSQL username. |
+| `POSTGRES_PASSWORD` | Yes | PostgreSQL password. |
+| `POSTGRES_SSL` | Yes in production | Set to `true` when the database requires TLS. |
+| `GOOGLE_CLIENT_ID` | Yes | Google OAuth web application client ID. |
+| `GOOGLE_CLIENT_SECRET` | Yes | Secret belonging to the Google web OAuth client. |
 
 The landing page still renders without the waitlist variables, but submissions
 to `/api/waitlist` return an error until both server-side values are configured.
+
+Generate the auth secret with `openssl rand -base64 32`.
+
+## Better Auth Backend
+
+Better Auth is mounted at `/api/auth/[...all]` and stores users, accounts, and
+sessions in PostgreSQL. It enables Google only and trusts the PhaseRoll app's
+`phaseroll://` deep-link scheme. The marketing site intentionally has no auth
+controls.
+
+In Google Cloud Console, create a web application OAuth client. Add these
+authorized redirect URIs to the client:
+
+```text
+http://localhost:3000/api/auth/callback/google
+https://www.phaseroll.com/api/auth/callback/google
+```
+
+After filling the PostgreSQL and auth variables in `.env.local`, create the
+Better Auth tables:
+
+```bash
+npx auth@latest migrate
+```
+
+The Expo app should use `https://www.phaseroll.com` as its Better Auth base URL,
+the `@better-auth/expo/client` plugin with scheme `phaseroll`, and
+`signIn.social({ provider: "google", callbackURL: "/" })`. The backend returns
+the OAuth flow to the app through the trusted `phaseroll://` scheme.
+
+Check a deployed backend with `GET /api/auth/ok`; a healthy instance returns
+`{ "ok": true }`.
 
 ## Google Sheets Waitlist
 

@@ -3,6 +3,9 @@
         "figma": {
             "url": "https://mcp.figma.com/mcp",
             "type": "http"
+        },
+        "better-auth": {
+            "url": "https://mcp.better-auth.com/mcp"
         }
     }
 }
