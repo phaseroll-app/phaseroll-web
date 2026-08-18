@@ -39,7 +39,7 @@ export const auth = betterAuth({
         keyPairConfig: { alg: "RS256", modulusLength: 2048 },
       },
       jwt: {
-        audience: process.env.JWT_AUDIENCE!,
+        audience: process.env.JWT_AUDIENCE ?? "",
         issuer: authBaseURL,
       },
     }),
