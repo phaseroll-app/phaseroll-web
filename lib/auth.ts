@@ -1,6 +1,9 @@
 import { expo } from "@better-auth/expo";
 import { betterAuth } from "better-auth";
+import { jwt } from "better-auth/plugins/jwt";
 import { Pool } from "pg";
+
+const authBaseURL = process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
 
 const database = new Pool({
   host: process.env.POSTGRES_HOST,
@@ -29,7 +32,18 @@ export const auth = betterAuth({
     "phaseroll://*",
     ...(process.env.NODE_ENV === 'development' ? ['exp://', 'exp://**'] : []),
   ],
-  plugins: [expo()],
+  plugins: [
+    expo(),
+    jwt({
+      jwks: {
+        keyPairConfig: { alg: "RS256", modulusLength: 2048 },
+      },
+      jwt: {
+        audience: process.env.JWT_AUDIENCE!,
+        issuer: authBaseURL,
+      },
+    }),
+  ],
 });
 
 export type Session = typeof auth.$Infer.Session;
