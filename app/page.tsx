@@ -1,5 +1,6 @@
 import { headers } from "next/headers";
 import Image from "next/image";
+import Link from "next/link";
 import { FilmStrip } from "./components/FilmStrip";
 import { FoundingOffer } from "./components/FoundingOffer";
 import { HeroMockup } from "./components/HeroMockup";
@@ -383,6 +384,16 @@ export default async function Home() {
               </span>
             </div>
             <ul className="footer__links">
+              <li>
+                <Link className="footer__link" href="/privacy">
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link className="footer__link" href="/support">
+                  Support
+                </Link>
+              </li>
               <li>
                 <a
                   className="footer__link"

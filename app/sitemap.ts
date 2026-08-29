@@ -14,5 +14,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
         `${SITE_URL}/phase_diary.png`,
       ],
     },
+    {
+      url: `${SITE_URL}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.4,
+    },
+    {
+      url: `${SITE_URL}/support`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
   ];
 }

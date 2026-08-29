@@ -2137,6 +2137,76 @@ a:hover {
   text-decoration-color: var(--paper);
 }
 
+/* --- policy and support pages --------------------------------------------- */
+
+.info-page {
+  min-height: 100vh;
+  padding: clamp(1.25rem, 5vw, 4rem);
+}
+
+.info-page__nav,
+.info-page__content {
+  width: min(100%, 760px);
+  margin-inline: auto;
+}
+
+.info-page__nav {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  margin-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.info-page__back {
+  font-size: 0.875rem;
+  color: var(--mute);
+  text-decoration: none;
+}
+
+.info-page__content {
+  padding-bottom: clamp(4rem, 10vw, 8rem);
+}
+
+.info-page__content h1 {
+  margin-bottom: 0.75rem;
+}
+
+.info-page__updated {
+  margin-bottom: clamp(2.5rem, 6vw, 4rem);
+  color: var(--mute);
+  font-size: 0.875rem;
+}
+
+.info-page__section + .info-page__section {
+  margin-top: 2.5rem;
+}
+
+.info-page__section h2 {
+  margin-bottom: 0.75rem;
+  font-family: var(--display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.info-page__section p + p,
+.info-page__section ul + p {
+  margin-top: 0.75rem;
+}
+
+.info-page__section ul {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.info-page__section li + li {
+  margin-top: 0.4rem;
+}
+
+.info-page__section a {
+  text-underline-offset: 0.2em;
+}
+
 /* --- motion preferences --------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {
