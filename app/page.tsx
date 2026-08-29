@@ -21,15 +21,15 @@ const MOCKUPS = [
   },
   {
     src: "/film_signature.png",
-    alt: "Camera screen with film stock selector",
-    caption: "02 — Camera styles",
-    slot: "Slot 02 — camera styles",
+    alt: "PhaseRoll New memory capture screen",
+    caption: "02 — Memory capture",
+    slot: "Slot 02 — memory capture",
   },
   {
-    src: "/timeline.png",
-    alt: "Day view showing multiple Phases with photos, videos, and personal notes",
-    caption: "03 — Timeline",
-    slot: "Slot 03 — timeline",
+    src: "/phase_diary.png",
+    alt: "Phase diary page showing four memories from a day",
+    caption: "03 — Phase diary",
+    slot: "Slot 03 — phase diary",
   },
 ];
 
@@ -57,7 +57,7 @@ export default async function Home() {
       "Behind the Memory prompts for photos and videos",
       "Text or voice stories attached to media",
       "Pro journal entries and milestones",
-      "Future Capsules",
+      "Future Capsules (coming soon)",
       "Phase Memory Books",
       "Shared event albums with Roll Call",
     ],
@@ -179,14 +179,13 @@ export default async function Home() {
                   <span>VS</span>
                 </div>
                 <article className="difference-card difference-card--phase">
-                  <div className="phase-album" aria-hidden="true">
-                    <div className="phase-album__rings">
-                      {Array.from({ length: 10 }, (_, index) => (
-                        <span key={index} className="phase-album__ring" />
-                      ))}
-                    </div>
-                    <div className="phase-album__cover">
-                      <div className="phase-album__image">
+                  <div className="phase-book" aria-hidden="true">
+                    <div className="phase-book__page">
+                      <div className="phase-book__eyebrow">
+                        <span>Phase I</span>
+                        <span>Contents</span>
+                      </div>
+                      <div className="phase-book__image">
                         <Image
                           src="/fuji_album.jpg"
                           alt=""
@@ -194,7 +193,7 @@ export default async function Home() {
                           sizes="(min-width: 640px) 30rem, 88vw"
                         />
                       </div>
-                      <div className="phase-album__details">
+                      <div className="phase-book__details">
                         <p>Japan Trip 2026</p>
                         <span>873 memories · 12 journals · 6 milestones</span>
                       </div>
@@ -214,7 +213,10 @@ export default async function Home() {
                       </p>
                       <p className="difference-tier">
                         <strong>Pro</strong>
-                        <span>journals, milestones, and richer ways to preserve a Phase</span>
+                        <span>
+                          journals, milestones, and richer ways to preserve a
+                          Phase
+                        </span>
                       </p>
                     </div>
                   </div>

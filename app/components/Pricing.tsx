@@ -28,11 +28,12 @@ function proFeatures(memoryBookPrice: string): Feature[] {
     name: "Nostalgic Camera Styles",
     description: "Dad's Camcorder, Kodak Gold, and Disposable",
   },
-  { name: "Five Phase Recaps each month" },
+  { name: "Five Phase Recaps each month", comingSoon: true },
   {
     name: "Future Capsules",
     description:
       "Schedule letters, videos, and voice recordings to open on a meaningful future date. Can be sent to yourself or a loved one.",
+    comingSoon: true,
   },
   {
     name: "Shared Phases",
@@ -121,8 +122,8 @@ export function Pricing({ market }: PricingProps) {
           </h2>
           <p className="body measure-52">
             Photos, videos, and the stories behind them are free. Go Pro for
-            nostalgic Camera Styles, journals, milestones, Phase Recaps, and
-            richer ways to preserve a Phase.
+            nostalgic Camera Styles, journals, milestones, and richer ways to
+            preserve a Phase.
           </p>
         </div>
 

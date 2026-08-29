@@ -16,8 +16,8 @@ const FRAMES = [
   },
   {
     tier: "Pro",
-    title: "Guided journals",
-    copy: "At day’s end, share what stayed with you. A gentle question or two draws out the details and shapes them into a personal journal entry.",
+    title: "Journals & milestones",
+    copy: "Reflect on what stayed with you in a personal journal, and mark the milestones that shaped each Phase along the way.",
   },
 ];
 

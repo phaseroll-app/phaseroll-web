@@ -1,5 +1,7 @@
 export type PricingMarket = "global" | "india";
 
+const SHOW_INR_PRICING = false;
+
 export const MARKET_PRICING = {
   global: {
     free: "$0",
@@ -24,5 +26,8 @@ export const MARKET_PRICING = {
 export function pricingMarketForCountry(
   countryCode: string | null,
 ): PricingMarket {
-  return countryCode?.toUpperCase() === "IN" ? "india" : "global";
+  // Keep the regional catalog ready while public pricing is temporarily USD-only.
+  return SHOW_INR_PRICING && countryCode?.toUpperCase() === "IN"
+    ? "india"
+    : "global";
 }

@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: [
         `${SITE_URL}/japan_trip_phase_view.png`,
         `${SITE_URL}/film_signature.png`,
-        `${SITE_URL}/timeline.png`,
+        `${SITE_URL}/phase_diary.png`,
       ],
     },
   ];
