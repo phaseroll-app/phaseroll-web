@@ -54,6 +54,12 @@ Open [http://localhost:3000](http://localhost:3000).
 | `POSTGRES_SSL` | Yes in production | Set to `true` when the database requires TLS. |
 | `GOOGLE_CLIENT_ID` | Yes | Google OAuth web application client ID. |
 | `GOOGLE_CLIENT_SECRET` | Yes | Secret belonging to the Google web OAuth client. |
+| `APPLE_CLIENT_ID` | Yes | Sign in with Apple Service ID, `com.phaseroll.phaseroll.auth`. |
+| `APPLE_TEAM_ID` | Yes | Apple Developer team ID. |
+| `APPLE_KEY_ID` | Yes | Identifier of the Sign in with Apple key. |
+| `APPLE_PRIVATE_KEY` | Yes | Private `.p8` key for generating Apple client secrets. |
+| `PHASEROLL_API_BASE_URL` | Yes | PhaseRoll API origin used by the account-deletion gate. |
+| `PHASEROLL_ACCOUNT_DELETION_SERVICE_TOKEN` | Yes | Shared secret for internal account-deletion gate and finalization calls. |
 
 The landing page still renders without the waitlist variables, but submissions
 to `/api/waitlist` return an error until both server-side values are configured.
@@ -63,9 +69,9 @@ Generate the auth secret with `openssl rand -base64 32`.
 ## Better Auth Backend
 
 Better Auth is mounted at `/api/auth/[...all]` and stores users, accounts, and
-sessions in PostgreSQL. It enables Google only and trusts the PhaseRoll app's
-`phaseroll://` deep-link scheme. The marketing site intentionally has no auth
-controls.
+sessions in PostgreSQL. It enables Google and Apple and trusts the PhaseRoll
+app's `phaseroll://` deep-link scheme. The marketing site intentionally has no
+auth controls.
 
 In Google Cloud Console, create a web application OAuth client. Add these
 authorized redirect URIs to the client:
@@ -83,9 +89,16 @@ npx auth@latest migrate
 ```
 
 The Expo app should use `https://www.phaseroll.com` as its Better Auth base URL,
-the `@better-auth/expo/client` plugin with scheme `phaseroll`, and
-`signIn.social({ provider: "google", callbackURL: "/" })`. The backend returns
-the OAuth flow to the app through the trusted `phaseroll://` scheme.
+the `@better-auth/expo/client` plugin with scheme `phaseroll`. Google returns its
+OAuth flow through the trusted `phaseroll://` scheme; Apple uses the native
+identity token flow.
+
+In Apple Developer, enable Sign in with Apple on `com.phaseroll.phaseroll`.
+Create the `com.phaseroll.phaseroll.auth` Service ID with
+`www.phaseroll.com` as a domain and
+`https://www.phaseroll.com/api/auth/callback/apple` as a return URL. Create a
+Sign in with Apple key for that primary App ID, download its `.p8` file, and add
+the four Apple variables above to the production environment.
 
 Check a deployed backend with `GET /api/auth/ok`; a healthy instance returns
 `{ "ok": true }`.

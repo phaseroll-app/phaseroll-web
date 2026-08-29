@@ -401,7 +401,7 @@ export default async function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  @phaseroll on X
+                  X
                 </a>
               </li>
               <li>
@@ -411,7 +411,7 @@ export default async function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  @phaseroll on Instagram
+                  Instagram
                 </a>
               </li>
             </ul>

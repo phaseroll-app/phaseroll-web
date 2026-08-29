@@ -65,8 +65,9 @@ export default function SupportPage() {
         <section className="info-page__section">
           <h2>Account and privacy requests</h2>
           <p>
-            To request access to or deletion of your PhaseRoll account and associated
-            service data, email{" "}
+            Permanently delete your account and associated PhaseRoll data in the app
+            under User Menu &gt; Account &gt; Delete account. For help with an
+            access or deletion request, email{" "}
             <a href="mailto:support@phaseroll.com">support@phaseroll.com</a>{" "}
             from the address connected to your account. See the{" "}
             <Link href="/privacy">Privacy Policy</Link> for more information.

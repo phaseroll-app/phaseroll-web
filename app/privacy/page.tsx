@@ -110,11 +110,12 @@ export default function PrivacyPage() {
           <p>
             We retain information while your account is active and as needed to
             provide the service, meet legal obligations, resolve disputes, and
-            prevent abuse. You may request account and associated service-data
-            deletion by emailing{" "}
-            <a href="mailto:support@phaseroll.com">support@phaseroll.com</a>.
-            Files stored in your personal iCloud storage may also be managed through
-            your Apple account and device.
+            prevent abuse. You can permanently delete your account and associated
+            PhaseRoll data from User Menu &gt; Account &gt; Delete account. You may
+            also contact{" "}
+            <a href="mailto:support@phaseroll.com">support@phaseroll.com</a>{" "}
+            for help. Files outside PhaseRoll&apos;s managed storage remain under
+            your control through your Apple account and device.
           </p>
         </section>
 
