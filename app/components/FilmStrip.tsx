@@ -7,7 +7,7 @@ const FRAMES = [
   {
     tier: "Free",
     title: "Behind the Memory",
-    copy: "Answer one thoughtful prompt about why a photo or video mattered, then preserve the story in text or voice.",
+    copy: "Preserve the story behind a photo or video in text or voice, so the meaning stays with the memory.",
   },
   {
     tier: "Free",

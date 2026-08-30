@@ -256,10 +256,9 @@ export default async function Home() {
                   <div>
                     <h3>Save what happens</h3>
                     <p>
-                      Add the story behind your photos and videos. At day&rsquo;s
-                      end, share what stayed with you in your own voice. A
-                      question or two follows your story, then shapes your words
-                      into a personal journal entry.
+                      Add the story behind your photos and videos in text or
+                      voice. Preserve what happened, how it felt, and the details
+                      you want to carry with you.
                     </p>
                   </div>
                 </li>
