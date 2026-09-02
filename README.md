@@ -93,6 +93,10 @@ the `@better-auth/expo/client` plugin with scheme `phaseroll`. Google returns it
 OAuth flow through the trusted `phaseroll://` scheme; Apple uses the native
 identity token flow.
 
+The authenticated `POST /api/auth/apple-revoke` route verifies that a fresh
+native Apple authorization belongs to the linked Better Auth account and revokes
+the Apple token before permanent account deletion starts.
+
 In Apple Developer, enable Sign in with Apple on `com.phaseroll.phaseroll`.
 Create the `com.phaseroll.phaseroll.auth` Service ID with
 `www.phaseroll.com` as a domain and

@@ -7,17 +7,18 @@ import { Pool } from "pg";
 
 const authBaseURL = process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
 
-function requireAppleEnvironmentVariable(name: string) {
+function requireEnvironmentVariable(name: string) {
   const value = process.env[name];
   if (!value) throw new Error(`Missing required environment variable: ${name}`);
   return value;
 }
 
-async function generateAppleClientSecret() {
-  const clientId = requireAppleEnvironmentVariable("APPLE_CLIENT_ID");
-  const teamId = requireAppleEnvironmentVariable("APPLE_TEAM_ID");
-  const keyId = requireAppleEnvironmentVariable("APPLE_KEY_ID");
-  const privateKey = requireAppleEnvironmentVariable("APPLE_PRIVATE_KEY").replace(
+async function generateAppleClientSecret(
+  clientId = requireEnvironmentVariable("APPLE_CLIENT_ID"),
+) {
+  const teamId = requireEnvironmentVariable("APPLE_TEAM_ID");
+  const keyId = requireEnvironmentVariable("APPLE_KEY_ID");
+  const privateKey = requireEnvironmentVariable("APPLE_PRIVATE_KEY").replace(
     /\\n/g,
     "\n",
   );
@@ -42,6 +43,7 @@ function appleSocialProvider() {
     "APPLE_PRIVATE_KEY",
   ] as const;
   const configured = names.filter((name) => process.env[name]);
+
   if (!configured.length) {
     console.warn(
       "Sign in with Apple is disabled because Apple credentials are not configured.",
@@ -58,26 +60,21 @@ function appleSocialProvider() {
   return {
     apple: async () => ({
       appBundleIdentifier: "com.phaseroll.phaseroll",
-      clientId: requireAppleEnvironmentVariable("APPLE_CLIENT_ID"),
+      clientId: requireEnvironmentVariable("APPLE_CLIENT_ID"),
       clientSecret: await generateAppleClientSecret(),
+      disableImplicitSignUp: true,
     }),
   };
-}
-
-function requireAccountDeletionEnvironmentVariable(name: string) {
-  const value = process.env[name];
-  if (!value) throw new Error(`Missing required environment variable: ${name}`);
-  return value;
 }
 
 async function accountDeletionRequest(
   action: "finalize" | "gate",
   userId: string,
 ) {
-  const apiBaseUrl = requireAccountDeletionEnvironmentVariable(
+  const apiBaseUrl = requireEnvironmentVariable(
     "PHASEROLL_API_BASE_URL",
   ).replace(/\/$/, "");
-  const serviceToken = requireAccountDeletionEnvironmentVariable(
+  const serviceToken = requireEnvironmentVariable(
     "PHASEROLL_ACCOUNT_DELETION_SERVICE_TOKEN",
   );
   return fetch(`${apiBaseUrl}/internal/v1/account-deletions/${action}`, {
@@ -105,8 +102,12 @@ async function requireAccountDeletionReady(userId: string) {
 
 async function finalizeAccountDeletion(userId: string) {
   for (let attempt = 0; attempt < 5; attempt += 1) {
-    const response = await accountDeletionRequest("finalize", userId);
-    if (response.ok) return;
+    try {
+      const response = await accountDeletionRequest("finalize", userId);
+      if (response.ok) return;
+    } catch (error) {
+      if (attempt === 4) throw error;
+    }
     if (attempt < 4) {
       await new Promise((resolve) =>
         setTimeout(resolve, 250 * 2 ** attempt),
@@ -127,8 +128,75 @@ const database = new Pool({
   ssl: process.env.POSTGRES_SSL === "true" ? true : undefined,
 });
 
+export async function verifyAndRevokeAppleAuthorization(
+  userId: string,
+  authorizationCode: string,
+) {
+  const nativeClientId = "com.phaseroll.phaseroll";
+  const clientSecret = await generateAppleClientSecret(nativeClientId);
+  const tokenResponse = await fetch("https://appleid.apple.com/auth/token", {
+    body: new URLSearchParams({
+      client_id: nativeClientId,
+      client_secret: clientSecret,
+      code: authorizationCode,
+      grant_type: "authorization_code",
+    }),
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    method: "POST",
+  });
+  if (!tokenResponse.ok) {
+    throw new Error("Apple authorization could not be verified.");
+  }
+
+  const tokens = (await tokenResponse.json()) as {
+    access_token?: string;
+    id_token?: string;
+    refresh_token?: string;
+  };
+  const encodedPayload = tokens.id_token?.split(".")[1];
+  if (!encodedPayload) throw new Error("Apple did not return an identity token.");
+  const payload = JSON.parse(
+    Buffer.from(encodedPayload, "base64url").toString("utf8"),
+  ) as { sub?: unknown };
+  if (typeof payload.sub !== "string") {
+    throw new Error("Apple returned an invalid identity token.");
+  }
+
+  const account = await database.query(
+    `SELECT 1
+       FROM account
+      WHERE "userId" = $1
+        AND "providerId" = 'apple'
+        AND "accountId" = $2
+      LIMIT 1`,
+    [userId, payload.sub],
+  );
+  if (account.rowCount !== 1) {
+    throw new Error("Sign in with the same Apple account you want to delete.");
+  }
+
+  const token = tokens.refresh_token ?? tokens.access_token;
+  if (!token) throw new Error("Apple did not return a revocable token.");
+  const revokeResponse = await fetch("https://appleid.apple.com/auth/revoke", {
+    body: new URLSearchParams({
+      client_id: nativeClientId,
+      client_secret: clientSecret,
+      token,
+      token_type_hint: tokens.refresh_token
+        ? "refresh_token"
+        : "access_token",
+    }),
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    method: "POST",
+  });
+  if (!revokeResponse.ok) {
+    throw new Error("Apple authorization could not be revoked.");
+  }
+}
+
 export const auth = betterAuth({
   appName: "PhaseRoll",
+  baseURL: authBaseURL,
   database,
   socialProviders: {
     ...appleSocialProvider(),
@@ -138,6 +206,8 @@ export const auth = betterAuth({
         process.env.GOOGLE_WEB_CLIENT_ID ??
         "",
       clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+      disableImplicitSignUp: true,
+      prompt: "select_account",
     },
   },
   user: {
@@ -152,7 +222,7 @@ export const auth = betterAuth({
     "https://www.phaseroll.com",
     "phaseroll://",
     "phaseroll://*",
-    ...(process.env.NODE_ENV === 'development' ? ['exp://', 'exp://**'] : []),
+    ...(process.env.NODE_ENV === "development" ? ["exp://", "exp://**"] : []),
   ],
   plugins: [
     expo(),
@@ -161,7 +231,7 @@ export const auth = betterAuth({
         keyPairConfig: { alg: "RS256", modulusLength: 2048 },
       },
       jwt: {
-        audience: process.env.JWT_AUDIENCE ?? "",
+        audience: process.env.JWT_AUDIENCE ?? "phaseroll-api",
         issuer: authBaseURL,
       },
     }),
