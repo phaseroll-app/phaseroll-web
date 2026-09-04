@@ -195,6 +195,9 @@ export async function verifyAndRevokeAppleAuthorization(
 }
 
 export const auth = betterAuth({
+  advanced: {
+    cookiePrefix: "better-auth",
+  },
   appName: "PhaseRoll",
   baseURL: authBaseURL,
   database,
