@@ -44,6 +44,7 @@ Open [http://localhost:3000](http://localhost:3000).
 | `APPS_SCRIPT_URL` | Yes | Deployed Google Apps Script web app URL. Used only by the server. |
 | `SHARED_SECRET` | Yes | Secret shared with the Apps Script deployment. Never expose it to client code. |
 | `NEXT_PUBLIC_SITE_URL` | Yes in production | Canonical site origin used by metadata and Open Graph URLs. |
+| `NEXT_PUBLIC_PHASEROLL_DOWNLOAD_URL` | Yes for shared links in production | App Store or TestFlight URL shown when PhaseRoll is not installed. Shared links fall back to the homepage waitlist when unset. |
 | `BETTER_AUTH_URL` | Yes | Auth server origin, such as `https://www.phaseroll.com`. |
 | `BETTER_AUTH_SECRET` | Yes | At least 32 random characters used to sign and encrypt auth data. |
 | `POSTGRES_HOST` | Yes | PostgreSQL server hostname. |
