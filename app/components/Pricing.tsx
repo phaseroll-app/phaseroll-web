@@ -21,33 +21,33 @@ type Plan = {
 
 function proFeatures(memoryBookPrice: string): Feature[] {
   return [
-  { name: "Everything in Free" },
-  { name: "Unlimited Phases and sub-phases" },
-  { name: "Journal entries and milestones" },
-  {
-    name: "Nostalgic Camera Styles",
-    description: "Dad's Camcorder, Kodak Gold, and Disposable",
-  },
-  { name: "Five Phase Recaps each month", comingSoon: true },
-  {
-    name: "Future Capsules",
-    description:
-      "Schedule letters, videos, and voice recordings to open on a meaningful future date. Can be sent to yourself or a loved one.",
-    comingSoon: true,
-  },
-  {
-    name: "Shared Phases",
-    description:
-      "Invite another PhaseRoll user into a specific Phase so you can contribute together.",
-    comingSoon: true,
-  },
-  {
-    name: "Phase Memory Books",
-    description:
-      `Turn a completed Phase into a designed story with captions, milestones, transcripts, and quotes. Permanent copies are just ${memoryBookPrice}.`,
-    comingSoon: true,
-  },
-  { name: "Bring your own cloud", comingSoon: true },
+    { name: "Everything in Free" },
+    { name: "Unlimited Phases and sub-phases" },
+    { name: "Journal entries and milestones" },
+    {
+      name: "Nostalgic Camera Styles",
+      description: "Dad's Camcorder, Kodak Gold, and Disposable",
+    },
+    { name: "Five Phase Recaps each month", comingSoon: true },
+    {
+      name: "Future Capsules",
+      description:
+        "Schedule letters, videos, and voice recordings to open on a meaningful future date. Can be sent to yourself or a loved one.",
+      comingSoon: true,
+    },
+    {
+      name: "Shared Phases",
+      description:
+        "Invite another PhaseRoll user into a specific Phase so you can contribute together.",
+      comingSoon: true,
+    },
+    {
+      name: "Phase Memory Books",
+      description:
+        `Turn a completed Phase into a designed story with captions, milestones, transcripts, and quotes. Permanent copies are just ${memoryBookPrice}.`,
+      comingSoon: true,
+    },
+    { name: "Bring your own cloud", comingSoon: true },
   ];
 }
 
@@ -55,50 +55,50 @@ function plansForMarket(market: PricingMarket): Plan[] {
   const pricing = MARKET_PRICING[market];
 
   return [
-  {
-    name: "Free",
-    price: pricing.free,
-    cadence: "forever",
-    features: [
-      { name: "Two active Phases" },
-      { name: "Add unlimited photos and videos" },
-      { name: "Behind the Memory, in text or voice" },
-      {
-        name: "Camera Styles",
-        description: "Original and Everyday Film",
-      },
-    ],
-  },
-  {
-    name: "Pro monthly",
-    price: pricing.proMonthly,
-    cadence: "per month",
-    features: proFeatures(pricing.memoryBook),
-  },
-  {
-    name: "Pro annual",
-    price: pricing.proAnnual,
-    cadence: "per year",
-    equivalent: pricing.proAnnualEquivalent,
-    features: proFeatures(pricing.memoryBook),
-    badge: "Best value",
-    featured: true,
-  },
-  {
-    name: "Founder's Pass",
-    price: pricing.founder,
-    cadence: "once",
-    features: [
-      { name: "Everything in Pro for life" },
-      {
-        name: "One complimentary ",
-        href: "#roll-call",
-        linkLabel: "Roll Call",
-      },
-    ],
-    badge: "First 100 on waitlist",
-    founding: true,
-  },
+    {
+      name: "Free",
+      price: pricing.free,
+      cadence: "forever",
+      features: [
+        { name: "Two active Phases" },
+        { name: "Add unlimited photos and videos" },
+        { name: "Behind the Memory, in text or voice" },
+        {
+          name: "Camera Styles",
+          description: "Original and Everyday Film",
+        },
+      ],
+    },
+    {
+      name: "Pro monthly",
+      price: pricing.proMonthly,
+      cadence: "per month",
+      features: proFeatures(pricing.memoryBook),
+    },
+    {
+      name: "Pro annual",
+      price: pricing.proAnnual,
+      cadence: "per year",
+      equivalent: pricing.proAnnualEquivalent,
+      features: proFeatures(pricing.memoryBook),
+      badge: "Best value",
+      featured: true,
+    },
+    {
+      name: "Founder's Pass",
+      price: pricing.founder,
+      cadence: "once",
+      features: [
+        { name: "Everything in Pro for life" },
+        {
+          name: "One complimentary ",
+          href: "#roll-call",
+          linkLabel: "Roll Call",
+        },
+      ],
+      badge: "First 100 on waitlist",
+      founding: true,
+    },
   ];
 }
 
@@ -191,8 +191,7 @@ export function Pricing({ market }: PricingProps) {
             </h3>
             <p>
               Create one shared album for an event and send guests a link.
-              Everyone can add photos, videos, voice notes, and surprise notes
-              (that unlock after the event), so every view and message stays
+              Everyone can add photos, videos, and meaning behind them, so every memory stays
               together in one place.
             </p>
           </div>

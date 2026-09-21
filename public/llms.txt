@@ -38,7 +38,7 @@ These are important parts of PhaseRoll's broader product vision, but they are ex
 
 ## Roll Call
 
-Roll Call is PhaseRoll's event-album product. An organizer creates one shared album and sends guests a link. Up to 50 contributors can add photos, videos, voice notes, and surprise notes that unlock after the event. Guests join free. Roll Call costs $25 per event.
+Roll Call is PhaseRoll's event-album product. An organizer creates one shared album and sends guests a link. Up to 50 contributors can add photos, videos, and text or voice notes that explain the memory. Guests join free. Roll Call costs $25 per event.
 
 ## Plans and pricing
 
