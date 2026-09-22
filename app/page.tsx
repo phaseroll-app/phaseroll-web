@@ -389,6 +389,11 @@ export default async function Home() {
                 </Link>
               </li>
               <li>
+                <Link className="footer__link" href="/terms">
+                  Terms
+                </Link>
+              </li>
+              <li>
                 <Link className="footer__link" href="/support">
                   Support
                 </Link>
