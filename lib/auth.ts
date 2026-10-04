@@ -4,6 +4,9 @@ import { APIError } from "better-auth/api";
 import { jwt } from "better-auth/plugins/jwt";
 import { importPKCS8, SignJWT } from "jose";
 import { Pool } from "pg";
+import { after } from "next/server";
+
+import { sendPasswordResetEmail } from "./password-reset-email";
 
 const authBaseURL = process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
 
@@ -197,10 +200,19 @@ export async function verifyAndRevokeAppleAuthorization(
 export const auth = betterAuth({
   advanced: {
     cookiePrefix: "better-auth",
+    backgroundTasks: {
+      handler: (task) => after(() => task),
+    },
   },
   appName: "PhaseRoll",
   baseURL: authBaseURL,
   database,
+  emailAndPassword: {
+    enabled: true,
+    requireEmailVerification: false,
+    revokeSessionsOnPasswordReset: true,
+    sendResetPassword: ({ user, url }) => sendPasswordResetEmail(user.email, url),
+  },
   socialProviders: {
     ...appleSocialProvider(),
     google: {

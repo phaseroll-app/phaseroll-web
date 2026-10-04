@@ -61,6 +61,8 @@ Open [http://localhost:3000](http://localhost:3000).
 | `APPLE_PRIVATE_KEY` | Yes | Private `.p8` key for generating Apple client secrets. |
 | `PHASEROLL_API_BASE_URL` | Yes | PhaseRoll API origin used by the account-deletion gate. |
 | `PHASEROLL_ACCOUNT_DELETION_SERVICE_TOKEN` | Yes | Shared secret for internal account-deletion gate and finalization calls. |
+| `PHASEROLL_RESEND_API_KEY` | Yes for password recovery | Server-only Resend API key. |
+| `PHASEROLL_RESEND_FROM_EMAIL` | Yes for password recovery | Sender address on a verified Resend domain. |
 
 The landing page still renders without the waitlist variables, but submissions
 to `/api/waitlist` return an error until both server-side values are configured.
@@ -70,9 +72,19 @@ Generate the auth secret with `openssl rand -base64 32`.
 ## Better Auth Backend
 
 Better Auth is mounted at `/api/auth/[...all]` and stores users, accounts, and
-sessions in PostgreSQL. It enables Google and Apple and trusts the PhaseRoll
+sessions in PostgreSQL. It enables Google, Apple, and email/password and trusts the PhaseRoll
 app's `phaseroll://` deep-link scheme. The marketing site intentionally has no
 auth controls.
+
+Email accounts currently do not require email verification. Better Auth hashes
+passwords using its built-in credential account support; no additional schema
+fields are needed. Password recovery emails are delivered through Resend and kept
+alive after the HTTP response using Next's `after` lifecycle. Delivery failures
+are logged without the password-reset URL or recipient.
+The app requests a reset link with `phaseroll:///reset-password` as its redirect;
+the link expires after one hour, and a successful reset revokes existing sessions.
+Configure the two server-only Resend variables in production and deploy this
+backend before distributing the mobile email-auth update.
 
 In Google Cloud Console, create a web application OAuth client. Add these
 authorized redirect URIs to the client:
