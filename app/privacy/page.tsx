@@ -18,7 +18,7 @@ export default function PrivacyPage() {
 
       <article className="info-page__content">
         <h1 className="display-l">Privacy Policy</h1>
-        <p className="info-page__updated">Effective August 29, 2026</p>
+        <p className="info-page__updated">Effective October 5, 2026</p>
 
         <section className="info-page__section">
           <h2>Overview</h2>
@@ -46,6 +46,10 @@ export default function PrivacyPage() {
               choose to grant location access.
             </li>
             <li>
+              Place-search text you enter when using location autocomplete. This
+              text is sent to Google Places to return suggestions.
+            </li>
+            <li>
               Purchase and entitlement information processed by RevenueCat and
               Apple to provide subscriptions, purchases, and restore access.
             </li>
@@ -66,9 +70,12 @@ export default function PrivacyPage() {
             library organized and synchronized.
           </p>
           <p>
-            If you use a sharing feature, content you intentionally contribute may
-            be uploaded and made available to the people participating in that
-            shared experience.
+            Roll Call is separate from your private personal library. Photos,
+            videos, and voice notes you intentionally contribute to a Roll Call
+            are uploaded to Google Cloud Storage; contribution text and related
+            metadata are stored by PhaseRoll. This content is made available to
+            authorized participants in that invite-only event. Participants may
+            save copies of shared content, which remain under their control.
           </p>
         </section>
 
@@ -95,13 +102,50 @@ export default function PrivacyPage() {
         </section>
 
         <section className="info-page__section">
-          <h2>Service providers</h2>
+          <h2>Place search</h2>
           <p>
-            PhaseRoll relies on service providers to operate the app, including
-            Google for authentication, Apple for iCloud and App Store services, and
-            RevenueCat for purchase and subscription management. These providers
-            process information under their own privacy policies and applicable
-            agreements.
+            When you type into a place-search field, PhaseRoll sends the search
+            text directly to Google Places for autocomplete. Google also receives
+            the network information needed to handle the request, such as your IP
+            address. This autocomplete request does not include your personal
+            photos, journals, or voice notes. Place search is separate from
+            permission to access your device&apos;s location: disabling location
+            permission does not prevent text you enter in place search from being
+            sent to Google. To avoid that sharing, do not use place autocomplete.
+          </p>
+        </section>
+
+        <section className="info-page__section">
+          <h2>Service providers</h2>
+          <ul>
+            <li>
+              Apple provides Sign in with Apple, private iCloud storage, and App
+              Store purchases and subscriptions.
+            </li>
+            <li>
+              Google provides Google Sign-In, Google Cloud Storage for Roll Call
+              media, and Google Places for location autocomplete.
+            </li>
+            <li>
+              RevenueCat processes account identifiers and purchase information to
+              manage subscriptions, entitlements, and restore access.
+            </li>
+            <li>
+              Vercel hosts our website and authentication service. Resend delivers
+              account-recovery emails using your email address and the information
+              needed to send the recovery message.
+            </li>
+          </ul>
+          <p>
+            We share information only as needed to provide, secure, and support the
+            features described in this policy. We require any third party with
+            which we share user data to provide the same or equivalent protection
+            as this policy and applicable data-protection requirements. Providers
+            processing information on our behalf must use it only for the
+            authorized services and protect it under the applicable service and
+            data-processing agreements. Their own privacy policies may also apply
+            to services you use directly; those policies do not replace
+            PhaseRoll&apos;s responsibilities under this policy.
           </p>
         </section>
 
@@ -122,8 +166,11 @@ export default function PrivacyPage() {
         <section className="info-page__section">
           <h2>Children</h2>
           <p>
-            PhaseRoll is not directed to children under 13, and we do not knowingly
-            collect personal information from children under 13.
+            PhaseRoll is intended for people aged 13 and older, as required by our
+            service terms. We do not knowingly collect personal information from
+            children under 13. If you believe a child under 13 has provided personal
+            information, contact support@phaseroll.com so we can investigate and
+            take appropriate action.
           </p>
         </section>
 
