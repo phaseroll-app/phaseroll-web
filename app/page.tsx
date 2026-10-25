@@ -330,9 +330,10 @@ export default async function Home() {
                 Your memories <span className="em">stay yours.</span>
               </h2>
               <p className="body mute measure-60">
-                Your photos, videos, text, and voice recordings stay in the
-                storage your device already uses. PhaseRoll helps you shape the
-                story without keeping a copy.
+                Your personal photos and videos use your device storage and
+                private iCloud on Apple devices. Written stories, shared Roll
+                Calls, and voice features also use PhaseRoll&apos;s services.
+                You choose what to share.
               </p>
               <aside className="storage-note">
                 <div className="storage-note__heading">
@@ -340,9 +341,9 @@ export default async function Home() {
                   <span>Coming soon</span>
                 </div>
                 <p>
-                  For now, your photos, videos, text, and voice recordings
-                  remain in iCloud on Apple devices and in local device storage
-                  on Android. Bring your own cloud support is coming soon.
+                  Bring your own cloud support is coming soon. See our{" "}
+                  <Link href="/privacy">Privacy Policy</Link> for how each feature
+                  stores your content and the controls available to you.
                 </p>
               </aside>
             </div>

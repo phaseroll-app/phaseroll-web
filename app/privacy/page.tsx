@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | PhaseRoll",
-  description: "How PhaseRoll collects, uses, stores, and protects your information.",
+  description: "How PhaseRoll handles your memories, reflections, capsules, and privacy choices.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -18,14 +18,16 @@ export default function PrivacyPage() {
 
       <article className="info-page__content">
         <h1 className="display-l">Privacy Policy</h1>
-        <p className="info-page__updated">Effective October 5, 2026</p>
+        <p className="info-page__updated">Effective October 25, 2026</p>
 
         <section className="info-page__section">
           <h2>Overview</h2>
           <p>
             PhaseRoll helps you organize photos, videos, voice notes, journals,
-            milestones, and the stories behind your memories. This policy explains
-            what information PhaseRoll processes and why.
+            milestones, chapter goals, weekly reflections, and the stories behind
+            your memories. It also supports invite-only Roll Calls and Future
+            Capsules. This policy explains what information these features process,
+            where it is stored, and the choices available to you.
           </p>
         </section>
 
@@ -38,7 +40,23 @@ export default function PrivacyPage() {
             </li>
             <li>
               Content and organization data you create, including Phases,
-              sub-phases, journals, milestones, captions, dates, and voice notes.
+              sub-phases, journals, milestones, captions, dates, voice notes and
+              their transcripts, and chapter goals with deadlines and completion
+              status.
+            </li>
+            <li>
+              Weekly reflection answers in text or voice, an optional mood, the
+              week they relate to, and prompt and save history.
+            </li>
+            <li>
+              Future Capsule titles, notes or voice messages, recipient email
+              addresses used to find an account, sender and recipient identities,
+              opening dates and time zones, and any Phase you attach.
+            </li>
+            <li>
+              Roll Call invitations, participant details and contributions;
+              accounts you block; reports, report reasons, and details you submit
+              to help us investigate a safety concern.
             </li>
             <li>
               Media metadata needed to organize your memories, such as capture
@@ -63,11 +81,20 @@ export default function PrivacyPage() {
         <section className="info-page__section">
           <h2>Photos, videos, and storage</h2>
           <p>
-            On Apple devices, your original personal media is stored in your private
-            iCloud container. PhaseRoll processes the files you select or capture so
-            it can display and organize them in the app. PhaseRoll&apos;s service
-            stores the account, content, and media metadata required to keep your
-            library organized and synchronized.
+            On Apple devices, PhaseRoll keeps your original personal photos and
+            videos in app-managed device storage and, when available, your private
+            iCloud container. Memories captured offline can remain on your device
+            until they can be published after reconnecting. Availability across
+            devices depends on completed publishing and synchronization, your
+            connection, and available device and iCloud storage.
+          </p>
+          <p>
+            PhaseRoll&apos;s service stores account information, library metadata,
+            and written content such as captions, journals, milestones, chapter
+            goals, and reflections. Not all content stays only on your device or
+            in iCloud: Behind the Memory voice notes uploaded for transcription,
+            weekly reflection recordings, and Future Capsule recordings are
+            stored in Google Cloud Storage.
           </p>
           <p>
             Roll Call is separate from your private personal library. Photos,
@@ -80,9 +107,67 @@ export default function PrivacyPage() {
         </section>
 
         <section className="info-page__section">
+          <h2>Chapter goals and weekly reflections</h2>
+          <p>
+            Chapter goals store your intentions, deadlines, time zones, and
+            completion status alongside your Phase. If you choose to turn a
+            completed goal into a milestone, you can edit the draft before saving
+            it. Weekly reflections use the week&apos;s memories to help you look
+            back; your answer and optional mood are stored with your account and
+            are not published to Roll Call participants. You can edit or delete a
+            saved reflection in the app.
+          </p>
+        </section>
+
+        <section className="info-page__section">
+          <h2>Future Capsules and recipients</h2>
+          <p>
+            When you send a capsule, PhaseRoll uses the email address you enter to
+            find an existing, eligible PhaseRoll account. The service stores the
+            message and opening schedule so it can make the message available to
+            that recipient on or after the selected opening date. The recipient
+            can see the capsule&apos;s title, sender name, and opening date before
+            then, but not its note or voice message. The sender can read the
+            message before opening day. Attaching a Phase does not give the
+            recipient access to that Phase.
+          </p>
+          <p>
+            A &quot;sealed&quot; capsule uses timed access controls; it is not a
+            promise of end-to-end encryption or storage only on your device. You
+            can cancel a capsule before its opening date. Cancellation removes
+            access to the message in the app, but storage cleanup is not
+            instantaneous. Once a recipient has access, they may keep a copy that
+            PhaseRoll cannot remove.
+          </p>
+        </section>
+
+        <section className="info-page__section">
+          <h2>Voice notes and transcription</h2>
+          <p>
+            Behind the Memory and Roll Call voice notes may be automatically
+            transcribed using OpenAI. For this processing, the recording is
+            uploaded to Google Cloud Storage and sent to OpenAI&apos;s
+            transcription service. PhaseRoll stores the resulting transcript with
+            the note or contribution so it can be displayed and searched. A Roll
+            Call transcript follows the contribution&apos;s sharing permissions.
+          </p>
+          <p>
+            You can use a text note instead of recording your voice if you do not
+            want audio processed this way. Weekly reflection and Future Capsule
+            recordings are stored for playback; their current save flows do not
+            request this transcription service.
+          </p>
+        </section>
+
+        <section className="info-page__section">
           <h2>How we use information</h2>
           <ul>
-            <li>Provide, synchronize, and improve PhaseRoll.</li>
+            <li>
+              Provide, synchronize, and improve PhaseRoll, including organizing
+              your library, displaying reflections, and opening capsules for their
+              intended recipients.
+            </li>
+            <li>Deliver invitations and relevant in-app notifications.</li>
             <li>Authenticate your account and keep it secure.</li>
             <li>Process purchases and determine feature access.</li>
             <li>Respond to support requests and investigate service issues.</li>
@@ -92,12 +177,41 @@ export default function PrivacyPage() {
         </section>
 
         <section className="info-page__section">
-          <h2>Permissions</h2>
+          <h2>Your privacy choices and permissions</h2>
           <p>
             PhaseRoll requests access only when a feature needs it: camera and photo
             library access for memories, microphone access for video and voice
             notes, and location access to remember where media was captured. You can
             change these permissions in iOS Settings.
+          </p>
+          <ul>
+            <li>
+              Choose which photos and videos to import and what to contribute to
+              a Roll Call. Capturing a personal memory does not automatically
+              share it with an event.
+            </li>
+            <li>
+              Choose text or voice for a weekly reflection, and leave the mood
+              unset if you prefer.
+            </li>
+            <li>
+              Report a Roll Call contribution or block an account using the
+              event&apos;s controls. Review and unblock people under User Menu
+              &gt; Safety &amp; Support &gt; Blocked accounts. Blocking filters
+              shared contributions and restricts capsule interactions; unblocking
+              does not restore a removed Roll Call invitation or membership.
+            </li>
+            <li>
+              Cancel an unopened capsule or use the available edit and delete
+              controls for your content. These actions cannot remove copies
+              another person already saved.
+            </li>
+          </ul>
+          <p>
+            Revoking a device permission stops future access through that
+            permission; it does not delete content you already saved or shared.
+            For a safety concern or help with these choices, visit{" "}
+            <Link href="/support">Support</Link>.
           </p>
         </section>
 
@@ -124,7 +238,12 @@ export default function PrivacyPage() {
             </li>
             <li>
               Google provides Google Sign-In, Google Cloud Storage for Roll Call
-              media, and Google Places for location autocomplete.
+              media and the voice recordings described above, and Google Places
+              for location autocomplete.
+            </li>
+            <li>
+              OpenAI processes voice recordings to produce Behind the Memory and
+              Roll Call transcripts.
             </li>
             <li>
               RevenueCat processes account identifiers and purchase information to
@@ -132,8 +251,9 @@ export default function PrivacyPage() {
             </li>
             <li>
               Vercel hosts our website and authentication service. Resend delivers
-              account-recovery emails using your email address and the information
-              needed to send the recovery message.
+              account-recovery and Roll Call invitation emails using the recipient
+              email address and information needed for the message, such as the
+              inviter&apos;s name and event details.
             </li>
           </ul>
           <p>
@@ -154,12 +274,28 @@ export default function PrivacyPage() {
           <p>
             We retain information while your account is active and as needed to
             provide the service, meet legal obligations, resolve disputes, and
-            prevent abuse. You can permanently delete your account and associated
-            PhaseRoll data from User Menu &gt; Account &gt; Delete account. You may
-            also contact{" "}
+            prevent abuse. Deleting a reflection removes its answer and mood from
+            the saved reflection; a record of the week and prompt may remain.
+            Canceling a capsule removes its message text and schedules its voice
+            recording for cleanup. Removing content from the app and completing
+            storage cleanup are separate steps.
+          </p>
+          <p>
+            You can request permanent account deletion from User Menu &gt; Account
+            &gt; Delete account. The app shows progress while PhaseRoll removes
+            service data and uploaded media, deletes your sign-in, and clears
+            app-managed content on that device and in iCloud. Follow the process
+            through to completion; interrupted cleanup may need to be resumed.
+            Deleting your account does not cancel or refund an App Store
+            subscription. Manage that separately in your Apple subscription
+            settings.
+          </p>
+          <p>
+            You may also contact{" "}
             <a href="mailto:support@phaseroll.com">support@phaseroll.com</a>{" "}
             for help. Files outside PhaseRoll&apos;s managed storage remain under
-            your control through your Apple account and device.
+            your control through your Apple account and device, and copies saved
+            by other people remain under their control.
           </p>
         </section>
 

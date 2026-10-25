@@ -18,7 +18,7 @@ export default function TermsPage() {
 
       <article className="info-page__content">
         <h1 className="display-l">Terms and Conditions</h1>
-        <p className="info-page__updated">Effective September 22, 2026</p>
+        <p className="info-page__updated">Effective October 25, 2026</p>
 
         <section className="info-page__section">
           <h2>Agreement to these terms</h2>
@@ -54,7 +54,8 @@ export default function TermsPage() {
           <h2>Your content</h2>
           <p>
             You retain ownership of the photos, videos, voice notes, journals,
-            captions, and other content you add to PhaseRoll. You grant
+            milestones, chapter goals, reflections, capsule messages, captions,
+            and other content you add to PhaseRoll. You grant
             PhaseRoll a limited, worldwide license to host, process, reproduce,
             and display that content only as needed to provide, secure, and
             improve the service.
@@ -67,6 +68,25 @@ export default function TermsPage() {
         </section>
 
         <section className="info-page__section">
+          <h2>Personal memories, goals, and reflections</h2>
+          <p>
+            Journals, milestones, chapter goals, and weekly reflections help you
+            record and revisit your own story. You choose the intentions and
+            deadlines for a chapter, whether to save a completed goal as a
+            milestone, and whether to answer a reflection in text or voice with an
+            optional mood. A milestone draft is not a saved milestone until you
+            save it.
+          </p>
+          <p>
+            Capturing a memory offline does not mean it has been published or
+            backed up. Keep the original content until publishing and
+            synchronization finish. Device storage, iCloud availability, network
+            access, and feature limits can affect what is available on another
+            device.
+          </p>
+        </section>
+
+        <section className="info-page__section">
           <h2>Shared experiences</h2>
           <p>
             Features such as Roll Call may let you contribute content to a
@@ -74,6 +94,45 @@ export default function TermsPage() {
             further shared by other participants. Only share content you are
             comfortable making available to those participants, and respect
             their privacy and rights.
+          </p>
+          <p>
+            Roll Calls are invite-only. Keep invitations within the intended
+            group, obtain permission to share other people&apos;s content, and use
+            reporting or blocking controls when needed. You can manage blocked
+            accounts in User Menu &gt; Safety &amp; Support. Unblocking does not
+            restore an invitation or membership that was removed, and blocking or
+            deleting content cannot recall copies already saved by someone else.
+          </p>
+        </section>
+
+        <section className="info-page__section">
+          <h2>Future Capsules</h2>
+          <p>
+            You are responsible for selecting the correct recipient account and
+            opening date. A recipient may see the title, sender name, and opening
+            date before the message opens. The note or voice message becomes
+            available on or after that date, subject to account access and service
+            availability. Attaching a Phase does not share that Phase with the
+            recipient.
+          </p>
+          <p>
+            You can cancel a capsule before opening day; cancellation cannot be
+            undone. After opening, a recipient may save or share the message.
+            &quot;Sealed&quot; describes timed access within PhaseRoll, not
+            end-to-end encryption. Do not rely on a capsule for emergencies or
+            time-critical delivery.
+          </p>
+        </section>
+
+        <section className="info-page__section">
+          <h2>Voice recordings and transcripts</h2>
+          <p>
+            Only record and share audio you have permission to use. Behind the
+            Memory and Roll Call voice notes may be automatically transcribed by
+            a service provider as described in our{" "}
+            <Link href="/privacy">Privacy Policy</Link>. Transcripts can contain
+            mistakes; check them against the recording before relying on or
+            sharing them. You can use text instead of a voice recording.
           </p>
         </section>
 
@@ -108,6 +167,15 @@ export default function TermsPage() {
             purchases. Prices, billing periods, and included features are shown
             before purchase. Purchases made through Apple are billed to your
             Apple ID and are subject to Apple&apos;s payment and refund terms.
+          </p>
+          <p>
+            PhaseRoll Pro includes features such as journals, milestones, chapter
+            goals, weekly reflections, Future Capsules, and nostalgic camera
+            styles, subject to the plan and limits shown in the app. Roll Call is
+            a separate one-time purchase, not an included Pro entitlement.
+            Features marked &quot;Coming soon,&quot; including Phase Recaps, Shared
+            Phases, Phase Memory Books, and bring-your-own-cloud support, are not
+            currently available entitlements or a promise of a release date.
           </p>
           <p>
             Subscriptions renew automatically unless canceled before the end of
@@ -149,6 +217,14 @@ export default function TermsPage() {
             practical, we will provide notice and an opportunity to address the
             issue.
           </p>
+          <p>
+            Account deletion is permanent. Let the in-app deletion and device
+            cleanup process finish, and follow any retry instructions if it is
+            interrupted. Deleting the app or signing out does not delete your
+            account. Deleting your account does not cancel or refund your App
+            Store subscription; manage it separately through Apple. Restoring an
+            active purchase does not restore deleted memories.
+          </p>
         </section>
 
         <section className="info-page__section">
@@ -180,7 +256,10 @@ export default function TermsPage() {
           <p>
             Our <Link href="/privacy">Privacy Policy</Link> explains how
             PhaseRoll collects, uses, stores, and protects information. It forms
-            part of your use of the service.
+            part of your use of the service. It also explains device permissions,
+            private-library and shared-content storage, recipient access, and
+            your reporting, blocking, and deletion choices. Revoking a permission
+            does not remove content already saved or shared.
           </p>
         </section>
 

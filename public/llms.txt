@@ -54,7 +54,11 @@ Pricing and availability may change before launch.
 
 ## Privacy and storage
 
-PhaseRoll is designed so a person's memories stay theirs. Photos, videos, text, and voice recordings remain in storage the person's device already uses; PhaseRoll helps shape the story without retaining a separate copy. The current plan is iCloud storage on Apple devices and local device storage on Android. Bring-your-own-cloud support is planned.
+On Apple devices, personal photos and videos use app-managed device storage and private iCloud when available. Offline memories are not published or synchronized until those steps complete. PhaseRoll's service stores account and library metadata, written stories, chapter goals, and weekly reflections. Google Cloud Storage holds Roll Call media, Behind the Memory voice notes uploaded for transcription, weekly reflection recordings, and Future Capsule recordings.
+
+Behind the Memory and Roll Call voice notes may be automatically transcribed using OpenAI. Current reflection and capsule save flows do not request transcription. Capsule titles, sender names, and opening dates are visible to recipients before the message opens; attaching a Phase does not share that Phase. "Sealed" means timed access, not end-to-end encryption.
+
+Privacy choices include device permissions, content sharing and deletion controls, optional reflection moods, capsule cancellation before opening, and reporting or blocking in Roll Calls. Blocked accounts can be managed in User Menu > Safety & Support. Account deletion does not cancel App Store subscriptions or recall copies saved by other people. Bring-your-own-cloud support is planned, not currently available. See the [Privacy Policy](/privacy) and [Terms and Conditions](/terms) for details.
 
 ## Audience and positioning
 
