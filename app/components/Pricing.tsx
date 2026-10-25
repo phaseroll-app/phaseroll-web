@@ -34,7 +34,7 @@ function proFeatures(memoryBookPrice: string): Feature[] {
     },
     {
       name: "Chapter goals",
-      description: "Up to five intentions with deadlines for each chapter.",
+      description: "Set few intentions for your chapter and choose by when you want to make them happen.",
     },
     {
       name: "Weekly reflections",
