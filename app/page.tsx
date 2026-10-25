@@ -2,35 +2,58 @@ import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import { FilmStrip } from "./components/FilmStrip";
-import { FoundingOffer } from "./components/FoundingOffer";
 import { HeroMockup } from "./components/HeroMockup";
 import { Logo } from "./components/Logo";
 import { ParallaxText } from "./components/ParallaxText";
-import { PhoneMockup } from "./components/PhoneMockup";
 import { Pricing } from "./components/Pricing";
 import { Reveal } from "./components/Reveal";
+import { ScreenshotGallery } from "./components/ScreenshotGallery";
 import { WaitlistForm } from "./components/WaitlistForm";
-import { MARKET_PRICING, pricingMarketForCountry } from "./pricing";
+import { pricingMarketForCountry } from "./pricing";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "./site";
 
 const MOCKUPS = [
   {
-    src: "/japan_trip_phase_view.png",
-    alt: "Japan Trip Phase view with day-by-day photos, videos, voice recordings, and journal entries",
-    caption: "01 — Phase View",
-    slot: "Slot 01 — phase view",
+    src: "/screenshots/example-phase-list.png",
+    alt: "The latest Phase list showing the Japan Trip 2026 example cover, its memories, sub-phases, two goals, journals, and milestones",
+    caption: "01 — Phase list",
+    slot: "Slot 01 — phase list",
   },
   {
-    src: "/film_signature.png",
-    alt: "PhaseRoll New memory capture screen",
-    caption: "02 — Memory capture",
-    slot: "Slot 02 — memory capture",
+    src: "/screenshots/example-timeline.png",
+    alt: "The Timeline showing January 23 and photo and video memories from the Japan example's Kyoto detour",
+    caption: "02 — Timeline",
+    slot: "Slot 02 — timeline",
   },
   {
-    src: "/phase_diary.png",
-    alt: "Phase diary page showing four memories from a day",
+    src: "/screenshots/example-diary.png",
+    alt: "The Japan Trip 2026 example phase in the app, showing photo and video memories in its diary",
     caption: "03 — Phase diary",
     slot: "Slot 03 — phase diary",
+  },
+  {
+    src: "/screenshots/example-new-memory.png",
+    alt: "The native New memory camera with its sample preview, photo and video controls, zoom, and Original camera style",
+    caption: "04 — New memory",
+    slot: "Slot 04 — new memory",
+  },
+  {
+    src: "/screenshots/example-goals.png",
+    alt: "The Japan Trip 2026 example phase with two chapter goals and their deadlines",
+    caption: "05 — Chapter goals",
+    slot: "Slot 05 — chapter goals",
+  },
+  {
+    src: "/screenshots/example-roll-call.png",
+    alt: "The Roll Calls screen with fictional shared event tickets for a winter dinner and a Japan reunion",
+    caption: "06 — Roll Call",
+    slot: "Slot 06 — roll call",
+  },
+  {
+    src: "/screenshots/example-future-capsules.png",
+    alt: "The Future Capsules screen with fictional messages sealed until their future opening dates",
+    caption: "07 — Future Capsules",
+    slot: "Slot 07 — future capsules",
   },
 ];
 
@@ -42,7 +65,6 @@ export default async function Home() {
     process.env.PHASEROLL_PRICING_COUNTRY ??
     (process.env.NODE_ENV === "development" ? "IN" : null);
   const pricingMarket = pricingMarketForCountry(countryCode);
-  const pricing = MARKET_PRICING[pricingMarket];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -58,9 +80,11 @@ export default async function Home() {
       "Behind the Memory prompts for photos and videos",
       "Text or voice stories attached to media",
       "Pro journal entries and milestones",
-      "Future Capsules (coming soon)",
-      "Phase Memory Books",
-      "Shared event albums with Roll Call",
+      "Chapter goals with deadlines",
+      "Weekly reflections with text or voice answers",
+      "Future Capsules with notes or voice messages",
+      "Nostalgic camera styles",
+      "Shared event albums with Roll Call, purchased separately",
     ],
     sameAs: [
       "https://x.com/phaseroll",
@@ -106,7 +130,6 @@ export default async function Home() {
                   never forget why each one mattered.
                 </p>
               </div>
-              <FoundingOffer price={pricing.founder} />
               <WaitlistForm source="hero" note />
               <aside className="hero-social">
                 <p>
@@ -205,7 +228,7 @@ export default async function Home() {
                     <h3>A chapter you can return to</h3>
                     <p>
                       A title, cover, story, and sub-phases, with the memories,
-                      journals, and milestones that made the chapter yours.
+                      journals, goals, and milestones that made the chapter yours.
                     </p>
                     <div className="difference-tiers">
                       <p className="difference-tier">
@@ -215,8 +238,8 @@ export default async function Home() {
                       <p className="difference-tier">
                         <strong>Pro</strong>
                         <span>
-                          journals, milestones, and richer ways to preserve a
-                          Phase
+                          sub-phases, journals, milestones, goals, and weekly
+                          reflections
                         </span>
                       </p>
                     </div>
@@ -273,21 +296,7 @@ export default async function Home() {
                   </div>
                 </li>
               </ol>
-              <p className="caption mockups-label">Inside the app</p>
-              <div
-                className="mockups"
-                tabIndex={0}
-                role="group"
-                aria-label="App screens"
-              >
-                {MOCKUPS.map((mockup, i) => (
-                  <PhoneMockup
-                    key={mockup.src}
-                    {...mockup}
-                    priority={i === 0}
-                  />
-                ))}
-              </div>
+              <ScreenshotGallery screens={MOCKUPS} />
             </div>
           </section>
         </Reveal>
@@ -304,7 +313,7 @@ export default async function Home() {
               <p className="body measure-52">
                 Keep each chapter together day by day, preserve the story
                 behind every photo or video, and deepen it with sub-phases,
-                guided journals, and milestones.
+                journals, goals, milestones, and weekly reflections.
               </p>
             </div>
             <FilmStrip />
@@ -358,7 +367,6 @@ export default async function Home() {
                 Be among the first to turn your camera roll into chapters.
                 Join the waitlist for early access.
               </p>
-              <FoundingOffer price={pricing.founder} />
               <WaitlistForm source="waitlist" size="large" />
             </div>
           </section>

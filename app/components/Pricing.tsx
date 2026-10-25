@@ -4,8 +4,6 @@ type Feature = {
   name: string;
   description?: string;
   comingSoon?: boolean;
-  href?: string;
-  linkLabel?: string;
 };
 
 type Plan = {
@@ -16,23 +14,40 @@ type Plan = {
   features: Feature[];
   badge?: string;
   featured?: boolean;
-  founding?: boolean;
 };
 
 function proFeatures(memoryBookPrice: string): Feature[] {
   return [
     { name: "Everything in Free" },
-    { name: "Unlimited Phases and sub-phases" },
-    { name: "Journal entries and milestones" },
     {
       name: "Nostalgic Camera Styles",
       description: "Dad's Camcorder, Kodak Gold, and Disposable",
     },
-    { name: "Five Phase Recaps each month", comingSoon: true },
+    { name: "Unlimited Phases and sub-phases" },
+    {
+      name: "Journal entries",
+      description: "Keep the thoughts and feelings your photos can't capture.",
+    },
+    {
+      name: "Milestones",
+      description: "Mark the firsts, little wins, and turning points in each chapter.",
+    },
+    {
+      name: "Chapter goals",
+      description: "Up to five intentions with deadlines for each chapter.",
+    },
+    {
+      name: "Weekly reflections",
+      description:
+        "Revisit the week's memories and answer in text or voice. Add a mood if you like.",
+    },
     {
       name: "Future Capsules",
-      description:
-        "Schedule letters, videos, and voice recordings to open on a meaningful future date. Can be sent to yourself or a loved one.",
+      description: "Send someone a note or voice message for a future day.",
+    },
+    {
+      name: "Five Phase Recaps each month",
+      description: "Revisit a chapter through a short recap of its memories.",
       comingSoon: true,
     },
     {
@@ -61,7 +76,7 @@ function plansForMarket(market: PricingMarket): Plan[] {
       cadence: "forever",
       features: [
         { name: "Two active Phases" },
-        { name: "Add unlimited photos and videos" },
+        { name: "Photo and video memories" },
         { name: "Behind the Memory, in text or voice" },
         {
           name: "Camera Styles",
@@ -83,21 +98,6 @@ function plansForMarket(market: PricingMarket): Plan[] {
       features: proFeatures(pricing.memoryBook),
       badge: "Best value",
       featured: true,
-    },
-    {
-      name: "Founder's Pass",
-      price: pricing.founder,
-      cadence: "once",
-      features: [
-        { name: "Everything in Pro for life" },
-        {
-          name: "One complimentary ",
-          href: "#roll-call",
-          linkLabel: "Roll Call",
-        },
-      ],
-      badge: "First 100 on waitlist",
-      founding: true,
     },
   ];
 }
@@ -122,15 +122,15 @@ export function Pricing({ market }: PricingProps) {
           </h2>
           <p className="body measure-52">
             Photos, videos, and the stories behind them are free. Go Pro for
-            nostalgic Camera Styles, journals, milestones, and richer ways to
-            preserve a Phase.
+            sub-phases, journals, milestones, chapter goals, weekly reflections,
+            Future Capsules, and nostalgic Camera Styles.
           </p>
         </div>
 
         <div className="pricing-grid">
           {plans.map((plan) => (
             <article
-              className={`price-card${plan.featured ? " price-card--featured" : ""}${plan.founding ? " price-card--founding" : ""}`}
+              className={`price-card${plan.featured ? " price-card--featured" : ""}`}
               key={plan.name}
             >
               <div className="price-card__topline">
@@ -151,16 +151,7 @@ export function Pricing({ market }: PricingProps) {
                   <li key={feature.name}>
                     <span className="price-card__feature-copy">
                       <span className="price-card__feature-heading">
-                        {feature.href ? (
-                          <span>
-                            {feature.name}
-                            <a href={feature.href}>
-                              {feature.linkLabel ?? feature.name}
-                            </a>
-                          </span>
-                        ) : (
-                          <span>{feature.name}</span>
-                        )}
+                        <span>{feature.name}</span>
                         {feature.comingSoon ? (
                           <span className="price-card__feature-badge">
                             Coming soon
@@ -183,7 +174,7 @@ export function Pricing({ market }: PricingProps) {
         <article className="roll-call-offer" id="roll-call">
           <div className="roll-call-offer__story">
             <span className="roll-call-offer__label">
-              Roll Call
+              Roll Call · Separate purchase
             </span>
             <h3 className="roll-call-offer__title">
               See the day through <span className="em">everyone&rsquo;s</span>{" "}
@@ -205,7 +196,8 @@ export function Pricing({ market }: PricingProps) {
             </p>
             <p>
               Up to 50 contributors. Photos, videos, voice notes, and surprise
-              notes. Guests join free.
+              notes. Guests join free. A separate one-time purchase, not included
+              in Pro.
             </p>
             <span className="roll-call-offer__barcode" aria-hidden="true" />
           </div>

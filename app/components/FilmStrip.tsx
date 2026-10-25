@@ -10,14 +10,14 @@ const FRAMES = [
     copy: "Preserve the story behind a photo or video in text or voice, so the meaning stays with the memory.",
   },
   {
-    tier: "Free",
-    title: "Rich Phases",
-    copy: "Give every Phase a title, cover, story, and sub-phases that preserve its full shape.",
+    tier: "Pro",
+    title: "Chapter goals",
+    copy: "Keep the things you hope to do alongside the memories you’re making, and mark the moments you get there as part of your story.",
   },
   {
     tier: "Pro",
-    title: "Journals & milestones",
-    copy: "Reflect on what stayed with you in a personal journal, and mark the milestones that shaped each Phase along the way.",
+    title: "Weekly reflections",
+    copy: "Look back on the week’s memories and remember how it felt, in your own words or voice, before the little things begin to fade.",
   },
 ];
 

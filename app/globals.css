@@ -267,7 +267,6 @@ a:hover {
 }
 
 .reveal .body,
-.reveal .founding-note,
 .reveal .form {
   transform: translate3d(0, var(--copy-shift, 0), 0);
   transition: transform 100ms linear;
@@ -550,7 +549,7 @@ a:hover {
 
   .hero-device .phone-shell {
     height: min(var(--hero-content-height, 45rem), calc(100svh - 8rem));
-    width: calc(min(var(--hero-content-height, 45rem), calc(100svh - 8rem)) * 0.461538);
+    width: calc(min(var(--hero-content-height, 45rem), calc(100svh - 8rem)) * 0.459954);
   }
 
   .hero-device .phone--image,
@@ -1396,8 +1395,43 @@ a:hover {
   line-height: var(--leading-copy);
 }
 
-.mockups-label {
+.screenshot-gallery {
+  width: 100%;
+  min-width: 0;
+}
+
+.mockups-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.mockups-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.mockups-controls button {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--hair);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.mockups-controls button:hover:not(:disabled) {
+  border-color: var(--ink);
+}
+
+.mockups-controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
 }
 
 @media (max-width: 899px) {
@@ -1555,13 +1589,6 @@ a:hover {
   box-shadow: inset 0 4px var(--paper);
 }
 
-.price-card--founding {
-  border-color: transparent;
-  background:
-    linear-gradient(var(--ink), var(--ink)) padding-box,
-    var(--spectrum) border-box;
-}
-
 .price-card__topline {
   display: flex;
   flex-direction: column;
@@ -1639,17 +1666,6 @@ a:hover {
   color: color-mix(in srgb, var(--paper) 52%, transparent);
   font-size: 0.75rem;
   line-height: 1.5;
-}
-
-.price-card__feature-copy a {
-  color: var(--paper);
-  text-decoration-line: underline;
-  text-decoration-color: color-mix(in srgb, var(--paper) 38%, transparent);
-  text-underline-offset: 0.2em;
-}
-
-.price-card__feature-copy a:hover {
-  text-decoration-color: var(--paper);
 }
 
 .price-card__features li::before {
@@ -1800,9 +1816,9 @@ a:hover {
   );
 }
 
-@media (min-width: 640px) {
+@media (min-width: 900px) {
   .pricing-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -1834,12 +1850,6 @@ a:hover {
   }
 }
 
-@media (min-width: 1280px) {
-  .pricing-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
 .waitlist-frame::before {
   content: "";
   position: absolute;
@@ -1860,56 +1870,6 @@ a:hover {
   border: 1px solid var(--whisper);
   border-radius: 50%;
   pointer-events: none;
-}
-
-.founding-note {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  max-width: 34rem;
-  padding: 1rem 1.25rem;
-  border: 1px solid transparent;
-  border-radius: 1.25rem;
-  background:
-    linear-gradient(var(--paper), var(--paper)) padding-box,
-    var(--spectrum) border-box;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-}
-
-.founding-note strong {
-  font-weight: 650;
-}
-
-.founding-note a {
-  font-weight: 650;
-  text-decoration-line: underline;
-  text-decoration-color: color-mix(in srgb, var(--ink) 35%, transparent);
-  text-underline-offset: 0.2em;
-}
-
-.founding-note a:hover {
-  text-decoration-color: var(--ink);
-}
-
-.founding-note__pointer {
-  position: relative;
-  flex: 0 0 2rem;
-  height: 1px;
-  background: var(--ink);
-}
-
-.founding-note__pointer::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  top: 50%;
-  width: 0.45rem;
-  height: 0.45rem;
-  border-top: 1px solid var(--ink);
-  border-right: 1px solid var(--ink);
-  transform: translateY(-50%) rotate(45deg);
 }
 
 .phone {
@@ -2014,16 +1974,20 @@ a:hover {
 
 .mockups {
   display: flex;
+  align-items: start;
   gap: clamp(1.25rem, 3vw, 2.5rem);
   margin-top: 1rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 0.5rem;
+  scroll-padding-inline: 0.2rem;
+  padding: 0.25rem 0.2rem 0.75rem;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
 }
 
 .mockups > * {
   flex: 0 0 min(72vw, 17rem);
-  scroll-snap-align: center;
+  scroll-snap-align: start;
 }
 
 .mockups .phone--image {
@@ -2031,7 +1995,7 @@ a:hover {
 }
 
 .mockups .phone--image .phone__media {
-  aspect-ratio: 852 / 1846;
+  aspect-ratio: 1206 / 2622;
 }
 
 .mockups .phone--image .phone__img {
@@ -2039,27 +2003,17 @@ a:hover {
 }
 
 .mockups .phone--image .phone__img {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: top center;
 }
 
 @media (min-width: 1024px) {
-  .mockups {
-    justify-content: center;
-    align-items: start;
-    overflow-x: visible;
-    scroll-snap-type: none;
-  }
-
-  .mockups > * {
-    flex: 0 1 17rem;
-  }
-
   /* Slight vertical stagger across the row. */
-  .mockups > *:nth-child(2) {
+  .mockups > *:nth-child(3n + 2) {
     margin-top: 3.5rem;
   }
 
-  .mockups > *:nth-child(3) {
+  .mockups > *:nth-child(3n) {
     margin-top: 1.5rem;
   }
 }
@@ -2330,7 +2284,6 @@ a:hover {
   .parallax-text,
   .reveal .display-l,
   .reveal .body,
-  .reveal .founding-note,
   .reveal .form {
     transform: none;
     transition: none;

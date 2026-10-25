@@ -11,8 +11,8 @@ type PhoneMockupProps = {
   className?: string;
 };
 
-const WIDTH = 540;
-const HEIGHT = 1170;
+const WIDTH = 1206;
+const HEIGHT = 2622;
 
 export function PhoneMockup({
   src,

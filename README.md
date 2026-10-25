@@ -254,28 +254,33 @@ requests and is never sent to the browser.
 
 ## Pricing
 
-The landing page displays these launch prices:
+The landing page retains these launch prices:
 
 | Plan | Price | Terms |
 | --- | --- | --- |
-| Free | $0 | Two active phases, voice memories, and one AI recap. |
-| Pro monthly | $6/month | Flexible monthly access. |
-| Pro annual | $48/year ($4/month) | Highlighted as the default. |
-| Roll Call | $20/event | One event with up to 50 contributors. |
-| Founding Legacy | $100 once | Lifetime access and one complimentary Roll Call for the first 100 waitlist members. |
+| Free | $0 | Two active Phases, photo/video memories, Behind the Memory in text or voice, Original and Everyday Film. |
+| Pro monthly | $6/month | Unlimited Phases, sub-phases, journals, milestones, chapter goals, weekly reflections, Future Capsules, nostalgic camera styles. |
+| Pro annual | $48/year ($4/month) | The same Pro features, billed annually. |
+| Roll Call | $25/event | One event with up to 50 contributors; guests join free. A separate one-time purchase, not included in Pro. |
+
+Both Pro plans also show **Coming soon** roadmap items: five monthly Phase
+Recaps, Shared Phases, Phase Memory Books (permanent copies at the existing
+$15 price), and Bring your own cloud. These are not currently available
+entitlements. Future Capsules is available and is not marked Coming soon.
 
 ## Product Mockups
 
-Add exported app screens at:
+The hero shows the latest native Phase list with the **Japan Trip 2026** example.
+The "Inside the app" gallery includes Phase list, Timeline, Phase diary, New
+memory, Chapter goals, Roll Call, and Future Capsules, in that order.
+`ScreenshotGallery` supports swipe, keyboard scrolling, and previous/next controls
+without shrinking the existing phone frames.
 
-```text
-public/mockups/phase-view.png
-public/mockups/camera.png
-public/mockups/roll-call.png
-```
-
-Missing files automatically render as styled placeholders, so local development
-does not depend on final product artwork.
+The captures in `public/screenshots/` come from the actual iOS simulator UI,
+not HTML recreations. Phase screens use the built-in Japan example, New memory
+uses the app's simulator camera sample, and Roll Calls and Future Capsules use
+fictional demo records supplied in memory. No records were created on the server,
+and temporary capture overrides were restored. Never use private user data.
 
 ## Project Commands
 
