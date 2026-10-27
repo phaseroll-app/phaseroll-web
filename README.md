@@ -81,6 +81,12 @@ Email accounts require Better Auth Email OTP verification: six digits, five-minu
 expiry, hashed storage, three failed attempts per code and three OTP requests per
 minute per endpoint/IP. Codes rotate on resend. Database-backed Better Auth rate
 limiting works across server instances and requires the `rateLimit` table.
+Apply `migrations/20261027_better_auth_rate_limit.sql` to existing databases
+before deploying this configuration (or use the Better Auth migration command
+below). This is an additive, one-time migration; do not rerun it once the table
+exists. Without it, even `/api/auth/ok`, session lookup, and JWT issuance return
+HTTP 500, preventing the mobile app from loading API data. After migration,
+verify `/api/auth/ok` returns HTTP 200 and `{"ok":true}`.
 The plugin owns generation, verification, consumption and verified-session creation.
 Only email verification OTP endpoints are enabled; passwordless OTP sign-in,
 OTP password reset and OTP email changes are not exposed.
