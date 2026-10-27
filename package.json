@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:auth": "node --import tsx --test lib/*.test.ts"
   },
   "dependencies": {
     "@better-auth/expo": "1.6.30",
@@ -27,7 +28,8 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.12",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "tsx": "^4.23.11"
   },
   "overrides": {
     "@better-auth/core": "1.6.30"

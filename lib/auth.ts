@@ -7,6 +7,7 @@ import { Pool } from "pg";
 import { after } from "next/server";
 
 import { sendPasswordResetEmail } from "./password-reset-email";
+import { emailVerificationOptions } from "./email-verification";
 
 const authBaseURL = process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
 
@@ -197,7 +198,10 @@ export async function verifyAndRevokeAppleAuthorization(
   }
 }
 
+const verification = emailVerificationOptions();
+
 export const auth = betterAuth({
+  ...verification,
   advanced: {
     cookiePrefix: "better-auth",
     backgroundTasks: {
@@ -209,7 +213,7 @@ export const auth = betterAuth({
   database,
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: false,
+    requireEmailVerification: true,
     revokeSessionsOnPasswordReset: true,
     sendResetPassword: ({ user, url }) => sendPasswordResetEmail(user.email, url),
   },
@@ -240,6 +244,7 @@ export const auth = betterAuth({
     ...(process.env.NODE_ENV === "development" ? ["exp://", "exp://**"] : []),
   ],
   plugins: [
+    ...verification.plugins,
     expo(),
     jwt({
       jwks: {

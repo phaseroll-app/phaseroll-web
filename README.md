@@ -61,8 +61,9 @@ Open [http://localhost:3000](http://localhost:3000).
 | `APPLE_PRIVATE_KEY` | Yes | Private `.p8` key for generating Apple client secrets. |
 | `PHASEROLL_API_BASE_URL` | Yes | PhaseRoll API origin used by the account-deletion gate. |
 | `PHASEROLL_ACCOUNT_DELETION_SERVICE_TOKEN` | Yes | Shared secret for internal account-deletion gate and finalization calls. |
-| `PHASEROLL_RESEND_API_KEY` | Yes for password recovery | Server-only Resend API key. |
-| `PHASEROLL_RESEND_FROM_EMAIL` | Yes for password recovery | Sender address on a verified Resend domain. |
+| `PHASEROLL_RESEND_API_KEY` | Yes for email auth | Server-only Resend API key for OTP and recovery. |
+| `PHASEROLL_RESEND_FROM_EMAIL` | Yes for email auth | Sender address on a verified Resend domain. |
+| `PHASEROLL_DEMO_ACCOUNT_EMAIL` | Optional | Reserves an existing email/password review account; correct-password login marks it verified without OTP. |
 
 The landing page still renders without the waitlist variables, but submissions
 to `/api/waitlist` return an error until both server-side values are configured.
@@ -76,15 +77,34 @@ sessions in PostgreSQL. It enables Google, Apple, and email/password and trusts 
 app's `phaseroll://` deep-link scheme. The marketing site intentionally has no
 auth controls.
 
-Email accounts currently do not require email verification. Better Auth hashes
-passwords using its built-in credential account support; no additional schema
-fields are needed. Password recovery emails are delivered through Resend and kept
+Email accounts require Better Auth Email OTP verification: six digits, five-minute
+expiry, hashed storage, three failed attempts per code and three OTP requests per
+minute per endpoint/IP. Codes rotate on resend. Database-backed Better Auth rate
+limiting works across server instances and requires the `rateLimit` table.
+The plugin owns generation, verification, consumption and verified-session creation.
+Only email verification OTP endpoints are enabled; passwordless OTP sign-in,
+OTP password reset and OTP email changes are not exposed.
+Verification and password recovery emails are delivered through Resend and kept
 alive after the HTTP response using Next's `after` lifecycle. Delivery failures
 are logged without the password-reset URL or recipient.
 The app requests a reset link with `phaseroll:///reset-password` as its redirect;
 the link expires after one hour, and a successful reset revokes existing sessions.
 Configure the two server-only Resend variables in production and deploy this
-backend before distributing the mobile email-auth update.
+backend in coordination with the mobile OTP update and FastAPI verification gate.
+Older mobile versions cannot enter OTPs, so plan their upgrade before enforcing
+verification. This repository is the only auth server; the Expo app has no Node
+server or database credentials.
+
+For App Review, first create the controlled demo email/password account, then set
+`PHASEROLL_DEMO_ACCOUNT_EMAIL` to its address. New registrations (including OAuth)
+for the configured address are rejected. A successful password check on this
+existing account marks `emailVerified` true before ordinary Better Auth sign-in;
+wrong passwords never grant verification. This is persistent administrative
+verification: removing the variable does not unverify the account. No other
+existing account is automatically verified. Keep the demo password private and
+provide it in App Store Connect Review Notes.
+
+Run `npm run test:auth` for isolated Better Auth/OTP and email-delivery tests.
 
 In Google Cloud Console, create a web application OAuth client. Add these
 authorized redirect URIs to the client:
@@ -98,7 +118,7 @@ After filling the PostgreSQL and auth variables in `.env.local`, create the
 Better Auth tables:
 
 ```bash
-npx auth@latest migrate
+npx @better-auth/cli@latest migrate --config lib/auth.ts
 ```
 
 The Expo app should use `https://www.phaseroll.com` as its Better Auth base URL,
