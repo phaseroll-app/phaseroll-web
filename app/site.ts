@@ -3,6 +3,8 @@ export const SITE_URL = (
 ).replace(/\/$/, "");
 
 export const SITE_NAME = "PhaseRoll";
+export const APP_STORE_URL =
+  "https://apps.apple.com/us/app/phaseroll-all-in-one-memories/id6809026797";
 export const SITE_TITLE =
   "PhaseRoll | All-in-One Memory App for Life's Best Phases";
 export const SITE_DESCRIPTION =

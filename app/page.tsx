@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
+import { DownloadLinks } from "./components/DownloadLinks";
 import { FilmStrip } from "./components/FilmStrip";
 import { HeroMockup } from "./components/HeroMockup";
 import { Logo } from "./components/Logo";
@@ -8,7 +9,6 @@ import { ParallaxText } from "./components/ParallaxText";
 import { Pricing } from "./components/Pricing";
 import { Reveal } from "./components/Reveal";
 import { ScreenshotGallery } from "./components/ScreenshotGallery";
-import { WaitlistForm } from "./components/WaitlistForm";
 import { pricingMarketForCountry } from "./pricing";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "./site";
 
@@ -73,7 +73,7 @@ export default async function Home() {
     url: SITE_URL,
     description: SITE_DESCRIPTION,
     applicationCategory: "LifestyleApplication",
-    operatingSystem: "iOS, Android",
+    operatingSystem: "iOS",
     isAccessibleForFree: true,
     featureList: [
       "Photo and video memory journals",
@@ -130,10 +130,10 @@ export default async function Home() {
                   never forget why each one mattered.
                 </p>
               </div>
-              <WaitlistForm source="hero" note />
+              <DownloadLinks />
               <aside className="hero-social">
                 <p>
-                  PhaseRoll is still becoming. Follow the story as we shape
+                  PhaseRoll is available on iOS. Follow the story as we shape
                   what comes next.
                 </p>
                 <nav aria-label="Follow PhaseRoll">
@@ -356,19 +356,19 @@ export default async function Home() {
 
         <Reveal>
           <section
-            className="frame waitlist-frame"
-            id="waitlist"
-            aria-labelledby="join"
+            className="frame download-frame"
+            id="download"
+            aria-labelledby="download-title"
           >
             <div className="frame__inner stack">
-              <h2 className="display-l" id="join">
+              <h2 className="display-l" id="download-title">
                 Get the <span className="em">first</span> roll.
               </h2>
               <p className="body mute measure-60">
-                Be among the first to turn your camera roll into chapters.
-                Join the waitlist for early access.
+                Turn your camera roll into chapters. Download PhaseRoll on
+                the App Store and start preserving your memories today.
               </p>
-              <WaitlistForm source="waitlist" size="large" />
+              <DownloadLinks />
             </div>
           </section>
         </Reveal>

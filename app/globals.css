@@ -860,115 +860,78 @@ a:hover {
   }
 }
 
-/* --- waitlist form -------------------------------------------------------- */
+/* --- app downloads ------------------------------------------------------- */
 
-.form {
-  width: 100%;
-  max-width: 34rem;
-}
-
-.form__row {
+.download-links {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.download-links__store {
+  display: inline-flex;
   gap: 0.625rem;
-}
-
-@media (min-width: 640px) {
-  .form__row {
-    flex-direction: row;
-  }
-}
-
-.form__input {
-  flex: 1 1 auto;
-  min-width: 0;
-  min-height: 3rem;
-  padding: 0.75rem 1rem;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  background: var(--paper);
-  font-size: 1rem;
-}
-
-.form__input::placeholder {
-  color: var(--mute);
-}
-
-.form__input:hover {
-  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 12%, transparent);
-}
-
-.form__input:focus-visible {
-  outline-offset: 3px;
-}
-
-.form__button {
-  flex: none;
-  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.25rem;
   min-width: 11rem;
-  padding: 0.75rem 1.75rem;
+  padding: 0.5rem 1.125rem;
   background: var(--ink);
   color: var(--paper);
   border: 1px solid var(--ink);
   border-radius: 999px;
-  font-size: 1rem;
-  cursor: pointer;
+  font: inherit;
+  text-decoration: none;
   transition: opacity 150ms ease-out;
 }
 
-.form__button:hover:not(:disabled) {
+.download-links__icon {
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.download-links__label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.download-links__intro {
+  font-size: 0.625rem;
+  line-height: 1.2;
+}
+
+.download-links__name {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.download-links__pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.download-links__status {
+  color: var(--mute);
+  font-size: 0.625rem;
+}
+
+a.download-links__store:hover {
+  text-decoration: none;
   opacity: 0.85;
 }
 
-.form__button:disabled {
+.download-links__store--soon {
+  background: transparent;
+  color: var(--mute);
+  border-color: var(--whisper);
   cursor: default;
-  opacity: 0.5;
-}
-
-.form--large .form__input,
-.form--large .form__button {
-  min-height: 3.5rem;
-  font-size: 1.0625rem;
-}
-
-.form__note,
-.form__error {
-  margin-top: 0.875rem;
-}
-
-.form__error {
-  color: #b42318;
-  font-size: 0.9375rem;
-}
-
-.form__error:empty {
-  margin-top: 0;
-}
-
-/* Off-screen, never display:none — some browsers autofill hidden fields but
-   skip ones that are not rendered at all. */
-.honeypot {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.success {
-  max-width: 34rem;
-}
-
-.success__head {
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  line-height: 1.1;
-}
-
-.success__body {
-  margin-top: 0.5rem;
 }
 
 /* --- frame 03: the negative strip ----------------------------------------- */
@@ -1306,7 +1269,7 @@ a:hover {
 .mockups-frame,
 .privacy-frame,
 .pricing-frame,
-.waitlist-frame {
+.download-frame {
   position: relative;
   overflow: hidden;
   isolation: isolate;
@@ -1315,7 +1278,7 @@ a:hover {
 .mockups-frame .frame__inner,
 .privacy-frame .frame__inner,
 .pricing-frame .frame__inner,
-.waitlist-frame .frame__inner {
+.download-frame .frame__inner {
   position: relative;
   z-index: 1;
 }
@@ -1850,7 +1813,7 @@ a:hover {
   }
 }
 
-.waitlist-frame::before {
+.download-frame::before {
   content: "";
   position: absolute;
   inset: clamp(1.25rem, 5vw, 4rem);
@@ -1860,7 +1823,7 @@ a:hover {
   pointer-events: none;
 }
 
-.waitlist-frame::after {
+.download-frame::after {
   content: "";
   position: absolute;
   width: min(42vw, 32rem);

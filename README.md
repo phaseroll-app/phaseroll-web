@@ -1,11 +1,12 @@
 # PhaseRoll
 
-PhaseRoll is the marketing and waitlist site for a photo app that organizes
+PhaseRoll is the marketing site for a photo app that organizes
 memories around life chapters instead of camera-roll dates.
 
 The site includes a responsive editorial landing page, product mockup slots,
 scroll-linked motion, generated Open Graph imagery, Vercel Analytics, and a
-server-side waitlist proxy for Google Sheets.
+App Store download links. Google Play is coming soon. The legacy server-side
+waitlist proxy for Google Sheets remains available at `/api/waitlist`.
 
 ## Stack
 
@@ -41,10 +42,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Required | Description |
 | --- | --- | --- |
-| `APPS_SCRIPT_URL` | Yes | Deployed Google Apps Script web app URL. Used only by the server. |
-| `SHARED_SECRET` | Yes | Secret shared with the Apps Script deployment. Never expose it to client code. |
+| `APPS_SCRIPT_URL` | Only for legacy waitlist API | Deployed Google Apps Script web app URL. Used only by the server. |
+| `SHARED_SECRET` | Only for legacy waitlist API | Secret shared with the Apps Script deployment. Never expose it to client code. |
 | `NEXT_PUBLIC_SITE_URL` | Yes in production | Canonical site origin used by metadata and Open Graph URLs. |
-| `NEXT_PUBLIC_PHASEROLL_DOWNLOAD_URL` | Yes for shared links in production | App Store or TestFlight URL shown when PhaseRoll is not installed. Shared links fall back to the homepage waitlist when unset. |
+| `NEXT_PUBLIC_PHASEROLL_DOWNLOAD_URL` | Optional | Overrides the App Store download URL on shared Roll Call pages, for example for TestFlight. Defaults to the public PhaseRoll App Store listing. |
 | `BETTER_AUTH_URL` | Yes | Auth server origin, such as `https://www.phaseroll.com`. |
 | `BETTER_AUTH_SECRET` | Yes | At least 32 random characters used to sign and encrypt auth data. |
 | `POSTGRES_HOST` | Yes | PostgreSQL server hostname. |
@@ -146,10 +147,11 @@ the four Apple variables above to the production environment.
 Check a deployed backend with `GET /api/auth/ok`; a healthy instance returns
 `{ "ok": true }`.
 
-## Google Sheets Waitlist
+## Legacy Google Sheets Waitlist
 
-The browser posts email submissions to `app/api/waitlist/route.ts`; it never
-contacts Google Apps Script directly. The route validates the email, checks a
+The landing page no longer collects waitlist submissions. Existing clients can
+still post email submissions to `app/api/waitlist/route.ts` without contacting
+Google Apps Script directly. The route validates the email, checks a
 honeypot field, applies an in-memory per-IP rate limit, and forwards this JSON:
 
 ```json

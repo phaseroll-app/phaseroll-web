@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Logo } from "@/app/components/Logo";
 import { encodeRollCallId } from "@/app/roll-calls/rollCallId";
+import { APP_STORE_URL } from "@/app/site";
 import { OpenRollCall } from "./OpenRollCall";
 
 type RollCallPageProps = {
@@ -36,7 +37,7 @@ export default async function RollCallPage({ params }: RollCallPageProps) {
   const { id } = await params;
   const encodedId = encodeRollCallId(id);
   const downloadUrl =
-    process.env.NEXT_PUBLIC_PHASEROLL_DOWNLOAD_URL?.trim() || "/#waitlist";
+    process.env.NEXT_PUBLIC_PHASEROLL_DOWNLOAD_URL?.trim() || APP_STORE_URL;
 
   return (
     <main className="roll-call-page">
